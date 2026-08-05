@@ -10324,6 +10324,49 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
   })();
 })();
 
+/* Per-URL Project Resources dropdown filter.
+   /mm      -> dropdown shows only "Multimango and Video Eval"
+   /sheets  -> dropdown shows only "Sheets"
+   anything else (including plain "/") -> no dropdown at all; the trigger
+   becomes a plain tab (Project Resources is still reachable by clicking it,
+   there's just nothing route-specific to expose in a menu)
+
+   Real deployments need a rewrite so /mm and /sheets actually serve this same
+   index.html (e.g. a vercel.json with a catch-all rewrite to /index.html) —
+   without that, those paths just 404 before this script ever runs.
+
+   For local testing without setting up a rewrite, append ?route=mm or
+   ?route=sheets to the URL (works over file://, a plain `python3 -m
+   http.server`, etc.) and this behaves the same as visiting that real path. */
+(function(){
+  var menu=document.getElementById('resourcesMenu');
+  var trigger=document.getElementById('resourcesDropdownBtn');
+  if(!menu||!trigger)return;
+  var path=(location.pathname||'').replace(/\/+$/,'').toLowerCase();
+  var routeParam=(new URLSearchParams(location.search).get('route')||'').toLowerCase();
+  var route = path==='/mm' ? 'mm' : (path==='/sheets' ? 'sheets' : routeParam);
+
+  var onlyShow = route==='mm' ? 'resources' : (route==='sheets' ? 'sheets' : null);
+
+  if(!onlyShow){
+    // No specific route: nothing to put in a dropdown, so don't offer one —
+    // hide the menu (inline style beats the hover ".open" CSS rule) and drop
+    // the dropdown affordance from the trigger.
+    menu.style.display='none';
+    var caret=trigger.querySelector('.caret'); if(caret) caret.remove();
+    trigger.setAttribute('aria-haspopup','false');
+    trigger.removeAttribute('aria-expanded');
+    return;
+  }
+
+  menu.querySelectorAll('.dropdown-item').forEach(function(item){
+    var show = item.dataset.view===onlyShow;
+    item.style.display = show ? '' : 'none';
+    item.tabIndex = show ? 0 : -1;
+    if(show) item.removeAttribute('aria-hidden'); else item.setAttribute('aria-hidden','true');
+  });
+})();
+
 /* ===== Cross-link into Resources tab from anywhere (e.g. the FAQ) ===== */
 function goToResource(id){
   const el=document.getElementById(id);
