@@ -8425,9 +8425,8 @@
       <button class="tab" data-view="jd">Job Description</button>
       <button class="tab" data-view="metrics" style="display:none">Metrics</button>
       <div class="nav-dropdown" id="resourcesDropdown">
-        <button class="tab" id="resourcesDropdownBtn" type="button" aria-haspopup="true" aria-expanded="false">Project Resources <span class="caret" aria-hidden="true">▾</span></button>
+        <button class="tab" id="resourcesDropdownBtn" type="button" data-view="resources-main" aria-haspopup="true" aria-expanded="false">Project Resources <span class="caret" aria-hidden="true">▾</span></button>
         <div class="dropdown-menu" id="resourcesMenu" role="menu">
-          <button class="dropdown-item tab" type="button" data-view="resources-main" role="menuitem">Project Resources</button>
           <button class="dropdown-item tab" type="button" data-view="resources" role="menuitem">Multimango and Video Eval</button>
           <button class="dropdown-item tab" type="button" data-view="sheets" role="menuitem">Sheets</button>
         </div>
@@ -10289,20 +10288,39 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
   /* set the single main landmark on the initially-active view */
   (function(){const act=document.querySelector('.view.active');if(act)act.setAttribute('role','main');})();
 
-  /* Resources dropdown open/close */
+  /* Resources dropdown: hover/focus to reveal, click the trigger itself to go
+     straight to the Project Resources page (it's a normal tab with data-view). */
   (function(){
     const dropdown=document.getElementById('resourcesDropdown');
     const trigger=document.getElementById('resourcesDropdownBtn');
     if(!dropdown||!trigger)return;
-    trigger.addEventListener('click',e=>{
-      e.stopPropagation();
-      const open=dropdown.classList.toggle('open');
-      trigger.setAttribute('aria-expanded',open?'true':'false');
+    let closeTimer=null;
+    function open(){
+      if(closeTimer){clearTimeout(closeTimer);closeTimer=null;}
+      dropdown.classList.add('open');
+      trigger.setAttribute('aria-expanded','true');
+    }
+    function scheduleClose(){
+      if(closeTimer)clearTimeout(closeTimer);
+      closeTimer=setTimeout(()=>{
+        dropdown.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+        closeTimer=null;
+      },150); // short grace period so crossing the gap to the menu doesn't close it
+    }
+    dropdown.addEventListener('mouseenter',open);
+    dropdown.addEventListener('mouseleave',scheduleClose);
+    dropdown.addEventListener('focusin',open);
+    dropdown.addEventListener('focusout',e=>{
+      if(!dropdown.contains(e.relatedTarget))scheduleClose();
     });
-    document.addEventListener('click',e=>{
-      if(!dropdown.contains(e.target)){dropdown.classList.remove('open');trigger.setAttribute('aria-expanded','false');}
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&dropdown.classList.contains('open')){
+        dropdown.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+        trigger.focus();
+      }
     });
-    document.addEventListener('keydown',e=>{if(e.key==='Escape'){dropdown.classList.remove('open');trigger.setAttribute('aria-expanded','false');}});
   })();
 })();
 
@@ -10373,49 +10391,6 @@ document.addEventListener('click',e=>{
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(()=>{fallbackCopy(text);done();});}
   else{fallbackCopy(text);done();}
 });
-</script>
-<script>
-/* Per-URL Project Resources nav.
-   PRODUCTION (served from a *.vercel.app host):
-     /         -> plain "Project Resources" tab
-     /mm       -> dropdown: Project Resources + Multimango and Video Eval
-     /sheets   -> dropdown: Project Resources + Sheets
-   EDITING/PREVIEW (opening the file locally, localhost, a preview, or any URL with
-   ?all): the full dropdown shows all three so every resources page is reachable. */
-(function(){
-  var host=(location.hostname||'').toLowerCase();
-  var forceAll=/[?&]all\b/.test(location.search);
-  var editing = forceAll || !/vercel\.app$/.test(host);
-  if(editing) return; // leave the default markup: all three items visible
-
-  var trigger=document.getElementById('resourcesDropdownBtn');
-  var menu=document.getElementById('resourcesMenu');
-  var path=(location.pathname||'').replace(/\/+$/,'').toLowerCase();
-  var extra = path==='/mm' ? 'resources' : (path==='/sheets' ? 'sheets' : null);
-
-  if(!extra){
-    // Root or any other path: collapse the dropdown into a plain tab.
-    if(menu) menu.style.display='none';
-    if(trigger){
-      var caret=trigger.querySelector('.caret'); if(caret) caret.remove();
-      var fresh=trigger.cloneNode(true);              // drops the dropdown-toggle listener
-      fresh.setAttribute('aria-haspopup','false');
-      fresh.removeAttribute('aria-expanded');
-      trigger.parentNode.replaceChild(fresh, trigger);
-      fresh.addEventListener('click', function(){
-        if(typeof window.showView==='function') window.showView('resources-main');
-      });
-    }
-    return;
-  }
-
-  // /mm or /sheets: keep the dropdown; show Project Resources plus the extra item.
-  document.querySelectorAll('#resourcesMenu .dropdown-item').forEach(function(item){
-    var show = item.dataset.view==='resources-main' || item.dataset.view===extra;
-    item.style.display = show ? '' : 'none';
-    if(!show){ item.setAttribute('aria-hidden','true'); item.tabIndex=-1; }
-  });
-})();
 </script>
 <script>
 /* ===== Multimango & Video Eval tab enhancements ===== */
