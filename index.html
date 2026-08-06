@@ -8917,6 +8917,8 @@
         <div class="res-drop-body">
           <h4>What's the 1–5 quality scale, and what do I actually do at each score?</h4>
           <p><table><tr><th>Score</th><th>Meaning</th><th>What you do</th><th>Defect?</th></tr><tr><td><b>1</b></td><td>Dishonest</td><td>Bad-faith work, report it.</td><td>Defect</td></tr><tr><td><b>2</b></td><td>Defect</td><td>Meaningful errors. Fix it or send it back with feedback.</td><td>Defect</td></tr><tr><td><b>3</b></td><td>Borderline</td><td>Barely acceptable, passes, but coach if it becomes a pattern.</td><td>Clean</td></tr><tr><td><b>4</b></td><td>Good</td><td>Largely correct, no meaningful issues. Let it flow.</td><td>Clean</td></tr><tr><td><b>5</b></td><td>Stellar</td><td>Above and beyond, a promotion signal.</td><td>Clean</td></tr></table>Target numbers for a healthy pod (productivity, average score, defect rate) are summarized at the top of the home page, under Run Your Pod.</p>
+          <h4>What's the difference between Average Score and Dimension Score, and which should I coach off of?</h4>
+          <p>Coach off Dimension Score, it's the direct per-dimension feedback. Don't weight the Average Score.</p>
           <h4>What is the GS score?</h4>
           <p>More information coming soon.</p>
           <h4>What failure modes should I be watching for?</h4>
@@ -8925,6 +8927,8 @@
           <p><b>Dishonest</b> examples: a one-word 'test' or 'see above' reused across every dimension; a written justification that names one image while the score selects the other. <b>Borderline</b> examples: a real observation buried in a fragment ('Mainly the barcode') with no explanation of why it matters; a sentence that ends mid-thought. <b>Stellar</b> examples: justifications that name multiple concrete, checkable details in one sentence and walk through a prompt's constraints item by item, crediting both options fairly.</p>
           <h4>How do I run the remediation loop?</h4>
           <p><b>Diagnose → re-teach → practice together → recheck.</b></p>
+          <h4>How can I coach my pod members if I can't see any of their metrics or feedback from the MM platform?</h4>
+          <p>Conduct 1:1 shadow sessions. Hold weekly group shadow sessions. Check in on your pod regularly.</p>
           <h4>A contributor got flagged by the system. Does that mean they did something wrong?</h4>
           <p>Not necessarily. A flag is a signal to <b>investigate</b>, not an automatic verdict. You decide what it means after looking into it.</p>
           <h4>How do I spot, and handle, AI-written justifications?</h4>
@@ -8936,6 +8940,10 @@
           <p>MM shares feedback samples with us only occasionally, and we're exploring turning them into a library you can browse (though it likely won't be specific to your own contributors, given the small volume). Their QA workforce is limited and allocated by client priority, so reviews come and go. Because of that, it's on us to set contributors up well before they go into MM, so keep reviewing their image and video calibrations, and we'll start sharing practice tasks you can run with them each week.</p>
           <h4>Contributors get a “quality reminder” message with no explanation, are there guidelines?</h4>
           <p>Clear guidelines are still in progress, we don't have full visibility into the block triggers either. What we do know is that blocking is driven by behavioral signals like speeding through tasks, taking too long, or picking the same side repeatedly, and contributors get warnings before most blocks.</p>
+          <h4>What's the guideline for a contributor's productive-vs-other time ratio, and how do I monitor it?</h4>
+          <p>Roughly 4 hours productive to 1 hour other (~80/20).</p>
+          <h4>How do I handle a contributor I suspect of time fraud, and what happens if I report it?</h4>
+          <p>Do a surprise huddle/shadow session, flag it to your Pod Lead Experience Specialist immediately, they will escalate to the fraud team for investigation.</p>
         </div>
       </details>
       <div class="res-group-label">Resources and Templates</div>
@@ -8965,6 +8973,14 @@
             <span class="res-body"><span class="res-name">Offboarding Form</span></span>
             <span class="res-arrow">↗</span>
           </a>
+          <a class="res-sublink" href="https://docs.google.com/forms/d/e/1FAIpQLSdUbyLGR93KeA1q41e0wR3YkmmDAqxei13EMc49zkKMf9CiPg/viewform?usp=header" target="_blank" rel="noopener">
+            <span class="res-body"><span class="res-name">Multimango Review Appeals</span><span class="res-sub">For Pod Leads to appeal dimensions they disagree with on Multimango tasks, from CBs or themselves.</span></span>
+            <span class="res-arrow">↗</span>
+          </a>
+          <a class="res-sublink" href="https://docs.google.com/forms/d/e/1FAIpQLSf8hk_BeyL4vVk4bPFTwAXiJ3cGa_H5EutM03HuO-RySoyp_g/viewform?usp=header" target="_blank" rel="noopener">
+            <span class="res-body"><span class="res-name">Handbook Improvements Form</span><span class="res-sub">Add any suggestions to improve Workada approved resources.</span></span>
+            <span class="res-arrow">↗</span>
+          </a>
         </div>
       </details>
       <div class="res-group-label">Message Templates</div>
@@ -8974,6 +8990,19 @@
           <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </summary>
         <div class="res-drop-body">
+          <h3 class="tpl-group">Training &amp; Calibration Offboarding</h3>
+          <div class="tpl-grid">
+            <div class="tpl-card">
+              <div class="tpl-head"><h4>Failed training or calibration</h4><button class="tpl-copy" type="button">Copy</button></div>
+              <p class="tpl-note">Send when a contributor's score didn't meet the pass threshold and they have no attempts left.</p>
+              <pre class="tpl-body">Hi [Name], I reviewed your [Training/Calibration] module, and unfortunately your score didn't meet the required threshold this time. Since there aren't additional training attempts available, we won't be able to continue moving you forward on the project, and you'll be offboarded from the Workada platform.
+
+You'll be paid for all the work you completed up through your offboarding date. That payment goes out in the next pay cycle and should land in your account within about 1–3 business days. Your Workada dashboard will stay accessible so you can keep an eye on your Sessions and Payment History.
+
+Thank you for the time and effort you put into training, we genuinely appreciate it. Wishing you the best in your next opportunity!</pre>
+            </div>
+          </div>
+
           <h3 class="tpl-group">MM Mass Offboarding</h3>
           <div class="tpl-grid">
             <div class="tpl-card">
@@ -9079,6 +9108,8 @@ To make sure you're following the process correctly and getting the support you 
           <p><ul><li><b>Minimum 10 tasks</b> before any pass/fail outcome, no one passes before finishing 10.</li><li><b>Maximum 20 attempts</b> total.</li><li>Each task is graded pass/fail against pre-approved answers. Pass threshold is <b>70% of graded tasks</b>: a pass-count metric, not an average rating.</li><li>The pass window runs from attempt 10 through 20, the moment cumulative pass rate hits 70%, the contributor passes automatically.</li><li><b>Milestone at 10 attempts</b>: if not yet at 70%, they're prompted to review training and reach out to you, a checkpoint, not a failure.</li><li><b>Milestone at 20 attempts</b>: if still under 70%, the contributor is offboarded from the project (the Failed calibration reason).</li><li>Pending tasks don't count toward the 10 evaluated tasks until grading completes (usually a minute or two).</li></ul></p>
           <h4>What are the passing thresholds for training and calibration?</h4>
           <p>Three separate bars, don't mix them up:<ul><li><b>75%</b>, initial training.</li><li><b>70%</b>, Image Calibration for Multimango.</li><li><b>2/4</b>, T2V (text-to-video) Calibration for Multimango.</li></ul><div class='note'><span class='ntag'>Confirm with Ops</span> These numbers can change. Check them against current Ops guidance before you act on a pass or fail.</div></p>
+          <h4>A contributor failed image eval training. How do I assess whether I should pass them to calibration?</h4>
+          <p>At your own discretion. Have a 1:1 with the contributor to give guidance, re-train, and have them watch you go through a task. If you feel confident they will do better, go ahead and pass them.</p>
           <h4>How do contributors sign up for Multimango?</h4>
           <p>They start from the 'Getting Started' card on their Workada dashboard, sign up at multimango.com using their <b>workada.co email</b> (not personal), verify with the 6-digit code, then confirm back on the Workada dashboard. Approval is manual and typically takes up to ~1 hour.</p>
           <h4>A contributor is stuck on a blank Welcome screen after signing up, what's going on?</h4>
@@ -9096,6 +9127,20 @@ To make sure you're following the process correctly and getting the support you 
           <p>Yes, but the bar is low, only around 15 to 20 contributors have been offboarded for it. Task time isn't a factor. The GS score is simply correct submissions divided by total submissions.</p>
           <h4>Can contributors ask for consensus on their tasks in #contributor-questions?</h4>
           <p>It isn't something to encourage, but it isn't explicitly prohibited either.</p>
+          <h4>Is there a process to escalate incorrect or unfair QA feedback?</h4>
+          <p>Yes, via the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUbyLGR93KeA1q41e0wR3YkmmDAqxei13EMc49zkKMf9CiPg/viewform?usp=header" target="_blank" rel="noopener">Multimango Review Appeals</a> form.</p>
+          <h4>Do only Text-to-Image hours count toward the Image Active Hours on the eligibility sheet?</h4>
+          <p>Yes, for taskers who haven't passed video training.</p>
+          <h4>Is it okay to share MM Gating Assessment Quiz answers with other pod leads?</h4>
+          <p>No, sharing answers risks leaking them to contributors and lowering task quality.</p>
+          <h4>How long can someone sit in calibration before I act, in terms of time rather than attempts?</h4>
+          <p>Ideally under 5 days. If they've gone inactive for 7 days with no explanation, you can offboard.</p>
+          <h4>A contributor failed their calibration but I can see the auto-review made a mistake on at least one of their tasks. Can the task be regraded?</h4>
+          <p>PLs can't manually override or regrade an auto-reviewed task themselves, there's no button for that. But you can request a regrade: have the CB (or you, on their behalf) email <a href="mailto:support@op.workada.co">support@op.workada.co</a> with the task ID, the CB's Workada account email, and a description of the specific error you spotted in the auto-review.</p>
+          <h4>A contributor shows as blocked/paused on Multimango, how do I find out when they'll get access back?</h4>
+          <p>DM your Pod Lead Experience Specialist with their name, they can check the backend.</p>
+          <h4>Do I need to notify support or Ops about a CB being on vacation?</h4>
+          <p>No, you keep track of your contributors on vacation. If they are inactive 7+ days after they said they'd be back, you can offboard.</p>
         </div>
       </details>
       <div class="res-group-label">Multimango High Quality Task Examples</div>
@@ -9177,9 +9222,15 @@ To make sure you're following the process correctly and getting the support you 
           <p>Contributors get 3 paid hours for video training and calibration, tracked separately on their timer, and time past the cap isn't paid. They must complete all 4 calibration tasks before they can go back to tasking on multimango, until those 4 are done, the cap keeps them out of multimango tasking. Once they've completed the 4, they return to multimango tasking while they wait for you to review their submissions.</p>
           <h4>How do I promote someone new?</h4>
           <p>Use the "Grant access" button on the Members tab of pod management. We'll provide metrics on your dashboard soon so you can decide with updated data on how many image hours and what quality scores apply to contributors in your pod.</p>
-        
+          <h4>Do I need to wait for the eligibility sheet to update before moving someone into video calibration?</h4>
+          <p>No, you can move contributors based on your own read of their hours, training, and calibration scores.</p>
+          <h4>A contributor shows as video-eligible but isn't getting video tasks on Multimango, what do I do?</h4>
+          <p>DM your Pod Lead Experience Specialist to check the sync between Workada and Multimango.</p>
+
           <h4>For impossible physics, do I score Less AI-Generated only or also Motion &amp; Temporal? And how do I handle the dragon audio case?</h4>
           <p>Start with Less AI-Generated, that's the home for anything wrong in a single frame (warped anatomy, an object clipping through a surface, physics that can't happen). Add Motion &amp; Temporal Quality only when the movement itself also breaks over time (teleporting, morphing, flickering, unnatural reversals). For the dragon example, a requested sound that never appears (the missing roar) is scored under Audio Quality &amp; Sync and Audio Instruction Following, not video Instruction Following, and don't count the same miss on three axes.</p>
+          <h4>A real MM task only shows Audio Quality &amp; Sync with no Audio Instruction Following dimension, do I still need to judge instruction-following?</h4>
+          <p>No, score only audio quality &amp; sync when that's all the task shows.</p>
           <h4>A contributor aced calibration but is under 15 hours, when can I move them to video calibration?</h4>
           <p>Use your best judgment. If you believe they're ready, you can promote them even if they're a little short of the usual bar.</p>
           <h4>Can a video calibration score be changed if I graded it wrong?</h4>
@@ -9384,7 +9435,7 @@ To make sure you're following the process correctly and getting the support you 
         <span class="res-body"><span class="res-name">Substitution Overview</span><span class="res-sub">How pod coverage is assigned while you're out</span></span>
         <span class="res-arrow">↗</span>
       </a>
-      <a class="reslink" id="res-coc" href="https://docs.google.com/document/d/1OuWfE_m3tvT-VVoLx9zsy0YWCL8Iye1sus2WsLe6vKA/edit?usp=sharing" target="_blank" rel="noopener">
+      <a class="reslink" id="res-coc" href="https://docs.google.com/document/d/1iBvxwFH6Gmo53xCSPWudB9Q5bqKM2fa60fvZroHQu_k/edit?usp=sharing" target="_blank" rel="noopener">
         <span class="res-body"><span class="res-name">Code of Conduct</span><span class="res-sub">The professionalism standard for your pod</span></span>
         <span class="res-arrow">↗</span>
       </a>
