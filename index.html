@@ -470,6 +470,14 @@
   .fab{position:fixed;right:22px;bottom:22px;z-index:60;display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font-weight:600;font-size:14px;border:none;cursor:pointer;padding:12px 18px;border-radius:999px;box-shadow:var(--shadow-lg);transition:transform .15s,opacity .15s;font-family:var(--sans)}
   .fab:hover{transform:translateY(-2px);opacity:.94}
 
+  /* FLOATING BACK TO TOP (same pill language as the "Jump to" bubbles, solid so it reads on every page) */
+  .back-to-top{position:fixed;right:22px;bottom:78px;z-index:60;display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:13.5px;font-weight:600;color:#fff;background:var(--ink);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 14px;cursor:pointer;white-space:nowrap;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(6px);transition:background .15s,border-color .15s,transform .15s,opacity .2s,visibility .2s}
+  .back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+  .back-to-top:hover{background:#000;border-color:rgba(255,255,255,.42);transform:translateY(-2px)}
+  .back-to-top:focus-visible{outline:3px solid #fff;outline-offset:2px}
+  .back-to-top .btt-ic{font-size:15px;line-height:1}
+  @media(max-width:600px){.back-to-top{right:16px;bottom:70px;padding:8px 12px}}
+
   /* MODAL */
   .overlay{position:fixed;inset:0;z-index:100;background:rgba(21,25,28,.46);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:20px}
   .overlay.show{display:flex}
@@ -10022,6 +10030,7 @@ Talk soon,
 </footer>
 </div>
 
+<button class="back-to-top" id="backToTopBtn" type="button" aria-label="Back to top"><span class="btt-ic" aria-hidden="true">&#8593;</span> Back to top</button>
 <button class="fab" id="fbBtn">Feedback</button>
 
 <div class="overlay" id="overlay">
@@ -10328,6 +10337,16 @@ function thanks(title,msg){modalBody.innerHTML='<div class="thanks"><div class="
 
 ['askBtn','askBtn2','askBtn3'].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener('click',openAsk);});
 $('#fbBtn').addEventListener('click',()=>openFeedback(''));
+
+/* ===== BACK TO TOP ===== */
+(function(){
+  const btn=document.getElementById('backToTopBtn');
+  if(!btn)return;
+  function toggle(){btn.classList.toggle('show',window.scrollY>400);}
+  window.addEventListener('scroll',toggle,{passive:true});
+  toggle();
+  btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+})();
 
 /* ===== TABS ===== */
 (function(){
