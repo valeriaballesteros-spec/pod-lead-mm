@@ -4881,6 +4881,7 @@
   #view-video-caption .vc-section:last-of-type{margin-bottom:0}
   #view-video-caption .specialist-photo{width:132px;height:132px}
   @media(max-width:640px){#view-video-caption .specialist-photo{width:104px;height:104px}}
+  #view-video-caption .coming-soon{background:var(--surface);border:1px dashed var(--line-strong);border-radius:14px;padding:22px 24px;color:var(--muted);font-size:14.5px;font-weight:600;text-align:center}
 
   /* Numbered step list, for use inside a white .res-drop-body card */
   .step-list{display:flex;flex-direction:column;gap:16px}
@@ -9466,7 +9467,7 @@ To make sure you're following the process correctly and getting the support you 
         </div>
       </details>
       <div class="res-group-label">Forms &amp; Trackers</div>
-      <a class="reslink" id="res-vacation" href="https://docs.google.com/forms/d/e/1FAIpQLSftoBwq8WfOKNy8yPEyYA5LzfsdhVh6t0wQJJuDzmK26J6YVQ/viewform?usp=header" target="_blank" rel="noopener">
+      <a class="reslink" id="res-vacation" href="https://docs.google.com/forms/d/e/1FAIpQLSckQkJRQ70zotCmuu_TjVUzY8ApoqjJU7WXnSoUPOXmpTWAEA/viewform" target="_blank" rel="noopener">
         <span class="res-body"><span class="res-name">Vacation / Time Off Form</span><span class="res-sub">Report planned time off ahead of your dates</span></span>
         <span class="res-arrow">↗</span>
       </a>
@@ -10011,7 +10012,7 @@ Talk soon,
         <span class="res-body"><span class="res-name">Support Ticket</span><span class="res-sub">Support questions only. Product issues (timer, pay, tasks, errors) go to support@op.workada.co.</span></span>
         <span class="res-arrow" aria-hidden="true">→</span>
       </a>
-      <a class="reslink" href="https://docs.google.com/forms/d/e/1FAIpQLSftoBwq8WfOKNy8yPEyYA5LzfsdhVh6t0wQJJuDzmK26J6YVQ/viewform">
+      <a class="reslink" href="https://docs.google.com/forms/d/e/1FAIpQLSckQkJRQ70zotCmuu_TjVUzY8ApoqjJU7WXnSoUPOXmpTWAEA/viewform">
         <span class="res-body"><span class="res-name">Time Off Request</span><span class="res-sub">Submit 1 to 2 weeks ahead. Line up a sub lead and brief them on your pod first.</span></span>
         <span class="res-arrow" aria-hidden="true">→</span>
       </a>
@@ -10051,9 +10052,10 @@ Talk soon,
       <div class="jump-pills">
         <a class="jump-pill" href="#vc-team">Team &amp; Community</a>
         <a class="jump-pill" href="#vc-calibration-review">Interactive Calibration Review</a>
+        <a class="jump-pill" href="#vc-tasking">Tasking</a>
+        <a class="jump-pill" href="#vc-offboarding">Offboarding</a>
         <a class="jump-pill" href="#vc-templates">Message Templates</a>
         <a class="jump-pill" href="#vc-resources">Resources</a>
-        <a class="jump-pill" href="#vc-offboarding">Offboarding</a>
       </div>
     </nav>
   </header>
@@ -10076,6 +10078,14 @@ Talk soon,
       <a class="home-channel-card reveal" href="https://workada.slack.com/archives/C0BQQL52EJ2" target="_blank" rel="noopener">
         <span class="hc-icon" aria-hidden="true" style="--hc-c:var(--ink-2)">#</span>
         <div class="hc-body"><span class="hc-name">#video-caption-pod-leads</span><p>For Pod Leads supporting each other on this project.</p></div>
+      </a>
+      <a class="home-channel-card reveal" href="https://workada.slack.com/archives/C0BS5CNPQTD" target="_blank" rel="noopener">
+        <span class="hc-icon" aria-hidden="true" style="--hc-c:var(--muted)">#</span>
+        <div class="hc-body"><span class="hc-name">#video-sc-discussion</span><p>General discussion for the Video Captioning project.</p></div>
+      </a>
+      <a class="home-channel-card reveal" href="https://workada.slack.com/archives/C0BSBK4QVEW" target="_blank" rel="noopener">
+        <span class="hc-icon" aria-hidden="true" style="--hc-c:var(--accent-text)">#</span>
+        <div class="hc-body"><span class="hc-name">#video-sc-community</span><p>Community space for everyone on the project.</p></div>
       </a>
     </div>
     <div class="specialist-card reveal res-specialist-card">
@@ -10113,8 +10123,7 @@ Talk soon,
         <div class="step-list">
           <div class="step-item"><span class="step-num">1</span><div class="step-body">The <b>grading prompt</b>, from the official guide above.</div></div>
           <div class="step-item"><span class="step-num">2</span><div class="step-body">The <b>Contributor's calibration task</b> submission.</div></div>
-          <div class="step-item"><span class="step-num">3</span><div class="step-body">The <b>calibration golden answer</b>, from <a href="https://docs.google.com/spreadsheets/d/1zKwCoNWLaEa-drmcXhcniY-gO0K2VYrd7gWNGRAgIP0/edit?gid=0#gid=0" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">this sheet</a>.</div></div>
-          <div class="step-item"><span class="step-num">4</span><div class="step-body">The current <b>Video Captioning Training</b> document.</div></div>
+          <div class="step-item"><span class="step-num">3</span><div class="step-body">The current <b>Video Captioning Training</b> document.</div></div>
         </div>
 
         <hr class="step-divider">
@@ -10140,9 +10149,54 @@ Talk soon,
     </details>
   </div>
 
+  <div id="vc-tasking" class="vc-section">
+    <div class="sec-head">
+      <div class="kicker"><span class="kn">03</span><span class="kl">Tasking</span></div>
+      <h2>Tasking</h2>
+      <p>What to do with non-calibration tasks.</p>
+    </div>
+    <details class="res-drop" id="res-vc-tasking">
+      <summary>
+        <span class="res-body"><span class="res-name">Reviewing Non-Calibration Tasks</span><span class="res-sub">What to check for, and when to send a task back</span></span>
+        <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </summary>
+      <div class="res-drop-body">
+        <div class="note"><span class="ntag">What to do</span><span>You should be fixing non-calibration tasks. Any task a Contributor submits that you review and move forward &mdash; marking it a <b>5</b> &mdash; should have your stamp that it's a <b>near-perfect</b> task.</span></div>
+
+        <div class="step-list">
+          <div class="step-item"><span class="step-num">1</span><div class="step-body">If you think the task is a <b>1/5 or 2/5</b>, you may send it back to the Contributor with feedback so they can reattempt.</div></div>
+          <div class="step-item"><span class="step-num">2</span><div class="step-body">You can use AI to help assist your review, but don't rely on it 100%. We're currently working on a faster way for you all to do reviews.</div></div>
+          <div class="step-item"><span class="step-num">3</span><div class="step-body">If the task is a <b>3, 4, or 5/5</b>, you (the Pod Lead) need to make the physical edit on the task yourself, not send it back to the Contributor.</div></div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div id="vc-offboarding" class="vc-section">
+    <div class="sec-head">
+      <div class="kicker"><span class="kn">04</span><span class="kl">Offboarding</span></div>
+      <h2>Offboarding</h2>
+      <p>When to offboard a Video Captioning Contributor, and where to submit it.</p>
+    </div>
+    <details class="res-drop" id="res-vc-offboarding">
+      <summary>
+        <span class="res-body"><span class="res-name">Offboarding Criteria</span><span class="res-sub">When to offboard, and how to submit the request</span></span>
+        <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </summary>
+      <div class="res-drop-body">
+        <div class="step-list">
+          <div class="step-item"><span class="step-num">1</span><div class="step-body">The Contributor <b>fails calibration for the third time</b>.</div></div>
+          <div class="step-item"><span class="step-num">2</span><div class="step-body">The Contributor is <b>inactive for 14+ days</b>.</div></div>
+          <div class="step-item"><span class="step-num">3</span><div class="step-body">Before you offboard, check with the Contributor whether they'd like to <b>transfer to Multimango</b> instead, and let them know about the rate change. Only offer this if they're a better fit for Multimango, or they originally came from Multimango.</div></div>
+        </div>
+        <a class="btn accent" style="margin-top:6px" href="https://docs.google.com/forms/d/e/1FAIpQLSetoJk5xmp1xtKIXSu2e7-AT-fD3AkNe_sYMS-la0BJD_lxTQ/viewform" target="_blank" rel="noopener">Submit the Offboarding Form &rarr;</a>
+      </div>
+    </details>
+  </div>
+
   <div id="vc-templates" class="vc-section">
     <div class="sec-head">
-      <div class="kicker"><span class="kn">03</span><span class="kl">Message Templates</span></div>
+      <div class="kicker"><span class="kn">05</span><span class="kl">Message Templates</span></div>
       <h2>Message Templates</h2>
       <p>Copy, swap the name, send.</p>
     </div>
@@ -10186,7 +10240,7 @@ Welcome again, excited to have you in our pod!</pre>
 
   <div id="vc-resources" class="vc-section">
     <div class="sec-head">
-      <div class="kicker"><span class="kn">04</span><span class="kl">Resources</span></div>
+      <div class="kicker"><span class="kn">06</span><span class="kl">Resources</span></div>
       <h2>Resources</h2>
       <p>The reference doc Contributors and Pod Leads work from on this project.</p>
     </div>
@@ -10214,28 +10268,17 @@ Welcome again, excited to have you in our pod!</pre>
         <a class="btn accent" href="https://docs.google.com/document/d/1N6sntuEXwWEDs8jBEB463OjeWvZxrig1f1vQ0ijhqYA/edit?usp=sharing" target="_blank" rel="noopener">Open the Video Captioning Training doc &rarr;</a>
       </div>
     </details>
-  </div>
-
-  <div id="vc-offboarding" class="vc-section">
-    <div class="sec-head">
-      <div class="kicker"><span class="kn">05</span><span class="kl">Offboarding</span></div>
-      <h2>Offboarding</h2>
-      <p>When to offboard a Video Captioning Contributor, and where to submit it.</p>
-    </div>
-    <details class="res-drop" id="res-vc-offboarding">
+    <details class="res-drop" id="res-vc-metrics-tracker" style="margin-top:16px">
       <summary>
-        <span class="res-body"><span class="res-name">Offboarding Criteria</span><span class="res-sub">When to offboard, and how to submit the request</span></span>
+        <span class="res-body"><span class="res-name">Pod Metrics Tracker</span><span class="res-sub">Coming soon</span></span>
         <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
       </summary>
       <div class="res-drop-body">
-        <div class="step-list">
-          <div class="step-item"><span class="step-num">1</span><div class="step-body">The Contributor <b>fails calibration for the third time</b>.</div></div>
-          <div class="step-item"><span class="step-num">2</span><div class="step-body">The Contributor is <b>inactive for 14+ days</b>.</div></div>
-        </div>
-        <a class="btn accent" style="margin-top:6px" href="https://docs.google.com/forms/d/e/1FAIpQLSetoJk5xmp1xtKIXSu2e7-AT-fD3AkNe_sYMS-la0BJD_lxTQ/viewform" target="_blank" rel="noopener">Submit the Offboarding Form &rarr;</a>
+        <div class="coming-soon">Coming soon.</div>
       </div>
     </details>
   </div>
+
 
 </section>
 
