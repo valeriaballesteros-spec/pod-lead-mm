@@ -8469,6 +8469,13 @@
           <button class="dropdown-item tab" type="button" data-view="resources" role="menuitem">Multimango and Video Eval</button>
           <button class="dropdown-item tab" type="button" data-view="sheets" role="menuitem">Sheets</button>
           <button class="dropdown-item tab" type="button" data-view="video-caption" role="menuitem">Video Caption</button>
+          <button class="dropdown-item tab" type="button" data-view="remedy" role="menuitem">Remedy</button>
+          <button class="dropdown-item tab" type="button" data-view="multimodal" role="menuitem">Multimodal</button>
+          <button class="dropdown-item tab" type="button" data-view="lotus" role="menuitem">Lotus</button>
+          <button class="dropdown-item tab" type="button" data-view="multi-hop-reasoning" role="menuitem">Multi-hop Reasoning</button>
+          <button class="dropdown-item tab" type="button" data-view="finance-artifact-collection" role="menuitem">Finance Artifact Collection</button>
+          <button class="dropdown-item tab" type="button" data-view="sheets-acquisition" role="menuitem">Sheets Acquisition</button>
+          <button class="dropdown-item tab" type="button" data-view="sheets-artifact-collection" role="menuitem">Sheets Artifact Collection</button>
         </div>
       </div>
       <a class="tab" href="mailto:support@op.workada.co" target="_blank" rel="noopener">Support ↗</a>
@@ -8880,9 +8887,58 @@
 <section class="wrap view" id="view-metrics" role="region" aria-label="Metrics" style="display:none">
   <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Metrics</span></div><h2>Pod metrics</h2></div>
   <div class="soon">
-    
+
     <h3>Coming soon</h3>
     <p>Pod-level quality, hours, completion, and retention metrics will live here.</p>
+  </div>
+</section>
+
+<section class="wrap view" id="view-remedy" role="region" aria-label="Remedy">
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources</span></div><h2>Remedy</h2></div>
+  <div class="soon">
+    <h3>Coming soon</h3>
+  </div>
+</section>
+
+<section class="wrap view" id="view-multimodal" role="region" aria-label="Multimodal">
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources</span></div><h2>Multimodal</h2></div>
+  <div class="soon">
+    <h3>Coming soon</h3>
+  </div>
+</section>
+
+<section class="wrap view" id="view-lotus" role="region" aria-label="Lotus">
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources</span></div><h2>Lotus</h2></div>
+  <div class="soon">
+    <h3>Coming soon</h3>
+  </div>
+</section>
+
+<section class="wrap view" id="view-multi-hop-reasoning" role="region" aria-label="Multi-hop Reasoning">
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources</span></div><h2>Multi-hop Reasoning</h2></div>
+  <div class="soon">
+    <h3>Coming soon</h3>
+  </div>
+</section>
+
+<section class="wrap view" id="view-finance-artifact-collection" role="region" aria-label="Finance Artifact Collection">
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources</span></div><h2>Finance Artifact Collection</h2></div>
+  <div class="soon">
+    <h3>Coming soon</h3>
+  </div>
+</section>
+
+<section class="wrap view" id="view-sheets-acquisition" role="region" aria-label="Sheets Acquisition">
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources</span></div><h2>Sheets Acquisition</h2></div>
+  <div class="soon">
+    <h3>Coming soon</h3>
+  </div>
+</section>
+
+<section class="wrap view" id="view-sheets-artifact-collection" role="region" aria-label="Sheets Artifact Collection">
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources</span></div><h2>Sheets Artifact Collection</h2></div>
+  <div class="soon">
+    <h3>Coming soon</h3>
   </div>
 </section>
 
@@ -10541,8 +10597,8 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
 
 /* ===== TABS ===== */
 (function(){
-  const VIEWS=['home','handbook','roster','sop','faq','templates','jd','metrics','resources','resources-main','sheets','video-caption'];
-  const RESOURCES_PAGES=['resources','resources-main','sheets','video-caption'];
+  const VIEWS=['home','handbook','roster','sop','faq','templates','jd','metrics','resources','resources-main','sheets','video-caption','remedy','multimodal','lotus','multi-hop-reasoning','finance-artifact-collection','sheets-acquisition','sheets-artifact-collection'];
+  const RESOURCES_PAGES=['resources','resources-main','sheets','video-caption','remedy','multimodal','lotus','multi-hop-reasoning','finance-artifact-collection','sheets-acquisition','sheets-artifact-collection'];
   function showView(name){
     if(!VIEWS.includes(name))name='home';
     document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
@@ -10598,7 +10654,7 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
   })();
 })();
 
-/* Per-URL Project Resources dropdown filter.
+/* Per-URL Project Resources dropdown filter + routing.
    /mm             -> dropdown shows only "Multimango and Video Eval"
    /sheets         -> dropdown shows only "Sheets"
    /video-caption  -> dropdown shows only "Video Caption"
@@ -10614,7 +10670,17 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
    For local testing without setting up a rewrite, append ?route=mm,
    ?route=sheets, or ?route=video-caption to the URL (works over file://, a
    plain `python3 -m http.server`, etc.) and this behaves the same as
-   visiting that real path. */
+   visiting that real path.
+
+   The additional "coming soon" project resource pages (Remedy, Multimodal,
+   Lotus, Multi-hop Reasoning, Finance Artifact Collection, Sheets
+   Acquisition, Sheets Artifact Collection) are query-param-only routes:
+   ?route=remedy, ?route=multimodal, ?route=lotus,
+   ?route=multi-hop-reasoning, ?route=finance-artifact-collection,
+   ?route=sheets-acquisition, ?route=sheets-artifact-collection.
+
+   Matching a route now also actually navigates to that view on load (via
+   showView), not just filters the dropdown menu contents. */
 (function(){
   var menu=document.getElementById('resourcesMenu');
   var trigger=document.getElementById('resourcesDropdownBtn');
@@ -10626,7 +10692,20 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
   var routeParam = rawRouteParam.replace(/[\/_\s]+/g,'-').replace(/^-+|-+$/g,'');
   var route = path==='/mm' ? 'mm' : (path==='/sheets' ? 'sheets' : (path==='/video-caption' ? 'video-caption' : routeParam));
 
-  var onlyShow = route==='mm' ? 'resources' : (route==='sheets' ? 'sheets' : (route==='video-caption' ? 'video-caption' : null));
+  // Maps a route name to the view (and dropdown item data-view) it opens.
+  var ROUTE_VIEW = {
+    'mm':'resources',
+    'sheets':'sheets',
+    'video-caption':'video-caption',
+    'remedy':'remedy',
+    'multimodal':'multimodal',
+    'lotus':'lotus',
+    'multi-hop-reasoning':'multi-hop-reasoning',
+    'finance-artifact-collection':'finance-artifact-collection',
+    'sheets-acquisition':'sheets-acquisition',
+    'sheets-artifact-collection':'sheets-artifact-collection'
+  };
+  var onlyShow = ROUTE_VIEW[route] || null;
 
   if(!onlyShow){
     // No specific route: nothing to put in a dropdown, so don't offer one —
@@ -10645,6 +10724,10 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
     item.tabIndex = show ? 0 : -1;
     if(show) item.removeAttribute('aria-hidden'); else item.setAttribute('aria-hidden','true');
   });
+
+  // Actually navigate to the routed view (previously this only filtered the
+  // dropdown menu contents without displaying the corresponding page).
+  if(window.showView) window.showView(onlyShow);
 })();
 
 /* ===== Cross-link into Resources tab from anywhere (e.g. the FAQ) ===== */
