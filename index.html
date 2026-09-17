@@ -7,24 +7,24 @@
 <meta name="description" content="The playbook for onboarding, training, and supporting your Contributors." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500;1,8..60,600&family=Zilla+Slab:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Libre+Franklin:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
-    /* ===== BRAND — Workada (from workada.com) ===== */
-    --accent:#3B82F6; --accent-text:#2563EB; --accent-deep:#122345; --accent-2:#4a7c9b; --accent-soft:#EDF1FE; --accent-ring:rgba(59,130,246,.18);
-    --grad:linear-gradient(90deg,#2B49D6,#4F86F7,#8FB4FF);
-    --page-grad:linear-gradient(rgba(8,16,32,.5),rgba(8,16,32,.5)),linear-gradient(120deg,#e8f0f7 0%,#4a7c9b 48%,#122345 100%);
-    --slate:#4a7c9b;
-    /* ===== neutrals (Workada navy ink + cool greys) ===== */
-    --bg:#FBFCFE; --surface:#FFFFFF; --ink:#122345; --ink-2:#2C3A5E; --muted:#5E6B82;
-    --line:#E8EBF3; --line-strong:#D7DDEC;
-    --warn-bg:#FBF4E0; --warn-ink:#7A5A12; --warn-line:#E8D49A; --coral:#C44A2E;
-    --display:'Poppins',system-ui,-apple-system,sans-serif;
-    --serif:'Poppins',system-ui,-apple-system,sans-serif;
-    --sans:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
-    --shadow-sm:0 1px 1px rgba(22,33,63,.03);
-    --shadow:0 1px 2px rgba(20,24,27,.04),0 14px 34px rgba(20,24,27,.06);
-    --shadow-lg:0 24px 60px rgba(20,24,27,.14);
+    /* ===== BRAND — Workada 2026 (Brand Guidelines v1.0, Aug 2026) ===== */
+    --accent:#1DB5DA; --accent-text:#092E65; --accent-deep:#092E65; --accent-2:#1DB5DA; --accent-soft:#EAF6FB; --accent-ring:rgba(9,46,101,.18);
+    --grad:linear-gradient(90deg,#092E65,#1DB5DA,#A7DAEF);
+    --page-grad:linear-gradient(rgba(9,46,101,.55),rgba(9,46,101,.55)),linear-gradient(120deg,#A7DAEF 0%,#1DB5DA 48%,#092E65 100%);
+    --slate:#092E65;
+    /* ===== Workada 2026 palette: Oxford navy, Floral White, Light Blue, Sky Surge, Grapefruit ===== */
+    --bg:#F7F3EA; --surface:#FFFFFF; --ink:#272727; --ink-2:#3A3A3A; --muted:#6B6B6B;
+    --line:#E7E1D2; --line-strong:#D9D1BC;
+    --warn-bg:#FBF4E0; --warn-ink:#7A5A12; --warn-line:#E8D49A; --coral:#FF7D7E;
+    --display:'Source Serif 4',Georgia,'Times New Roman',serif;
+    --serif:'Zilla Slab',Georgia,'Times New Roman',serif;
+    --sans:'Libre Franklin',system-ui,-apple-system,sans-serif;
+    --shadow-sm:0 1px 1px rgba(9,46,101,.05);
+    --shadow:0 1px 2px rgba(9,46,101,.06),0 14px 34px rgba(9,46,101,.08);
+    --shadow-lg:0 24px 60px rgba(9,46,101,.18);
     --maxw:1080px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -37,33 +37,34 @@
   .skip-link:focus{top:8px}
   /* Keyboard focus visibility (WCAG 2.4.7) */
   a:focus-visible,button:focus-visible,summary:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent-text);outline-offset:2px;border-radius:6px}
-  .dropdown-item:focus-visible,.nav-dropdown>.tab:focus-visible{outline-color:#fff;outline-offset:-2px}
+  .dropdown-item:focus-visible,.nav-dropdown>.tab:focus-visible{outline-color:#092E65;outline-offset:-2px}
   .page-shell{display:flex;flex-direction:column;min-height:100vh}
   .page-shell>.view{flex:1 0 auto}
   .topbar{position:fixed;top:0;left:0;right:0;height:3px;background:var(--grad);z-index:80}
 
   /* NAV */
-  nav{position:sticky;top:0;z-index:90;background:rgba(18,35,69,.92);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid transparent;transition:border-color .25s,background .25s}
-  nav.scrolled{border-bottom:1px solid rgba(255,255,255,.14);background:rgba(15,28,56,.97)}
+  nav{position:sticky;top:0;z-index:90;background:rgba(167,218,239,.94);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid transparent;transition:border-color .25s,background .25s}
+  nav.scrolled{border-bottom:1px solid rgba(9,46,101,.12);background:rgba(184,225,244,.98)}
   .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{font-weight:700;font-size:15.5px;display:flex;align-items:center;gap:9px;letter-spacing:-.01em;color:#fff}
-  .brand .logo{width:30px;height:26px;display:block;flex:none}
+  .brand{font-weight:700;font-size:15.5px;display:flex;align-items:center;gap:9px;letter-spacing:-.01em;color:#092E65}
+  .brand .logo{width:34px;height:22px;display:block;flex:none}
   .nav-links{display:flex;align-items:center;gap:22px}
-  .nav-links a{font-size:14px;color:rgba(255,255,255,.7);font-weight:500;transition:color .15s}
-  .nav-links a:hover{color:#fff}
+  .nav-links a{font-size:14px;color:rgba(9,46,101,.75);font-weight:500;transition:color .15s}
+  .nav-links a:hover{color:#092E65}
   .btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--sans);font-weight:600;font-size:14px;cursor:pointer;border:none;
-    background:var(--ink);color:#fff;padding:11px 18px;border-radius:11px;transition:transform .15s,opacity .15s}
+    background:var(--ink);color:#fff;padding:11px 20px;border-radius:999px;transition:transform .15s,opacity .15s}
   .btn:hover{transform:translateY(-1px);opacity:.92}
   .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
   .btn.ghost:hover{border-color:var(--ink);background:transparent}
   .btn.accent{background:var(--accent-text)}
+  .nav-links .btn{color:#fff}
   @media(max-width:760px){.nav-in{gap:10px}.nav-links{gap:16px;overflow-x:auto}.nav-links .btn.accent{display:none}.brand{font-size:0;gap:0}.brand .logo{font-size:14px}}
 
   /* HERO — restrained, editorial */
   header.hero{padding:104px 0 70px}
   .hero .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.92);margin-bottom:20px;text-shadow:0 1px 3px rgba(0,0,0,.6)}
   .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.4vw,44px);line-height:1.1;letter-spacing:-.02em;max-width:none;white-space:nowrap;margin-bottom:20px;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.65)}
-  .hero h1 em{font-style:normal;color:#8FB4FF}
+  .hero h1 em{font-style:normal;color:#A7DAEF}
   .hero p.sub{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,.9);max-width:54ch;margin-bottom:34px;text-shadow:0 1px 3px rgba(0,0,0,.6)}
   @media(max-width:640px){.hero h1{white-space:normal}}
   .search{position:relative;max-width:520px;margin-bottom:14px}
@@ -72,7 +73,7 @@
   .search input:focus{outline:none;box-shadow:0 0 0 3px rgba(37,99,235,.55),0 2px 20px rgba(0,0,0,.18)}
   .search .si{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:19px;height:19px;color:var(--slate)}
   .ask-line{font-size:14px;color:rgba(255,255,255,.92);text-shadow:0 1px 3px rgba(0,0,0,.6)}
-  .ask-line button{background:none;border:none;color:#8FB4FF;font-weight:600;cursor:pointer;font-family:var(--sans);font-size:14px}
+  .ask-line button{background:none;border:none;color:#A7DAEF;font-weight:600;cursor:pointer;font-family:var(--sans);font-size:14px}
   .ask-line button:hover{text-decoration:underline}
 
   /* SECTIONS */
@@ -110,7 +111,7 @@
   .helpbar{margin-top:26px;background:var(--accent-soft);border-radius:16px;padding:22px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
   .helpbar .ht{font-family:var(--display);font-weight:600;font-size:15px;color:var(--ink)}
   .helpbar .chips{display:flex;flex-wrap:wrap;gap:8px}
-  .helpbar .chip{font-size:13px;font-weight:600;color:var(--accent-deep);background:#fff;border:1px solid #DCE3FA;border-radius:999px;padding:6px 13px}
+  .helpbar .chip{font-size:13px;font-weight:600;color:var(--accent-deep);background:#fff;border:1px solid #BFE6F2;border-radius:999px;padding:6px 13px}
   .helpbar a.chip{transition:border-color .15s,background .15s}
   .helpbar a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 
@@ -149,7 +150,8 @@
   .flow-stage.stage-start{--stage-color:var(--accent-text)}
   .flow-stage.stage-daily{--stage-color:var(--slate)}
   .flow-stage.stage-weekly{--stage-color:var(--ink-2)}
-  .flow-stage.stage-escalate{--stage-color:#8FB4FF}
+  .flow-stage.stage-escalate{--stage-color:#A7DAEF}
+  .flow-stage.stage-timemilking{--stage-color:var(--accent)}
   .flow-stage.stage-difficult{--stage-color:var(--coral)}
   .flow-stage.stage-support{--stage-color:var(--ink)}
   .sop-track{position:relative;display:flex;flex-direction:column}
@@ -190,7 +192,7 @@
   .sqf-qb{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--display);font-weight:700;font-size:13px;display:inline-flex;align-items:center;justify-content:center;flex:none}
   .sqf-branch{width:100%;max-width:var(--w);display:flex;gap:12px;margin-top:12px}
   .sqf-path{flex:1;border-radius:13px;padding:11px 13px;text-align:center;font-size:12.5px;line-height:1.5;border:1px solid;display:flex;flex-direction:column;align-items:center;gap:5px}
-  .sqf-yes{background:var(--accent-soft);border-color:#C7D7FE;color:var(--accent-deep)}
+  .sqf-yes{background:var(--accent-soft);border-color:#BFE6F2;color:var(--accent-deep)}
   .sqf-no{background:#F5F7FA;border-color:var(--line-strong);color:var(--ink-2)}
   .sqf-plabel{display:inline-flex;align-items:center;gap:5px;font-weight:800;font-size:11px}
   .sqf-plabel svg{width:13px;height:13px;flex:none}
@@ -206,7 +208,7 @@
   @media(max-width:600px){.sop-step{grid-template-columns:30px 1fr;gap:14px;padding-bottom:24px}.sop-marker{width:30px;height:30px;font-size:12px}.sop-step::after{left:14px;top:30px;bottom:-24px}}
   @media(prefers-reduced-motion:reduce){.sop-step::after,.sop-marker{transition:none}}
   /* Support Queue flow chart */
-  .fc{--fc-blue:#1D4ED8;--fc-blue-bg:#EEF3FF;--fc-blue-line:#C7D7FE;
+  .fc{--fc-blue:#092E65;--fc-blue-bg:#EAF6FB;--fc-blue-line:#BFE6F2;
     --fc-green:#047857;--fc-green-bg:#ECFDF5;--fc-green-line:#A7F3D0;--fc-green-ink:#065F46;
     --fc-amber:#B45309;--fc-amber-bg:#FFF7ED;--fc-amber-line:#FED7AA;--fc-amber-ink:#7C3A0A;
     --fc-red:#B42318;--fc-red-bg:#FEF3F2;--fc-red-line:#FDA29B;--fc-red-ink:#7A271A;
@@ -215,18 +217,18 @@
   .fc *{box-sizing:border-box}
   .fc-pill{width:100%;max-width:var(--fc-w);display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--display);font-weight:700;font-size:15px;color:#fff;border-radius:999px;padding:15px 24px;text-align:center;letter-spacing:-.01em}
   .fc-pill svg{width:18px;height:18px;flex:none}
-  .fc-start{background:linear-gradient(135deg,#254377,#152a52);box-shadow:0 10px 26px -10px rgba(18,35,69,.55)}
+  .fc-start{background:linear-gradient(135deg,#092E65,#152a52);box-shadow:0 10px 26px -10px rgba(18,35,69,.55)}
   .fc-end{background:linear-gradient(135deg,#059b6d,#046b49);box-shadow:0 10px 26px -10px rgba(4,120,87,.5)}
   .fc-node{width:100%;max-width:var(--fc-w);background:var(--surface);border:1px solid var(--line-strong);border-radius:18px;padding:17px 19px;box-shadow:var(--fc-card)}
   .fc-node h4{font-family:var(--display);font-weight:600;font-size:16.5px;letter-spacing:-.01em;margin:0 0 4px;color:var(--ink)}
   .fc-node h4:last-child{margin:0}
   .fc-node p{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0}
   .fc-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:11px}
-  .fc-ic{flex:none;width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#f2f6ff,#e2ebff);color:var(--fc-blue);display:flex;align-items:center;justify-content:center;margin-top:1px;box-shadow:inset 0 0 0 1px rgba(29,78,216,.12)}
+  .fc-ic{flex:none;width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#f2f6ff,#eaf6fb);color:var(--fc-blue);display:flex;align-items:center;justify-content:center;margin-top:1px;box-shadow:inset 0 0 0 1px rgba(29,78,216,.12)}
   .fc-ic svg{width:21px;height:21px}
   .fc-tx{min-width:0}
-  .fc-decision{position:relative;border:1px solid var(--fc-blue-line);border-radius:18px;background:linear-gradient(180deg,#eef4ff,#fff 78%);padding:20px 20px 17px;text-align:center;box-shadow:0 1px 2px rgba(29,78,216,.08),0 14px 28px -16px rgba(29,78,216,.45);overflow:hidden}
-  .fc-decision::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--fc-blue),#3b82f6)}
+  .fc-decision{position:relative;border:1px solid var(--fc-blue-line);border-radius:18px;background:linear-gradient(180deg,#eaf6fb,#fff 78%);padding:20px 20px 17px;text-align:center;box-shadow:0 1px 2px rgba(29,78,216,.08),0 14px 28px -16px rgba(29,78,216,.45);overflow:hidden}
+  .fc-decision::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--fc-blue),#1db5da)}
   .fc-decision h4{display:flex;align-items:center;justify-content:center;gap:11px}
   .fc-qbadge{flex:none;width:29px;height:29px;border-radius:50%;background:var(--fc-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:15px;box-shadow:0 0 0 4px rgba(29,78,216,.14)}
   .fc-decision p{margin-top:7px;text-align:center}
@@ -269,7 +271,7 @@
   .updates{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 28px;box-shadow:var(--shadow-sm)}
   .updates-top{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-bottom:8px}
   .updates-top h2{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
-  .updates-top .ex{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-soft);border:1px solid #DCE3FA;border-radius:999px;padding:3px 9px}
+  .updates-top .ex{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-soft);border:1px solid #BFE6F2;border-radius:999px;padding:3px 9px}
   .updates-top .date{margin-left:auto;font-size:13px;color:var(--muted);font-weight:600}
   .updates .lede{font-size:14.5px;color:var(--muted);margin:0}
   .updates .since{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:20px 0 14px}
@@ -287,7 +289,7 @@
   @media(max-width:560px){.u-item{grid-template-columns:1fr;gap:5px}.u-tag{justify-self:start}}
 
   /* POD STRUCTURE CALLOUT */
-  .podcallout{background:var(--accent-soft);border:1px solid #DCE3FA;border-radius:22px;padding:44px;display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:center}
+  .podcallout{background:var(--accent-soft);border:1px solid #BFE6F2;border-radius:22px;padding:44px;display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:center}
   .podcallout .pc-main h2{font-family:var(--display);font-weight:600;font-size:clamp(23px,2.8vw,32px);line-height:1.2;letter-spacing:-.015em;margin-bottom:12px}
   .podcallout .pc-main p{font-size:15.5px;color:var(--muted);max-width:50ch}
   .pc-stats{display:flex;gap:34px}
@@ -307,13 +309,13 @@
   .resp-track-marker{position:relative;z-index:1;width:44px;height:44px;border-radius:50%;background:var(--resp-c,var(--accent));color:#fff;font-family:var(--display);font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 0 0 4px var(--bg)}
   @media(max-width:600px){.resp-track-row{grid-template-columns:34px 1fr;gap:12px}.resp-track-row::after{left:16px;top:40px}.resp-track-marker{width:34px;height:34px;font-size:13px}}
 
-  .resp-detail{background:var(--ink);border-radius:16px;overflow:hidden}
+  .resp-detail{background:var(--surface);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
   .resp-detail summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:20px 24px}
   .resp-detail summary::-webkit-details-marker{display:none}
   .resp-detail-text{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
-  .resp-detail-title{font-family:var(--display);font-weight:700;font-size:17px;color:#fff}
-  .resp-detail-desc{font-size:13px;color:rgba(255,255,255,.7);line-height:1.5}
-  .resp-chev{color:rgba(255,255,255,.6);flex:none;transition:transform .2s}
+  .resp-detail-title{font-family:var(--display);font-weight:700;font-size:17px;color:var(--ink)}
+  .resp-detail-desc{font-size:13px;color:var(--muted);line-height:1.5}
+  .resp-chev{color:var(--muted);flex:none;transition:transform .2s}
   .resp-detail[open] .resp-chev{transform:rotate(180deg)}
   .resp-detail-body{padding:4px 24px 26px;display:flex;flex-direction:column;gap:22px}
   @media(max-width:600px){.resp-detail summary{padding:16px 18px}.resp-detail-body{padding:2px 18px 20px;gap:18px}}
@@ -322,11 +324,11 @@
   .pf-step{display:flex;gap:10px;align-items:flex-start}
   .pf-step .pfn{width:22px;height:22px;border-radius:50%;background:var(--accent-text);color:#fff;font-family:var(--display);font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;flex:none;margin-top:2px}
   .pf-step-body{flex:1;min-width:0}
-  .pf-step h4{font-family:var(--display);font-weight:700;font-size:15px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6);margin-bottom:7px;line-height:1.3}
+  .pf-step h4{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:7px;line-height:1.3}
   .pf-step ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
-  .pf-step li{position:relative;padding-left:14px;font-size:14.5px;line-height:1.7;color:rgba(255,255,255,.94);text-shadow:0 1px 3px rgba(0,0,0,.6)}
+  .pf-step li{position:relative;padding-left:14px;font-size:14.5px;line-height:1.7;color:var(--ink-2)}
   .pf-step li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:2px;background:var(--accent-2);transform:rotate(45deg)}
-  .pf-step li a{color:#8FB4FF;font-weight:600}
+  .pf-step li a{color:var(--accent-text);font-weight:600}
   .resp-detail-body .note{font-size:13.5px;padding:11px 13px;line-height:1.55}
   .resp-detail-body .note .ntag{font-size:10.5px;padding:2px 6px;margin-right:4px}
 
@@ -387,7 +389,7 @@
   .pill .ct{font-size:12px;color:var(--muted)}
   .faq-cat{margin-bottom:32px;scroll-margin-top:84px}
   .faq-cat-head{display:flex;align-items:center;gap:13px;margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid rgba(255,255,255,.28)}
-  .faq-cat-badge{flex:none;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--display);font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .faq-cat-badge{flex:none;width:36px;height:36px;border-radius:50%;background:var(--accent-text);color:#fff;font-family:var(--display);font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.25)}
   .faq-cat-head h3{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.01em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
   .qa{background:var(--surface);border:1px solid var(--line);border-radius:13px;margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow-sm);transition:border-color .15s,box-shadow .15s,opacity .16s ease}
   .qa.qa-anim-hidden{opacity:0}
@@ -396,7 +398,7 @@
   .qa-q{width:100%;display:flex;align-items:center;gap:13px;text-align:left;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:15.5px;font-weight:600;color:var(--ink);padding:15px 18px;line-height:1.4;letter-spacing:-.01em}
   .qa-q:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:13px}
   .qa-q mark{background:var(--accent-soft);color:var(--accent-deep);border-radius:3px}
-  .qa-num{flex:none;width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;font-family:var(--display);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .qa-num{flex:none;width:30px;height:30px;border-radius:8px;background:var(--accent-text);color:#fff;font-family:var(--display);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
   .qa-q .qtext{flex:1;min-width:0}
   .chev{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--line-strong);color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:11px;line-height:1;transition:transform .26s,background .2s,color .2s,border-color .2s}
   .qa.open .chev{transform:rotate(180deg);background:var(--accent);color:#fff;border-color:var(--accent)}
@@ -500,15 +502,15 @@
 
   /* TABS + VIEWS */
   .nav-links{flex-wrap:nowrap}
-  .nav-links .tab{font-family:var(--sans);font-size:14px;color:rgba(255,255,255,.7);font-weight:500;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;padding:4px 1px;white-space:nowrap;transition:color .15s,border-color .15s}
+  .nav-links .tab{font-family:var(--sans);font-size:14px;color:rgba(9,46,101,.75);font-weight:500;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;padding:4px 1px;white-space:nowrap;transition:color .15s,border-color .15s}
   .subtabs{display:flex;gap:8px;margin-bottom:26px;border-bottom:1px solid var(--line)}
   .subtab{font-family:var(--sans);font-size:14.5px;font-weight:700;color:rgba(255,255,255,.75);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;padding:10px 4px 12px;transition:color .15s,border-color .15s;text-shadow:0 1px 3px rgba(0,0,0,.5)}
   .subtab:hover{color:#fff}
   .subtab.active{color:#fff;border-bottom-color:var(--accent)}
   .subpanel{display:none}
   .subpanel.active{display:block}
-  .nav-links .tab:hover{color:#fff}
-  .nav-links .tab.active{color:#fff;font-weight:700;border-bottom-color:var(--accent)}
+  .nav-links .tab:hover{color:#092E65}
+  .nav-links .tab.active{color:#092E65;font-weight:700;border-bottom-color:var(--accent-text)}
   .view{display:none}
   .view.active{display:block}
 
@@ -517,7 +519,7 @@
   .nav-dropdown>.tab{display:inline-flex;align-items:center;gap:5px}
   .nav-dropdown .caret{font-size:10px;transition:transform .15s}
   .nav-dropdown.open .caret{transform:rotate(180deg)}
-  .nav-dropdown.open>.tab{color:#fff}
+  .nav-dropdown.open>.tab{color:#092E65}
   .dropdown-menu{position:absolute;top:calc(100% + 10px);left:0;min-width:180px;background:#0F1C38;border:1px solid rgba(255,255,255,.14);border-radius:12px;box-shadow:0 14px 34px rgba(0,0,0,.35);padding:6px;display:none;flex-direction:column;gap:2px;z-index:95}
   .nav-dropdown.open .dropdown-menu{display:flex}
   .dropdown-menu .dropdown-item{font-family:var(--sans);font-size:14px;font-weight:500;color:rgba(255,255,255,.78);background:none;border:none;text-align:left;padding:9px 12px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap}
@@ -610,16 +612,16 @@
   .tpl-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow-sm)}
   .tpl-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:3px}
   .tpl-head h4{font-family:var(--display);font-weight:700;font-size:15.5px}
-  .tpl-copy{font-size:12.5px;font-weight:700;color:var(--accent-deep);background:var(--accent-soft);border:1px solid #DCE3FA;border-radius:999px;padding:5px 12px;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
-  .tpl-copy:hover{background:#E1E8FE}
+  .tpl-copy{font-size:12.5px;font-weight:700;color:var(--accent-deep);background:var(--accent-soft);border:1px solid #BFE6F2;border-radius:999px;padding:5px 12px;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
+  .tpl-copy:hover{background:#EAF6FB}
   .tpl-copy.copied{background:#E6F6EC;border-color:#BFE6CC;color:#1B7F44}
   .tpl-note{font-size:13px;color:var(--muted);margin:0 0 10px}
-  .tpl-refbox{background:var(--accent-soft);border:1px solid #DCE3FA;border-radius:12px;padding:14px 18px;margin:4px 0 30px;font-size:13px;color:var(--ink)}
+  .tpl-refbox{background:var(--accent-soft);border:1px solid #BFE6F2;border-radius:12px;padding:14px 18px;margin:4px 0 30px;font-size:13px;color:var(--ink)}
   .tpl-refbox p{margin:0 0 6px}
   .tpl-refbox p:last-child{margin-bottom:0}
   .refbox-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:12.5px}
-  .refbox-table th{text-align:left;font-weight:700;padding:4px 10px 4px 0;border-bottom:1px solid #DCE3FA}
-  .refbox-table td{padding:4px 10px 4px 0;border-bottom:1px solid #DCE3FA}
+  .refbox-table th{text-align:left;font-weight:700;padding:4px 10px 4px 0;border-bottom:1px solid #BFE6F2}
+  .refbox-table td{padding:4px 10px 4px 0;border-bottom:1px solid #BFE6F2}
   .refbox-table tr:last-child td{border-bottom:none}
   .tpl-body{font-family:var(--sans);font-size:13.5px;color:var(--ink-2);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 13px;white-space:pre-wrap;line-height:1.55;margin:0}
   @media(max-width:680px){.tpl-grid{grid-template-columns:1fr}}
@@ -636,7 +638,7 @@
   .qd{font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;display:inline-block}
   .qd.yes{background:#FCE8E8;color:#B42318}
   .qd.no{background:#E6F6EC;color:#1B7F44}
-  .qnote{font-size:14px;color:var(--ink-2);margin-top:16px;background:var(--accent-soft);border:1px solid #DCE3FA;border-radius:12px;padding:14px 16px}
+  .qnote{font-size:14px;color:var(--ink-2);margin-top:16px;background:var(--accent-soft);border:1px solid #BFE6F2;border-radius:12px;padding:14px 16px}
   @media(max-width:600px){.qscale th:nth-child(3),.qscale td:nth-child(3){display:none}}
 
   /* RESOURCES */
@@ -657,7 +659,7 @@
   .res-video{width:100%}
   .res-video .rv-title{font-size:13.5px;font-weight:600;color:var(--muted);margin:14px 0 8px}
   .res-video:first-child .rv-title{margin-top:16px}
-  .res-video-frame{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#0d1220}
+  .res-video-frame{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#092e65}
   .res-video-cap{margin:0 0 8px;font-size:13px;font-weight:600;color:var(--muted)}
   .res-video-frame.web{padding-top:0;height:520px;background:#fff}
   .res-shot-link{display:block;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
@@ -669,7 +671,7 @@
   @media(max-width:560px){.contrib-grid{grid-template-columns:1fr}}
   .contrib-tile{display:block;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:var(--shadow-sm);transition:border-color .15s,transform .15s}
   .contrib-tile:hover{border-color:var(--accent);transform:translateY(-2px)}
-  .tile-shot{position:relative;padding-top:100%;overflow:hidden;background:#0d1220}
+  .tile-shot{position:relative;padding-top:100%;overflow:hidden;background:#092e65}
   .tile-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
   .tile-label{display:flex;align-items:center;gap:10px;padding:14px 16px}
   .tile-ic{font-size:18px;flex:none}
@@ -892,7 +894,7 @@
     }
 #view-resources .hero h1 em {
     font-style: normal;
-    color: #8FB4FF
+    color: #A7DAEF
     }
 #view-resources .hero p.sub {
     font-size: clamp(16px, 2vw, 19px);
@@ -944,7 +946,7 @@
 #view-resources .ask-line button {
     background: none;
     border: none;
-    color: #8FB4FF;
+    color: #A7DAEF;
     font-weight: 600;
     cursor: pointer;
     font-family: var(--sans);
@@ -1140,7 +1142,7 @@
     font-weight: 600;
     color: var(--accent-deep);
     background: #fff;
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 999px;
     padding: 6px 13px
     }
@@ -1344,7 +1346,7 @@
     --stage-color: var(--ink-2)
     }
 #view-resources .flow-stage.stage-escalate {
-    --stage-color: #8FB4FF
+    --stage-color: #A7DAEF
     }
 #view-resources .flow-stage.stage-difficult {
     --stage-color: var(--coral)
@@ -1454,9 +1456,9 @@
     }
 }
 #view-resources .fc {
-    --fc-blue: #1D4ED8;
-    --fc-blue-bg: #EEF3FF;
-    --fc-blue-line: #C7D7FE;
+    --fc-blue: #092E65;
+    --fc-blue-bg: #EAF6FB;
+    --fc-blue-line: #BFE6F2;
     --fc-green: #047857;
     --fc-green-bg: #ECFDF5;
     --fc-green-line: #A7F3D0;
@@ -1498,7 +1500,7 @@
     flex: none
     }
 #view-resources .fc-start {
-    background: linear-gradient(135deg, #1B2F5C, #122345)
+    background: linear-gradient(135deg, #1B2F5C, #092E65)
     }
 #view-resources .fc-end {
     background: linear-gradient(135deg, #047857, #065F46);
@@ -1558,7 +1560,7 @@
     position: relative;
     border: 1.5px solid var(--fc-blue-line);
     border-radius: 16px;
-    background: linear-gradient(180deg, #F2F7FF, #fff 72%);
+    background: linear-gradient(180deg, #EAF6FB, #fff 72%);
     padding: 16px 18px 16px 22px;
     box-shadow: 0 4px 14px rgba(29, 78, 216, 0.1);
     overflow: hidden
@@ -1688,7 +1690,7 @@
     }
 }
 #view-resources .fc-coral {
-    background: linear-gradient(135deg, #C44A2E, #9E2F17);
+    background: linear-gradient(135deg, #FF7D7E, #D7263D);
     box-shadow: 0 6px 18px rgba(196, 74, 46, 0.22)
     }
 #view-resources .fc-stageband {
@@ -1812,7 +1814,7 @@
     gap: 12px;
     align-items: flex-start;
     background: var(--accent-soft);
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 14px;
     padding: 15px 17px
     }
@@ -1924,7 +1926,7 @@
     text-transform: uppercase;
     color: var(--accent-deep);
     background: var(--accent-soft);
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 999px;
     padding: 3px 9px
     }
@@ -2012,7 +2014,7 @@
 }
 #view-resources .podcallout {
     background: var(--accent-soft);
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 22px;
     padding: 44px;
     display: grid;
@@ -2301,7 +2303,7 @@
     transform: rotate(45deg)
     }
 #view-resources .pf-step li a {
-    color: #8FB4FF;
+    color: #A7DAEF;
     font-weight: 600
     }
 #view-resources .resp-detail-body .note {
@@ -3831,7 +3833,7 @@
     font-weight: 700;
     color: var(--accent-deep);
     background: var(--accent-soft);
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 999px;
     padding: 5px 12px;
     cursor: pointer;
@@ -3839,7 +3841,7 @@
     transition: background 0.15s, color 0.15s
     }
 #view-resources .tpl-copy:hover {
-    background: #E1E8FE
+    background: #EAF6FB
     }
 #view-resources .tpl-copy.copied {
     background: #E6F6EC;
@@ -3853,7 +3855,7 @@
     }
 #view-resources .tpl-refbox {
     background: var(--accent-soft);
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 12px;
     padding: 14px 18px;
     margin: 4px 0 30px;
@@ -3876,11 +3878,11 @@
     text-align: left;
     font-weight: 700;
     padding: 4px 10px 4px 0;
-    border-bottom: 1px solid #DCE3FA
+    border-bottom: 1px solid #BFE6F2
     }
 #view-resources .refbox-table td {
     padding: 4px 10px 4px 0;
-    border-bottom: 1px solid #DCE3FA
+    border-bottom: 1px solid #BFE6F2
     }
 #view-resources .refbox-table tr:last-child td {
     border-bottom: none
@@ -3971,7 +3973,7 @@
     color: var(--ink-2);
     margin-top: 16px;
     background: var(--accent-soft);
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 12px;
     padding: 14px 16px
     }
@@ -4082,7 +4084,7 @@
     padding-top: 56.25%;
     border-radius: 10px;
     overflow: hidden;
-    background: #0d1220
+    background: #092e65
     }
 #view-resources .res-video-cap {
     margin: 0 0 8px;
@@ -4152,7 +4154,7 @@
     position: relative;
     padding-top: 100%;
     overflow: hidden;
-    background: #0d1220
+    background: #092e65
     }
 #view-resources .tile-shot img {
     position: absolute;
@@ -4449,7 +4451,7 @@
     width: 28px;
     height: 28px;
     border-radius: 8px;
-    background: #1D4ED8;
+    background: #092E65;
     color: #fff;
     font-family: var(--display);
     font-weight: 700;
@@ -4764,7 +4766,7 @@
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5)
     }
 #view-resources .hh-accent {
-    color: #8FB4FF
+    color: #A7DAEF
     }
 #view-resources .hh-sub {
     font-size: clamp(15px, 1.8vw, 18px);
@@ -4850,7 +4852,7 @@
   #view-sheets .hero-head{margin:0 0 30px}
   #view-sheets .hh-eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.9);margin:0 0 16px;text-shadow:0 1px 3px rgba(0,0,0,.5)}
   #view-sheets .hh-title{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.02em;color:#fff;margin:0 0 18px;text-shadow:0 1px 4px rgba(0,0,0,.5)}
-  #view-sheets .hh-accent{color:#8FB4FF}
+  #view-sheets .hh-accent{color:#A7DAEF}
   #view-sheets .hh-sub{font-size:clamp(15px,1.8vw,18px);line-height:1.6;color:rgba(255,255,255,.9);max-width:66ch;margin:0 0 26px;text-shadow:0 1px 3px rgba(0,0,0,.45)}
   #view-sheets .jump-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:22px 24px;backdrop-filter:blur(4px)}
   #view-sheets .jump-title{font-family:var(--display);font-weight:700;font-size:17px;color:#fff;margin:0 0 14px;text-shadow:0 1px 3px rgba(0,0,0,.4)}
@@ -4864,7 +4866,7 @@
   #view-video-caption .hero-head{margin:0 0 30px}
   #view-video-caption .hh-eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.9);margin:0 0 16px;text-shadow:0 1px 3px rgba(0,0,0,.5)}
   #view-video-caption .hh-title{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.02em;color:#fff;margin:0 0 18px;text-shadow:0 1px 4px rgba(0,0,0,.5)}
-  #view-video-caption .hh-accent{color:#8FB4FF}
+  #view-video-caption .hh-accent{color:#A7DAEF}
   #view-video-caption .hh-sub{font-size:clamp(15px,1.8vw,18px);line-height:1.6;color:rgba(255,255,255,.9);max-width:66ch;margin:0 0 26px;text-shadow:0 1px 3px rgba(0,0,0,.45)}
   #view-video-caption .jump-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:22px 24px;backdrop-filter:blur(4px)}
   #view-video-caption .jump-title{font-family:var(--display);font-weight:700;font-size:17px;color:#fff;margin:0 0 14px;text-shadow:0 1px 3px rgba(0,0,0,.4)}
@@ -5098,7 +5100,7 @@
     }
 #view-sheets .hero h1 em {
     font-style: normal;
-    color: #8FB4FF
+    color: #A7DAEF
     }
 #view-sheets .hero p.sub {
     font-size: clamp(16px, 2vw, 19px);
@@ -5150,7 +5152,7 @@
 #view-sheets .ask-line button {
     background: none;
     border: none;
-    color: #8FB4FF;
+    color: #A7DAEF;
     font-weight: 600;
     cursor: pointer;
     font-family: var(--sans);
@@ -5351,7 +5353,7 @@
     font-weight: 600;
     color: var(--accent-deep);
     background: #fff;
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 999px;
     padding: 6px 13px
     }
@@ -5555,7 +5557,7 @@
     --stage-color: var(--ink-2)
     }
 #view-sheets .flow-stage.stage-escalate {
-    --stage-color: #8FB4FF
+    --stage-color: #A7DAEF
     }
 #view-sheets .flow-stage.stage-difficult {
     --stage-color: var(--coral)
@@ -5665,9 +5667,9 @@
     }
 }
 #view-sheets .fc {
-    --fc-blue: #1D4ED8;
-    --fc-blue-bg: #EEF3FF;
-    --fc-blue-line: #C7D7FE;
+    --fc-blue: #092E65;
+    --fc-blue-bg: #EAF6FB;
+    --fc-blue-line: #BFE6F2;
     --fc-green: #047857;
     --fc-green-bg: #ECFDF5;
     --fc-green-line: #A7F3D0;
@@ -5709,7 +5711,7 @@
     flex: none
     }
 #view-sheets .fc-start {
-    background: linear-gradient(135deg, #1B2F5C, #122345)
+    background: linear-gradient(135deg, #1B2F5C, #092E65)
     }
 #view-sheets .fc-end {
     background: linear-gradient(135deg, #047857, #065F46);
@@ -5769,7 +5771,7 @@
     position: relative;
     border: 1.5px solid var(--fc-blue-line);
     border-radius: 16px;
-    background: linear-gradient(180deg, #F2F7FF, #fff 72%);
+    background: linear-gradient(180deg, #EAF6FB, #fff 72%);
     padding: 16px 18px 16px 22px;
     box-shadow: 0 4px 14px rgba(29, 78, 216, 0.1);
     overflow: hidden
@@ -5928,7 +5930,7 @@
     text-transform: uppercase;
     color: var(--accent-deep);
     background: var(--accent-soft);
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 999px;
     padding: 3px 9px
     }
@@ -6016,7 +6018,7 @@
 }
 #view-sheets .podcallout {
     background: var(--accent-soft);
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 22px;
     padding: 44px;
     display: grid;
@@ -6264,7 +6266,7 @@
     transform: rotate(45deg)
     }
 #view-sheets .pf-step li a {
-    color: #8FB4FF;
+    color: #A7DAEF;
     font-weight: 600
     }
 #view-sheets .resp-detail-body .note {
@@ -7794,7 +7796,7 @@
     font-weight: 700;
     color: var(--accent-deep);
     background: var(--accent-soft);
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 999px;
     padding: 5px 12px;
     cursor: pointer;
@@ -7802,7 +7804,7 @@
     transition: background 0.15s, color 0.15s
     }
 #view-sheets .tpl-copy:hover {
-    background: #E1E8FE
+    background: #EAF6FB
     }
 #view-sheets .tpl-copy.copied {
     background: #E6F6EC;
@@ -7816,7 +7818,7 @@
     }
 #view-sheets .tpl-refbox {
     background: var(--accent-soft);
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 12px;
     padding: 14px 18px;
     margin: 4px 0 30px;
@@ -7839,11 +7841,11 @@
     text-align: left;
     font-weight: 700;
     padding: 4px 10px 4px 0;
-    border-bottom: 1px solid #DCE3FA
+    border-bottom: 1px solid #BFE6F2
     }
 #view-sheets .refbox-table td {
     padding: 4px 10px 4px 0;
-    border-bottom: 1px solid #DCE3FA
+    border-bottom: 1px solid #BFE6F2
     }
 #view-sheets .refbox-table tr:last-child td {
     border-bottom: none
@@ -7934,7 +7936,7 @@
     color: var(--ink-2);
     margin-top: 16px;
     background: var(--accent-soft);
-    border: 1px solid #DCE3FA;
+    border: 1px solid #BFE6F2;
     border-radius: 12px;
     padding: 14px 16px
     }
@@ -8042,7 +8044,7 @@
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: var(--chan-c, #2563EB);
+    background: var(--chan-c, #092E65);
     color: #fff;
     display: flex;
     align-items: center;
@@ -8190,7 +8192,7 @@
     padding-top: 56.25%;
     border-radius: 10px;
     overflow: hidden;
-    background: #0d1220
+    background: #092e65
     }
 #view-sheets .res-video-cap {
     margin: 0 0 8px;
@@ -8260,7 +8262,7 @@
     position: relative;
     padding-top: 100%;
     overflow: hidden;
-    background: #0d1220
+    background: #092e65
     }
 #view-sheets .tile-shot img {
     position: absolute;
@@ -8454,7 +8456,7 @@
 <div class="page-shell">
 <nav id="topnav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top"><svg class="logo" viewBox="0 0 34 30" fill="none" aria-hidden="true"><g transform="skewX(-7)" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.2" fill="none"><path d="M3 3 L9.5 27 L17 9" stroke="#8FB4FF"/><path d="M17 9 L24 27 L31 3" stroke="#3E6FE6"/></g></svg> Pod Lead Handbook</a>
+    <a class="brand" href="#top"><svg class="logo" viewBox="0 0 2945 1894" aria-hidden="true"><g transform="translate(-20.4,1913.6) scale(0.1,-0.1)" fill="#092E65"><path d="M7297 19130 c-573 -45 -1090 -189 -1597 -446 -798 -404 -1445 -1055 -1835 -1849 -93 -189 -3316 -7389 -3378 -7545 -307 -780 -366 -1644 -167 -2466 406 -1683 1789 -2921 3517 -3149 1072 -141 2211 172 3073 844 405 316 804 769 1026 1168 20 35 38 62 40 60 2 -2 -17 -64 -42 -138 -82 -247 -143 -523 -181 -829 -25 -203 -25 -694 1 -900 137 -1125 676 -2099 1541 -2789 595 -475 1316 -776 2100 -878 177 -23 768 -26 935 -5 518 65 978 202 1414 419 796 396 1455 1053 1854 1848 22 44 511 1133 1087 2420 576 1287 1049 2342 1052 2345 3 3 3 -6 -1 -20 -26 -100 -70 -339 -87 -469 -199 -1550 505 -3097 1806 -3965 1313 -877 2998 -939 4370 -161 708 401 1293 1016 1658 1740 52 104 3822 8512 3873 8639 440 1088 394 2305 -126 3365 -403 820 -1046 1468 -1860 1876 -437 219 -865 349 -1365 416 -230 31 -739 34 -965 6 -1372 -171 -2523 -941 -3179 -2127 -44 -80 -145 -289 -224 -465 -79 -176 -449 -1001 -822 -1833 -373 -832 -680 -1511 -682 -1509 -2 2 8 51 21 108 32 136 61 300 82 479 25 201 25 675 1 880 -96 814 -393 1531 -895 2163 -199 249 -544 575 -822 774 -973 699 -2230 940 -3402 652 -746 -183 -1401 -552 -1944 -1094 -195 -194 -310 -328 -444 -515 -226 -316 -292 -446 -752 -1472 -423 -944 -432 -964 -422 -933 29 98 106 425 123 525 146 875 14 1755 -383 2547 -631 1260 -1851 2108 -3266 2268 -160 19 -581 27 -733 15z"/></g></svg> Pod Lead Handbook</a>
     <div class="nav-links">
       <button class="tab active" data-view="home">Home</button>
       <button class="tab" data-view="handbook">Your Role</button>
@@ -8479,7 +8481,7 @@
         </div>
       </div>
       <a class="tab" href="mailto:support@op.workada.co" target="_blank" rel="noopener">Support ↗</a>
-      <a class="btn accent" href="https://workada.co" target="_blank" rel="noopener">Dashboard →</a>
+      <a class="btn accent" href="https://workada.com" target="_blank" rel="noopener">Dashboard →</a>
     </div>
   </div>
 </nav>
@@ -8502,21 +8504,21 @@
       <div class="kicker-light"><span class="kn-light" aria-hidden="true">•</span><span>Workada at a Glance</span></div>
       <p class="glance-intro">At Workada, everything we build, every project, every partnership, every platform decision, comes back to three things. These aren't values we put on a wall. They're the principles that shape how we work, what we reward, and where we're headed together.</p>
       <div class="glance-grid">
-        <div class="glance-card" style="--glance-c:#122345">
+        <div class="glance-card" style="--glance-c:#092E65">
           <div class="glance-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
           <h3>Quality</h3>
           <div class="glance-accent"></div>
           <p>Quality is our north star. We don't trade great work for speed or scale. Every annotation matters because it shapes real AI outcomes, and because it determines what Contributors can access, earn, and achieve on the platform.</p>
           <p>Quality isn't a standard we impose. It's the key that opens every door. The more your pod brings it, the more Workada brings back: more projects, more opportunity, more room to grow.</p>
         </div>
-        <div class="glance-card" style="--glance-c:#4a7c9b">
+        <div class="glance-card" style="--glance-c:#1db5da">
           <div class="glance-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <h3>Community</h3>
           <div class="glance-accent"></div>
           <p>Workada isn't just a platform, it's a community. We look out for our Contributors, and they raise the quality of everything we build. That's not a tagline, it's how this actually works, and it's a big part of what your pod is building day to day.</p>
           <p>When Contributors grow, in skill, in earnings, in impact, Workada grows too. We invest in the people who show up, do the work, and push each other to be better.</p>
         </div>
-        <div class="glance-card" style="--glance-c:#3b82f6">
+        <div class="glance-card" style="--glance-c:#1db5da">
           <div class="glance-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
           <h3>Opportunity</h3>
           <div class="glance-accent"></div>
@@ -8642,7 +8644,7 @@
         </details>
       </div>
 
-      <div class="resp-track-row reveal" style="--resp-c:#4F86F7">
+      <div class="resp-track-row reveal" style="--resp-c:#1DB5DA">
         <span class="resp-track-marker">4</span>
         <details class="resp-detail" id="resp-4">
           <summary>
@@ -8694,11 +8696,13 @@
     <span class="step-line" style="--sc:var(--slate)"></span>
     <a href="#sop-weekly" class="step-item" data-target="sop-weekly" style="--sc:var(--ink-2)"><span class="step-num">3</span><span class="step-label">Weekly To-Dos</span></a>
     <span class="step-line" style="--sc:var(--ink-2)"></span>
-    <a href="#sop-escalate" class="step-item" data-target="sop-escalate" style="--sc:#8FB4FF"><span class="step-num">4</span><span class="step-label">How to Escalate</span></a>
-    <span class="step-line" style="--sc:#8FB4FF"></span>
-    <a href="#sop-difficult" class="step-item" data-target="sop-difficult" style="--sc:var(--coral)"><span class="step-num">5</span><span class="step-label">Difficult Situations</span></a>
+    <a href="#sop-escalate" class="step-item" data-target="sop-escalate" style="--sc:#A7DAEF"><span class="step-num">4</span><span class="step-label">How to Escalate</span></a>
+    <span class="step-line" style="--sc:#A7DAEF"></span>
+    <a href="#sop-timemilking" class="step-item" data-target="sop-timemilking" style="--sc:var(--accent)"><span class="step-num">5</span><span class="step-label">Time Milking</span></a>
+    <span class="step-line" style="--sc:var(--accent)"></span>
+    <a href="#sop-difficult" class="step-item" data-target="sop-difficult" style="--sc:var(--coral)"><span class="step-num">6</span><span class="step-label">Difficult Situations</span></a>
     <span class="step-line" style="--sc:var(--coral)"></span>
-    <a href="#sop-support" class="step-item" data-target="sop-support" style="--sc:var(--ink)"><span class="step-num">6</span><span class="step-label">Support Queue</span></a>
+    <a href="#sop-support" class="step-item" data-target="sop-support" style="--sc:var(--ink)"><span class="step-num">7</span><span class="step-label">Support Queue</span></a>
   </nav>
 
   <div class="flow-stage stage-start" id="sop-start">
@@ -8708,7 +8712,7 @@
     </div>
     <div class="sop-track">
       <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Get recommended</h4><p>A current Pod Lead recommends you to a Pod Lead Experience Specialist. You'll be considered based on being a great communicator, demonstrating leadership, and paying close attention to detail.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Log into your dashboard</h4><p>Log in at <a href="https://workada.co" target="_blank" rel="noopener">workada.co</a> with the <b>Login</b> button, top right. From there, click the <b>blue button in the top-right corner</b> to open your Workada project portal. This is where you'll manage your pod day to day. Prefer to watch it once? The <a href="#" onclick="goToResource('res-howto-videos');return false;">how-to setup videos</a> walk through the same screens.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Log into your dashboard</h4><p>Log in at <a href="https://workada.com" target="_blank" rel="noopener">workada.com</a> with the <b>Login</b> button, top right. From there, click the <b>blue button in the top-right corner</b> to open your Workada project portal. This is where you'll manage your pod day to day. Prefer to watch it once? The <a href="#" onclick="goToResource('res-howto-videos');return false;">how-to setup videos</a> walk through the same screens.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Slack</h4><p>Your pod's home base, download it on every device today. Use your pod channel daily for check-ins and team-building. Your Pod Lead slack channel is peer-to-peer support only.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Calendly / Google Calendar</h4><p>Set up a Calendly or Google Calendar with your office hours open to Contributors, so they can grab a <b>15-minute slot</b> with you whenever they need one, no back-and-forth to schedule. Share the link in your pod's Slack channel.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Know where to go for help</h4><p>For product bugs, timer, pay, tasks, error messages, <a href="#" onclick="goToResource('res-support-ticket');return false;">email support@op.workada.co</a>. More on this in <a href="#" onclick="goToFaq('issues');return false;">How to Escalate</a> below.</p></div></div>
@@ -8726,7 +8730,6 @@
       <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Review new work fast</h4><p>A new Contributor's first 3 tasks get reviewed within 24 hours, that early feedback loop is what sets the tone for everything after.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Do your own work</h4><p>You're a <b>player-coach</b>: you task alongside your pod, not just manage it. Your own output sets the standard the pod is measured against.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Watch for early signals</h4><p>If someone's gone quiet or a score starts slipping, reach out before it becomes a pattern, not after. See <a href="#" onclick="goToResource('sec-quality-bar-coaching');return false;">Quality Bar &amp; Coaching</a> for the full remediation process.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Keep Contributor metrics up to date</h4><p>Use your copy of the <a href="https://docs.google.com/spreadsheets/d/1J2rIT_loBPO9Fp_dbpNJlvtCKyuBhNxPxeGy7xDvpWk/edit?usp=sharing" target="_blank" rel="noopener">Contributor Metrics Tracking Template</a> daily so nothing slips through. Increase quality hours for CBs, using <a href="https://docs.google.com/document/d/1bN2bjaeKIoG3z0nmtnbZQiOJiHhY8n8TTlrktRVVLcY/edit?usp=sharing" target="_blank" rel="noopener">this guide</a>.</p></div></div>
     </div>
   </div>
 
@@ -8752,14 +8755,29 @@
       <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Role questions, feedback, aging tickets</h4><p>Escalate to your Pod Lead Experience Specialist.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Product bugs</h4><p>Timer, pay, tasks, error messages, <a href="#" onclick="goToResource('res-support-ticket');return false;">go straight to support@op.workada.co</a>.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Conduct issues</h4><p>Review the <a href="#" onclick="goToResource('res-coc');return false;">Code of Conduct</a>, then <a href="mailto:valeria.ballesteros@meridian.ai">escalate directly</a> with full context, don't try to resolve a conduct issue on your own.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Offboarding a Contributor</h4><p>Submit it on the <a href="#" onclick="goToResource('res-offboarding');return false;">Offboarding Form</a>. Full list of reasons and what happens next is in <a href="#" onclick="goToFaq('issues');return false;">Issues, Conduct &amp; Offboarding</a>.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Offboarding a Contributor</h4><p>Open their profile from the <b>Members</b> tab and click <b>Request Offboarding</b> in the top right of their profile card. Fill out the required additional notes with what you've already done, and allow 48 hours before resubmitting, don't duplicate requests. A built-in Pod Lead flag catches an accidental self-offboard. Full list of reasons and what happens next is in <a href="#" onclick="goToFaq('issues');return false;">Issues, Conduct &amp; Offboarding</a>.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Before you escalate anything</h4><p>Review the <a href="#" onclick="goToFaq('issues');return false;">Support Queue best practices</a> below, a lot of what feels urgent has a faster path than a ticket.</p></div></div>
+    </div>
+  </div>
+
+  <div class="flow-stage stage-timemilking" id="sop-timemilking">
+    <div class="stage-head">
+      <span class="stage-num">5</span>
+      <div class="stage-head-text"><span class="stage-eyebrow">Time Milking</span><h3 class="stage-title">Watching for Stretched Task Time</h3></div>
+    </div>
+    <div class="note" style="margin-bottom:16px"><span class="ntag">What it is</span><span>Stretching a task well past the time it genuinely needs, so more hours get billed without more work getting done. Look for long handle times with no matching output, sitting idle on an open task page, or a timer running through breaks and distractions. Most of it isn't malicious, some Contributors are being careful, some are distracted, and some genuinely think slower means better. The result is the same.</span></div>
+    <div class="sop-track">
+      <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Know your pod's normal</h4><p>Watch average handle time per task type in your dashboard so you can spot who sits well outside it, because you can't coach a pattern you haven't measured.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Watch how many are drifting, not just who</h4><p>If several Contributors are slow on the same task type, that's a training or clarity problem rather than an integrity one, so fix the cause before you coach the person.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Lead with a question, not an accusation</h4><p>Try "I noticed these tasks are taking longer than usual, what's slowing you down?" Often the answer is a real blocker you can remove.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Teach the timer habit</h4><p>Timer on when work starts, timer off for breaks, and never leave a task page open while stepping away. Pair it with the task time limits doc so they know the pace expected.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Escalate real patterns</h4><p>If hours still don't match visible output after you've coached, file a Contributor Activity Flag with dates, times, and screenshots, and no speculation about intent.</p></div></div>
     </div>
   </div>
 
   <div class="flow-stage stage-difficult" id="sop-difficult">
     <div class="stage-head">
-      <span class="stage-num">5</span>
+      <span class="stage-num">6</span>
       <div class="stage-head-text"><span class="stage-eyebrow">Difficult Situations</span><h3 class="stage-title">Handling a Tough Moment With a Contributor</h3></div>
     </div>
     <div class="sop-track">
@@ -8773,7 +8791,7 @@
 
   <div class="flow-stage stage-support" id="sop-support">
     <div class="stage-head">
-      <span class="stage-num">6</span>
+      <span class="stage-num">7</span>
       <div class="stage-head-text"><span class="stage-eyebrow">Support Queue</span><h3 class="stage-title">Using Support Well</h3></div>
     </div>
     <div class="sqf" role="group" aria-label="Support queue flow: sending an issue to the right place">
@@ -9212,9 +9230,9 @@ To make sure you're following the process correctly and getting the support you 
           <h4>A Contributor failed image eval training. How do I assess whether I should pass them to calibration?</h4>
           <p>At your own discretion. Have a 1:1 with the Contributor to give guidance, re-train, and have them watch you go through a task. If you feel confident they will do better, go ahead and pass them.</p>
           <h4>How do Contributors sign up for Multimango?</h4>
-          <p>They start from the 'Getting Started' card on their Workada dashboard, sign up at multimango.com using their <b>workada.co email</b> (not personal), verify with the 6-digit code, then confirm back on the Workada dashboard. Approval is manual and typically takes up to ~1 hour.</p>
+          <p>They start from the 'Getting Started' card on their Workada dashboard, sign up at multimango.com using their <b>workada.com email</b> (not personal), verify with the 6-digit code, then confirm back on the Workada dashboard. Approval is manual and typically takes up to ~1 hour.</p>
           <h4>A Contributor is stuck on a blank Welcome screen after signing up, what's going on?</h4>
-          <p>Almost always one of two things:<ul><li><b>Not approved yet</b>: the 'Tasks' option only appears after manual approval. They must have clicked 'I created my account' on their Workada dashboard to be on the approval list.</li><li><b>Signed up with the wrong email</b>: if they used a personal email instead of workada.co, they won't appear on the approved list and need to create a new account with the correct one.</li></ul></p>
+          <p>Almost always one of two things:<ul><li><b>Not approved yet</b>: the 'Tasks' option only appears after manual approval. They must have clicked 'I created my account' on their Workada dashboard to be on the approval list.</li><li><b>Signed up with the wrong email</b>: if they used a personal email instead of workada.com, they won't appear on the approved list and need to create a new account with the correct one.</li></ul></p>
           <h4>What task types exist on Multimango, and are there known quirks?</h4>
           <p>Available types rotate unpredictably, Text to Video, Multi-Capability Model Ranking, Text To Image Compare, Reference to Image Ranking, but everyone should have at least one available at any time. Switch types rather than sitting idle if a preferred one isn't up.<div class='note'><span class='ntag'>Known, expected quirks, not bugs to report individually</span><ul style='margin-top:6px'><li>'Text To Image Compare' and 'Text-to-Image Comparison' are two different tasks despite the similar name.</li><li>'No Active ELO Evaluations' message on Text to Image Compare is expected and already being tracked, just switch task types.</li><li>A task can time out and its type can temporarily vanish from the dashboard, refresh and try other types; it typically comes back.</li><li>If media won't load, refresh first; if it persists across multiple tasks, screenshot and report it.</li><li>Only 'Overall Preference' shown with no other dimensions is expected for certain task formats.</li><li>QA feedback appears at sporadic intervals, not after every task.</li></ul></div></p>
           <h4>What's the current Multimango quality focus?</h4>
@@ -9505,10 +9523,6 @@ To make sure you're following the process correctly and getting the support you 
   <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources</span></div><h2>Get up to speed</h2><p>Start here before diving into project-specific resources.</p></div>
   <div class="reslist">
       <div class="res-group-label">Onboarding</div>
-      <a class="reslink" id="res-training-deck" href="https://canva.link/nll09uvi7er2zdv" target="_blank" rel="noopener">
-        <span class="res-body"><span class="res-name">Pod Lead Onboarding</span><span class="res-sub">The full training deck</span></span>
-        <span class="res-arrow">↗</span>
-      </a>
       <details class="res-drop" id="res-howto-videos">
         <summary>
           <span class="res-body"><span class="res-name">How-to Setup Videos</span><span class="res-sub">Watch these to get up to speed</span></span>
@@ -9516,25 +9530,11 @@ To make sure you're following the process correctly and getting the support you 
         </summary>
         <div class="res-drop-body">
           <div class="res-video">
-            <p class="res-video-cap">Setup walkthrough, part 1 of 3</p><div class="res-video-frame"><iframe src="https://www.loom.com/embed/ee30f1ce666440b6b2e7119b79d27c36" title="Pod Lead setup walkthrough, part 1 of 3" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div>
-          </div>
-          <div class="res-video">
-            <p class="res-video-cap">Setup walkthrough, part 2 of 3</p><div class="res-video-frame"><iframe src="https://www.loom.com/embed/21f52c61f7a742c38d85e77bb92bf298" title="Pod Lead setup walkthrough, part 2 of 3" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div>
-          </div>
-          <div class="res-video">
-            <p class="res-video-cap">Setup walkthrough, part 3 of 3</p><div class="res-video-frame"><iframe src="https://www.loom.com/embed/c1d0a32f75fd419ab82f8b2db625bf83" title="Pod Lead setup walkthrough, part 3 of 3" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div>
+            <div class="res-video-frame"><iframe src="https://www.loom.com/embed/21f52c61f7a742c38d85e77bb92bf298" title="Pod Lead setup walkthrough" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div>
           </div>
         </div>
       </details>
       <div class="res-group-label">Forms &amp; Trackers</div>
-      <a class="reslink" id="res-vacation" href="https://docs.google.com/forms/d/e/1FAIpQLSckQkJRQ70zotCmuu_TjVUzY8ApoqjJU7WXnSoUPOXmpTWAEA/viewform" target="_blank" rel="noopener">
-        <span class="res-body"><span class="res-name">Vacation / Time Off Form</span><span class="res-sub">Report planned time off ahead of your dates</span></span>
-        <span class="res-arrow">↗</span>
-      </a>
-      <a class="reslink" id="res-offboarding" href="https://docs.google.com/forms/d/e/1FAIpQLSetoJk5xmp1xtKIXSu2e7-AT-fD3AkNe_sYMS-la0BJD_lxTQ/viewform" target="_blank" rel="noopener">
-        <span class="res-body"><span class="res-name">Offboarding Form</span><span class="res-sub">Submit an offboarding request</span></span>
-        <span class="res-arrow">↗</span>
-      </a>
       <a class="reslink" href="https://docs.google.com/forms/d/e/1FAIpQLSf8hk_BeyL4vVk4bPFTwAXiJ3cGa_H5EutM03HuO-RySoyp_g/viewform?usp=header" target="_blank" rel="noopener">
         <span class="res-body"><span class="res-name">Handbook Improvements Form</span><span class="res-sub">Add any suggestions to improve Workada approved resources.</span></span>
         <span class="res-arrow">↗</span>
@@ -9550,7 +9550,7 @@ To make sure you're following the process correctly and getting the support you 
       </a>
       <div class="res-group-label">Support</div>
       <a class="reslink" id="res-support-form" href="https://docs.google.com/forms/d/e/1FAIpQLScU5P4cjA4T9oDotQq3nv8Qs_5WP1dHfwg0NkwrQMRPHeLIRw/viewform?usp=header" target="_blank" rel="noopener">
-        <span class="res-body"><span class="res-name">Support Form</span><span class="res-sub">For feedback, sharing ideas, escalating aging tickets, referring a Contributor to Pod Lead, and questions around your role.</span></span>
+        <span class="res-body"><span class="res-name">Support Form</span><span class="res-sub">For feedback, escalating aging tickets, and referring a Contributor to Pod Lead.</span></span>
         <span class="res-arrow">↗</span>
       </a>
       <a class="reslink" id="res-support-ticket" href="mailto:support@op.workada.co">
@@ -9665,23 +9665,23 @@ Talk soon,
     </div>
 
     <div class="chan-grid">
-      <a class="chan-card" style="--chan-c:#2563EB" href="https://tsipai.slack.com/archives/C0B4N7RNPPZ" target="_blank" rel="noopener">
+      <a class="chan-card" style="--chan-c:#092E65" href="https://tsipai.slack.com/archives/C0B4N7RNPPZ" target="_blank" rel="noopener">
         <span class="chan-ic" aria-hidden="true">#</span>
         <span><span class="chan-name">#new-onboards</span><span class="chan-sub">Guide new Contributors here while they wait to be assigned a Pod Lead.</span></span>
       </a>
-      <a class="chan-card" style="--chan-c:#4A7C9B" href="https://tsipai.slack.com/archives/C0BJWEPNF25" target="_blank" rel="noopener">
+      <a class="chan-card" style="--chan-c:#1DB5DA" href="https://tsipai.slack.com/archives/C0BJWEPNF25" target="_blank" rel="noopener">
         <span class="chan-ic" aria-hidden="true">#</span>
         <span><span class="chan-name">#sheets-pod-leads</span><span class="chan-sub">Support each other, build community, and bring your questions to the Ops team.</span></span>
       </a>
-      <a class="chan-card" style="--chan-c:#2C3A5E" href="https://tsipai.slack.com/archives/C0AD7D9PLMC" target="_blank" rel="noopener">
+      <a class="chan-card" style="--chan-c:#3A3A3A" href="https://tsipai.slack.com/archives/C0AD7D9PLMC" target="_blank" rel="noopener">
         <span class="chan-ic" aria-hidden="true">#</span>
         <span><span class="chan-name">#welcome</span><span class="chan-sub">Review the welcome message and get oriented to the training and tasking ahead.</span></span>
       </a>
-      <a class="chan-card" style="--chan-c:#2563EB" href="https://tsipai.slack.com/archives/C0AV62WPVJ7" target="_blank" rel="noopener">
+      <a class="chan-card" style="--chan-c:#092E65" href="https://tsipai.slack.com/archives/C0AV62WPVJ7" target="_blank" rel="noopener">
         <span class="chan-ic" aria-hidden="true">#</span>
         <span><span class="chan-name">#training-q-and-a</span><span class="chan-sub">Ask questions and find answers about the training.</span></span>
       </a>
-      <a class="chan-card" style="--chan-c:#4A7C9B" href="https://tsipai.slack.com/archives/C0B3LGF26DC" target="_blank" rel="noopener">
+      <a class="chan-card" style="--chan-c:#1DB5DA" href="https://tsipai.slack.com/archives/C0B3LGF26DC" target="_blank" rel="noopener">
         <span class="chan-ic" aria-hidden="true">#</span>
         <span><span class="chan-name">#contributor-announcements</span><span class="chan-sub">Check daily for announcements from the Ops team.</span></span>
       </a>
@@ -9894,7 +9894,7 @@ Talk soon,
       </div>
 
       <!-- Comms -->
-      <div class="resp-track-row" style="--resp-c:#8FB4FF">
+      <div class="resp-track-row" style="--resp-c:#A7DAEF">
         <div class="resp-track-marker">4</div>
         <details class="resp-detail">
           <summary>
@@ -10270,7 +10270,7 @@ Welcome again, excited to have you in our pod!</pre>
       <div class="foot-brand">Workada</div>
     </div>
     <div class="foot-links">
-      <a href="https://workada.co" target="_blank" rel="noopener">workada.co</a>
+      <a href="https://workada.com" target="_blank" rel="noopener">workada.com</a>
     </div>
   </div>
   <div class="wrap"><div class="fine">Workada Pod Lead Handbook · An internal resource for Pod Leads.</div></div>
@@ -10291,7 +10291,7 @@ Welcome again, excited to have you in our pod!</pre>
 /* ===== CONFIG (no backend), submissions open a pre-filled email to SUPPORT_EMAIL.
    Set the form URLs to route to Google Forms instead (leave null to use email). ===== */
 const SUPPORT_EMAIL = "support@op.workada.co";
-const QUESTION_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScU5P4cjA4T9oDotQq3nv8Qs_5WP1dHfwg0NkwrQMRPHeLIRw/viewform?usp=header";
+const QUESTION_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScU5P4cjA4T9oDotQq3nv8Qs_5WP1dHfwg0NkwrQMRPHeLIRw/viewform?usp=sharing&ouid=115142058578405123248";
 const FEEDBACK_FORM_URL = null;
 
 const CHECKLIST = [
@@ -10378,30 +10378,30 @@ const ANNOUNCEMENTS = [
   {tag:"new", label:"New Resource", date:"2026-07-14",
     text:"<b>Text-to-Video best practices and <a href='https://docs.google.com/document/d/1DfONVSgub7630K7jrBUkTUg9l5CYQ0tLP0Nk9x7llBw/edit?tab=t.0' target='_blank' rel='noopener'>tasking checklist</a> just dropped!</b> We analyzed the quality assurance responses from the Multimango team and pulled together what's included in each dimension, best-practice tips for each dimension and for tasking overall, and a checklist of questions to ask yourself before submitting. Make a copy of the doc and check items off as you complete each text-to-video task. <a href='https://docs.google.com/document/d/1DfONVSgub7630K7jrBUkTUg9l5CYQ0tLP0Nk9x7llBw/edit?tab=t.0' target='_blank' rel='noopener' style='color:var(--accent-text);text-decoration:underline'>Please read it</a> thoroughly before continuing on any text-to-video tasks, and let us know if you have questions. <a href='https://docs.google.com/document/d/1DfONVSgub7630K7jrBUkTUg9l5CYQ0tLP0Nk9x7llBw/edit?tab=t.0' target='_blank' rel='noopener'>View the checklist</a> (also available on <a href='http://app.workada.com/additional-learning' target='_blank' rel='noopener' style='color:var(--accent-text);text-decoration:underline'>app.workada.com/additional-learning</a>)."},
   {tag:"heads", label:"Please Read", date:"2026-07-09", group:"July 9, 2026 Newsletter",
-    text:"<b>Updated guidance on <a href='http://multimango.com' target='_blank' rel='noopener'>multimango.com</a> tasking, please read.</b> A new video training is coming soon, but in the meantime: watch each video 10–12 times (focusing on one dimension at a time works well), and don't let your overall preference bias every dimension, vary your ratings so each one reflects that specific video, including using “slightly” vs. “strongly” prefer accurately. The Multimango team is also working on stabilizing your task queue, keeping a task always available, and fixing audio sync issues, if a task has an <b>audio quality &amp; sync</b> dimension but no sound, email <a href='mailto:support@workada.co'>support@workada.co</a> with the task ID and a screenshot."},
+    text:"<b>Updated guidance on <a href='http://multimango.com' target='_blank' rel='noopener'>multimango.com</a> tasking, please read.</b> A new video training is coming soon, but in the meantime: watch each video 10–12 times (focusing on one dimension at a time works well), and don't let your overall preference bias every dimension, vary your ratings so each one reflects that specific video, including using “slightly” vs. “strongly” prefer accurately. The Multimango team is also working on stabilizing your task queue, keeping a task always available, and fixing audio sync issues, if a task has an <b>audio quality &amp; sync</b> dimension but no sound, email <a href='mailto:support@workada.com'>support@workada.com</a> with the task ID and a screenshot."},
   {tag:"upd", label:"Quality Update", date:"2026-07-09", group:"July 9, 2026 Newsletter",
     text:"<b>Key issues from the latest quality audit.</b> Annotators are picking the same response (e.g. always “slightly prefer B”) across every dimension after forming an overall preference, instead of judging each dimension on its own, and missing clear instruction-following differences between two videos. Watch each video 10–12 times and de-emphasize speed; quality comes first. Video tasks remain the focus going forward and may expand to image-to-video."},
   {tag:"fix", label:"Payment Update", date:"2026-07-09", group:"July 9, 2026 Newsletter",
-    text:"<b>Update on this week's payouts.</b> Last night's pay cycle went out a few hours later than usual, sorry for the wait and uncertainty it caused. Most payments have already gone out and should show in your dashboard (allow a couple hours to reflect); a smaller number are still processing and will land by end of day. If your payment still isn't showing by tomorrow morning, email <a href='mailto:support@workada.co'>support@workada.co</a> and we'll look into your account."}
+    text:"<b>Update on this week's payouts.</b> Last night's pay cycle went out a few hours later than usual, sorry for the wait and uncertainty it caused. Most payments have already gone out and should show in your dashboard (allow a couple hours to reflect); a smaller number are still processing and will land by end of day. If your payment still isn't showing by tomorrow morning, email <a href='mailto:support@workada.com'>support@workada.com</a> and we'll look into your account."}
 ];
 
 /* New Pod Leads to welcome, set this to whoever is NEW vs. yesterday (they appear once, then remove them next update). */
 const NEW_PODLEADS = [
-  {name:"Anthony C", email:"anthonychukwu@workada.co"},
-  {name:"Andres A", email:"andresamavizca@workada.co"},
-  {name:"Philip M", email:"philipmecham@workada.co"},
-  {name:"Jamal W", email:"jamalwhitaker@workada.co"},
-  {name:"Montserrat S", email:"montserratserrano@workada.co"},
-  {name:"Kaitlyn D", email:"kaitlyndemeulenaere@workada.co"},
-  {name:"Amber H", email:"amberhuddlestun@workada.co"},
-  {name:"James I", email:"jamesinanoria@workada.co"},
-  {name:"Angel V", email:"angelvillegas@workada.co"},
-  {name:"Natalia N", email:"natalianunezlimon@workada.co"}
+  {name:"Anthony C", email:"anthonychukwu@workada.com"},
+  {name:"Andres A", email:"andresamavizca@workada.com"},
+  {name:"Philip M", email:"philipmecham@workada.com"},
+  {name:"Jamal W", email:"jamalwhitaker@workada.com"},
+  {name:"Montserrat S", email:"montserratserrano@workada.com"},
+  {name:"Kaitlyn D", email:"kaitlyndemeulenaere@workada.com"},
+  {name:"Amber H", email:"amberhuddlestun@workada.com"},
+  {name:"James I", email:"jamesinanoria@workada.com"},
+  {name:"Angel V", email:"angelvillegas@workada.com"},
+  {name:"Natalia N", email:"natalianunezlimon@workada.com"}
 ];
 
 const FAQ = [
   {id:"dashboard", icon:"01", title:"Dashboard & Portal Access", subt:"Logging in and finding your way around", items:[
-    {q:"How do I access my Pod Lead dashboard?", a:"Log in via <a href='https://workada.co' target='_blank' rel='noopener'>workada.co</a> using the <b>Login</b> button in the top-right corner. Once logged in you'll see your main dashboard. From there, click the <b>blue button in the top right</b> to open your Workada project portal. This is where you manage your Contributors."},
+    {q:"How do I access my Pod Lead dashboard?", a:"Log in via <a href='https://workada.com' target='_blank' rel='noopener'>workada.com</a> using the <b>Login</b> button in the top-right corner. Once logged in you'll see your main dashboard. From there, click the <b>blue button in the top right</b> to open your Workada project portal. This is where you manage your Contributors."},
     {q:"What can I see and do in the portal?", a:"The portal gives you full visibility into your pod:<ul><li><b>Workada Project Dashboard</b>: status of each Contributor.</li><li><b>Training Progress</b>: click the button on your pod view to see each Contributor's attempts, answers, and AI feedback.</li><li><b>Create Training Tasks</b>: build custom training content.</li></ul>See the <a href='https://docs.google.com/document/d/1jPvFKKYZJ12hdIU5h68kkhtf9VC0G7e8xM5DZckd6ro/edit?tab=t.xkvle9fotpz8' target='_blank' rel='noopener'>Create Training Content guide</a> for step-by-step instructions, or the <a href='#' onclick=\"goToResource('res-howto-videos');return false;\">how-to setup videos</a> if you'd rather watch it."}
   ]},
   {id:"secondary-projects", icon:"03", title:"Calibration and Projects", subt:"When a pod gets routed beyond its primary queue", items:[
@@ -10412,11 +10412,11 @@ const FAQ = [
     {q:"A Contributor says the task instructions are unclear. What should they do?", a:"Have them send you a screenshot or hop on a huddle to go over it together. If it looks like a bug, send it to <a href='mailto:support@op.workada.co'>support@op.workada.co</a>; otherwise, just answer to the best of your ability."},
     {q:"How do I handle conduct issues with a Contributor?", a:"<ul><li><b>Have the conversation first</b>: you're the owner of your team; be direct about what's happening and what needs to change.</li><li><b>Know the standard</b>: ties to the <a href='#' onclick=\"goToResource('res-coc');return false;\">Code of Conduct's</a> professionalism requirement.</li><li><b>When to escalate</b>: rude/aggressive behavior, refusal to engage, or no improvement after a direct conversation.</li><li><b>How to escalate</b>: flag it and <a href='#' onclick=\"goToResource('res-escalate');return false;\">email full context to Ops</a>.</li></ul>"},
     {q:"Why would a Contributor get offboarded?", a:"<ul><li><b>Failed training or calibration</b>: didn't pass within the required attempts.</li><li><b>Voluntary</b>: the Contributor notifies their Pod Lead directly; the Pod Lead flags the departure to Ops so access can be revoked.</li><li><b>Quality disablement</b>: triggered when quality falls below threshold after the remediation process.</li><li><b>Dishonesty</b>: covers using AI to do the work for them, copy/paste, spam, and time misuse. Policy is a warning on the first incident, offboarding on the second.</li><li><b>Inactivity</b>: 7+ days without tasking (no submitted work) and no heads-up to their Pod Lead. This is about work, not Slack, a quiet week in Slack or an unanswered message isn't inactivity on its own.</li><li><b>Community guidelines violation</b>: egregious violations result in immediate offboarding, no warning.</li></ul>In every case, the Contributor is paid for all work completed up to their offboarding date, processed in the next scheduled payment cycle."},
-    {q:"Once I submit an offboarding request, what happens next?", a:"Submit the request on the <a href='#' onclick=\"goToResource('res-offboarding');return false;\">Offboarding Form</a>, and it generally takes about 1 business day to process. Once the Contributor is offboarded, both you and the Contributor are notified, and their Slack and Workada email access is revoked. Their Dashboard stays available so they can still check their Sessions and Payments history. If you notice access hasn't been removed promptly, flag it to Ops."}
+    {q:"Once I submit an offboarding request, what happens next?", a:"Click <b>Request Offboarding</b> on the Contributor's profile card, and it generally takes about 2 business days to process. Once the Contributor is offboarded, both you and the Contributor are notified, and their Slack and Workada email access is revoked. Their Dashboard stays available so they can still check their Sessions and Payments history."}
   ]},
   {id:"pay-time-off", icon:"05", title:"Pay, Time Off & Getting Help", subt:"Escalation contacts and coverage", items:[
-    {q:"How do I submit Vacation time and who covers my pod while I'm away?", a:"Pod Leads can work internationally while on vacation, though this is subject to change with a 2-week notice period. Report planned time off through the <a href='#' onclick=\"goToResource('res-vacation');return false;\">Vacation / Time Off Form</a> ahead of time so coverage can be arranged, see the <a href='#' onclick=\"goToResource('res-substitution');return false;\">Substitution Overview</a> for how coverage is assigned."},
-    {q:"How do I connect with other Pod Leads?", a:"Via the Pod Lead Channel on Slack, this channel is meant for Pod Leads to build community and support each other. This channel is also where you will receive announcements from Ops. This channel is not monitored closely by Ops."},
+    {q:"How do I submit Vacation time and who covers my pod while I'm away?", a:"Pod Leads can work internationally while on vacation, though this is subject to change with a 2-week notice period. Report planned time off through the Vacation / Time Off Form ahead of time so coverage can be arranged, see the <a href='#' onclick=\"goToResource('res-substitution');return false;\">Substitution Overview</a> for how coverage is assigned."},
+    {q:"How do I connect with other Pod Leads?", a:"Via the Pod Lead Channel on Slack, this channel is meant for Pod Leads to build community and support each other. This channel is not monitored closely by Ops."},
     {q:"What are the Slack best practices I should share with my pod?", a:"Slack is where your pod stays connected day to day. These shared habits keep every channel easy to scan, so questions get answered faster and nothing gets lost in the scroll.<br/><br/><b>Channels</b><br/>All your channels live on the left. Check <b>Announcements</b> and your pod channel every time you log in, so you're always caught up.<ul><li><b>Announcements</b>: company-wide announcements.</li><li><b>Your pod channel</b>: where you share announcements and info with your pod (e.g. pod-brittany-m, k-pod, mango-pod).</li><li><b>contributor-questions</b>: Contributors post here once training and calibration are done and they're actively tasking.</li><li><b>Social channel</b>: a place to share things that aren't work related.</li></ul><b>Icons</b><br/>Direct-message icons sit on the far left.<ul><li><b>Speech bubble</b>: direct messages, use the pencil icon at the top to send one.</li><li><b>Bell</b>: replies to your messages, threads you're part of, and tags.</li><li><b>Bookmark</b>: hover over a message or thread and click the bookmark icon to save it for later.</li></ul><b>Threads</b><br/>In the top-right corner of your Slack home page you can click <b>Threads</b> to see every thread you've replied to, all in one place. It's the fastest way to pick back up on conversations you're part of.<br/><br/><b>Search bar</b><br/>Can't find an answer in the Contributor Resources tab?<ul><li>Use the search bar at the top of Slack first, don't post a question without searching. Someone's probably already asked it and gotten an answer.</li><li>To search one channel only, click the channel, click the search bar, and choose that channel from the drop-down.</li></ul><b>Format for posting in Slack</b><br/>To keep Slack clean and easy to scan, use this format every time you post:<ol><li>Post a 3–5 word title in <b>bold</b> that sums up the issue. Send it, then hover over the title and click <b>Reply in thread</b> to add the rest of the message.</li><li>Reply within that same thread, keep every reply and screenshot there.</li><li>Use bullet points or other formatting when a message in a thread runs long.</li><li>Use the <b>+</b> at the bottom of the message box to add screenshots to the thread.</li><li>To edit a message: hover over it, click the three dots, click <b>Edit</b>, then <b>Save</b>.</li><li>Add a green checkmark once the issue is solved. You can also add it when you resolve a Contributor's issue.</li></ol><b>Knowing @all vs @here</b><br/>Both notify people in a channel, but they're not the same, so choose the one that fits the moment.<ul><li><b>@here</b> notifies only the people who are currently active in the channel. Use it for time-sensitive things that can wait if someone's away, like a quick question or a heads-up during working hours.</li><li><b>@all</b> (or @channel) notifies everyone in the channel, active or not. Save it for genuinely important messages everyone needs to see, like a policy change or an urgent update.</li><li>When in doubt, reach for <b>@here</b>. Overusing <b>@all</b> trains people to tune out notifications, so it works best when it's rare.</li></ul><b>Managing your notifications</b><br/>To turn notifications for a thread on or off: open the thread, click the three dots in the top right, then turn notifications on or off as needed."}
   ]},
   {id:"contrib-ref", icon:"06", title:"Contributor Reference", subt:"What your Contributors see and ask about, so you can answer without escalating", items:[
@@ -10425,8 +10425,7 @@ const FAQ = [
     {q:"When does Tasking unlock?", a:"When all 4 Setup tasks are done <b>and</b> training review is approved. Then they log in at workada.com/tasks to see available projects."}
   ]},
   {id:"templates", icon:"07", title:"Templates & Tools", subt:"Where to find what other Pod Leads already built", items:[
-    {q:"Where's the full training deck and setup videos?", a:"The <a href='#' onclick=\"goToResource('res-training-deck');return false;\">Pod Lead Onboarding</a> deck has the full training. Prefer video? The <a href='#' onclick=\"goToResource('res-howto-videos');return false;\">how-to setup videos</a> cover the same ground screen by screen."},
-    {q:"Where do I track my Contributors' metrics?", a:"Via your dashboard under Members and Insights, plus you can use the <a href=\"https://docs.google.com/spreadsheets/d/1J2rIT_loBPO9Fp_dbpNJlvtCKyuBhNxPxeGy7xDvpWk/edit?usp=sharing\" target=\"_blank\" rel=\"noopener\">Contributor Metrics Tracking Template</a> to keep track of your members. It covers where each Contributor sits in onboarding/training, free-text notes on responsiveness and quality, a status column, and a per-contributor log of attempts, hours, productivity, average score, and defect rate over time."},
+    {q:"Where's the setup walkthrough?", a:"The <a href='#' onclick=\"goToResource('res-howto-videos');return false;\">how-to setup videos</a> cover the same ground screen by screen."},
     {q:"Where do the official comms templates live?", a:"The <a href='#' onclick=\"goToResource('res-message-templates');return false;\">Message Templates</a> drop-down in Project Resources is grouped by the moment you need it, onboarding &amp; welcome, feedback &amp; coaching, and retention &amp; celebration, all copy-paste ready. Multimango-specific scripts (offboarding, detailed feedback, and metrics) live in the MM Message Templates drop-down in the Multimango and Video Eval tab. Use these instead of paraphrasing policy from memory, so Contributors get consistent, accurate information."}
   ]}
 ];
@@ -10565,7 +10564,7 @@ function openFeedback(prefill){
       '<button type="button" data-r="Needs work">\ud83d\ude41</button><button type="button" data-r="Okay">\ud83d\ude10</button>'+
       '<button type="button" data-r="Good">\ud83d\ude42</button><button type="button" data-r="Great">\ud83d\ude04</button></div>'+
     '<label for="fText">Your feedback</label><textarea id="fText" placeholder="What would make this better?"></textarea>'+
-    '<label for="fEmail">Email <span style="color:var(--muted);font-weight:500">(optional, for a reply)</span></label><input id="fEmail" type="email" placeholder="you@workada.co" />'+
+    '<label for="fEmail">Email <span style="color:var(--muted);font-weight:500">(optional, for a reply)</span></label><input id="fEmail" type="email" placeholder="you@workada.com" />'+
     '<div class="actions"><button class="btn ghost" id="cancelF">Cancel</button><button class="btn accent" id="sendF">Send feedback</button></div>'+
     '<div class="hint">Opens your email app, pre-addressed to '+SUPPORT_EMAIL+'.</div>');
   if(prefill)$('#fText').value=prefill;
