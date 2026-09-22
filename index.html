@@ -4344,7 +4344,7 @@
     }
 #view-resources .res-searchbar {
     position: sticky;
-    top: 12px;
+    top: 76px;
     z-index: 30;
     margin: 0 0 24px
     }
@@ -4734,8 +4734,22 @@
     }
 }
 #view-resources .res-searchbar {
-    max-width: 560px;
-    margin: 0 auto 30px
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 0 0 22px
+    }
+#view-resources .res-searchbar .rs-field {
+    flex: 1 1 320px;
+    max-width: 560px
+    }
+#view-resources .res-searchbar .rs-status {
+    flex-basis: 100%;
+    margin-top: 0
+    }
+#view-resources .res-searchbar .rs-status:empty {
+    display: none
     }
 #view-resources .rs-field {
     border-radius: 999px
@@ -4827,6 +4841,87 @@
     margin: 0;
     padding: 0
     }
+/* Track switcher: All / Overall / Image Eval / Video Eval */
+#view-resources .track-seg {
+    display: inline-flex;
+    gap: 4px;
+    background: var(--bg);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding: 5px;
+    margin: 0;
+    flex: none;
+    max-width: 100%;
+    overflow-x: auto
+    }
+#view-resources .track-btn {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--muted);
+    background: transparent;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 22px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s, box-shadow 0.15s
+    }
+#view-resources .track-btn:hover {
+    color: var(--accent-text)
+    }
+#view-resources .track-btn.active {
+    background: var(--surface);
+    color: var(--accent-text);
+    box-shadow: 0 1px 2px rgba(9, 46, 101, 0.12)
+    }
+#view-resources .track-btn:focus-visible {
+    outline: 3px solid var(--accent-text);
+    outline-offset: 2px
+    }
+#view-resources .track-hd {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 40px 0 16px
+    }
+#view-resources .track-hd:first-child {
+    margin-top: 0
+    }
+#view-resources .track-hd h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(24px, 3.2vw, 30px);
+    letter-spacing: -0.015em;
+    color: #fff;
+    margin: 0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5)
+    }
+#view-resources .track-hd p {
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45)
+    }
+#view-resources .jump-row-label {
+    flex-basis: 100%;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 6px 0 -2px
+    }
+#view-resources .jump-row-label:first-child {
+    margin-top: 0
+    }
+@media (max-width: 600px){
+#view-resources .track-btn {
+    font-size: 14px;
+    padding: 9px 14px
+    }
+}
 #view-resources .coming-soon {
     background: var(--surface);
     border: 1px dashed var(--line-strong);
@@ -8596,15 +8691,13 @@
               <h4>Review Contributor metrics</h4>
               <ul>
                 <li>Constantly and consistently review each Contributor's metrics to support in lowering their defect rate.</li>
-                <li>Use the <a href="https://docs.google.com/spreadsheets/d/1J2rIT_loBPO9Fp_dbpNJlvtCKyuBhNxPxeGy7xDvpWk/edit?usp=sharing" target="_blank" rel="noopener">Contributor Metrics Tracking Template</a> to stay on top of it.</li>
               </ul>
             </div></div>
             <div class="pf-step"><div class="pfn">02</div><div class="pf-step-body">
               <h4>Coach and support success</h4>
               <ul>
-                <li>Give specific, behavior-based feedback via 1:1s or shadow sessions, agree on 1–2 clear action items, and follow up on past coaching points, and remember you're a player-coach too: this role is 50/50, half support and half tasking alongside your pod.</li>
-                <li>Share resources, encourage early escalation, and recognize improvement to reinforce good habits.</li>
-                <li>Bring what you're seeing to Ops, in your weekly Feedback Session.</li>
+                <li>Give specific, behavior-based feedback, agree on 1–2 clear action items, and follow up on past coaching points.</li>
+                <li>Encourage early escalation, and recognize improvement to reinforce good habits.</li>
               </ul>
             </div></div>
             <div class="pf-step"><div class="pfn">03</div><div class="pf-step-body">
@@ -8712,11 +8805,13 @@
     </div>
     <div class="sop-track">
       <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Get recommended</h4><p>A current Pod Lead recommends you to a Pod Lead Experience Specialist. You'll be considered based on being a great communicator, demonstrating leadership, and paying close attention to detail.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Log into your dashboard</h4><p>Log in at <a href="https://workada.com" target="_blank" rel="noopener">workada.com</a> with the <b>Login</b> button, top right. From there, click the <b>blue button in the top-right corner</b> to open your Workada project portal. This is where you'll manage your pod day to day. Prefer to watch it once? The <a href="#" onclick="goToResource('res-howto-videos');return false;">how-to setup videos</a> walk through the same screens.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Slack</h4><p>Your pod's home base, download it on every device today. Use your pod channel daily for check-ins and team-building. Your Pod Lead slack channel is peer-to-peer support only.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Calendly / Google Calendar</h4><p>Set up a Calendly or Google Calendar with your office hours open to Contributors, so they can grab a <b>15-minute slot</b> with you whenever they need one, no back-and-forth to schedule. Share the link in your pod's Slack channel.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Log into your dashboard</h4><p>Log in at <a href="https://workada.com" target="_blank" rel="noopener">workada.com</a> with the <b>Login</b> button, top right. From there, click the <b>blue button in the top-right corner</b> to open your Workada project portal. This is where you'll manage your Pod day to day. Prefer to watch it once? The <a href="#" onclick="goToResource('res-howto-videos');return false;">how-to setup videos</a> walk through the same screens.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Slack</h4><p>Your Pod's home base. Install it on every device you use and turn notifications on for your Pod channel today, so your Pod never wonders whether you're around. Use the Pod channel for daily check-ins and anything that affects everyone, and a DM for anything about one person: individual feedback, metrics, or anything personal. The Pod Leads channel is peer support only and isn't closely monitored by Ops. Slack is the official channel, so never contact a Contributor through personal email.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Calendly / Google Calendar</h4><p>Set up a booking link with your office hours open to Contributors, so they can grab a <b>15-minute slot</b> with you whenever they need one, with no back-and-forth to schedule. Add a recurring weekly slot for feedback and questions, and pin the link at the top of your Pod channel so everything lives in one place.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Know where to go for help</h4><p>For product bugs, timer, pay, tasks, error messages, <a href="#" onclick="goToResource('res-support-ticket');return false;">email support@op.workada.co</a>. More on this in <a href="#" onclick="goToFaq('issues');return false;">How to Escalate</a> below.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">06</span><div class="sop-body"><h4>Find your pod's KPIs</h4><p>In your dashboard, go to <b>Insights</b> to review your pod's numbers: tasks completed, productive hours vs. hours worked, and defect rate.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">06</span><div class="sop-body"><h4>Learn the dashboard</h4><p>Five places you'll live in: the <b>Members</b> tab shows your Pod by stage (setup, calibration, live on tasks). <b>Grant access</b> on a Welcome-stage row is the only thing that moves a Contributor into training and calibration, and every grant is logged against your name. <b>Pass</b> and <b>Fail</b> sit on the Contributor's row and are separate from granting access. The <b>Contributor profile</b> holds weekly metrics, the stage timeline, and last active date, and <b>Add note</b> is where you log check-ins and coaching so the record travels with the Contributor. <b>Insights</b> has hours worked, attempts, and productivity, check it daily.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">07</span><div class="sop-body"><h4>Use the Handbook as your single source of truth</h4><p>Don't build your own docs, tabs, or trackers. If something is missing, request it through the <a href="#" onclick="goToResource('res-improvements-form');return false;">Handbook Improvements Form</a> so it gets added once, centrally. QA materials, answer keys, and quality guides are for you, not for your Pod.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">08</span><div class="sop-body"><h4>Meet Workotter</h4><p>The AI assistant for documented, repeatable questions, for Pod Leads only. It lives in <b>#mm-pod-lead-support</b> and pulls strictly from the Handbook and Contributor Resources. It isn't for technical support, judgement calls, or access issues, those come to you or to a ticket.</p></div></div>
     </div>
   </div>
 
@@ -8726,10 +8821,11 @@
       <div class="stage-head-text"><span class="stage-eyebrow">Daily To-Dos</span><h3 class="stage-title">What a Pod Lead Does Every Day</h3></div>
     </div>
     <div class="sop-track">
-      <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Show up in your pod channel</h4><p>Be visibly present daily, answer Slack DMs within the day. Your pod should never wonder if you're around.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Review new work fast</h4><p>A new Contributor's first 3 tasks get reviewed within 24 hours, that early feedback loop is what sets the tone for everything after.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Do your own work</h4><p>You're a <b>player-coach</b>: you task alongside your pod, not just manage it. Your own output sets the standard the pod is measured against.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Watch for early signals</h4><p>If someone's gone quiet or a score starts slipping, reach out before it becomes a pattern, not after. See <a href="#" onclick="goToResource('sec-quality-bar-coaching');return false;">Quality Bar &amp; Coaching</a> for the full remediation process.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Show up in your Pod channel</h4><p>Same greeting, same time, every working day. Two sentences is plenty: a greeting, an update, a reminder, and a door left open at the end. Answer DMs within the day, and answer questions in public where you can, since one answer in the channel saves five DMs. Corrections stay private.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Welcome every new joiner within 24 hours</h4><p>You get a Slack notification each time someone joins your Pod. Say hello in the channel by name, introduce yourself and how long you've been on the project, then give one first step and one way to reach you. Send the setup list with your welcome: install the <b>Workada Timer</b> and click Connect app, connect payments through <b>Stripe</b> before the first pay cycle, accept the <b>Terms of Use</b>, complete <b>identity verification</b> (photo ID plus a live selfie), and start <b>training</b> on the dashboard. Training and calibration are paid up to a cap, so tell them to finish rather than linger. If nothing is submitted within 24 hours, check back. Templates are in <a href="#" onclick="goToResource('res-message-templates');return false;">Message Templates</a>.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Review new work fast</h4><p>A new Contributor's first 3 tasks get reviewed within 24 hours, that early feedback loop is what sets the tone for everything after. Say what's working before what isn't, point at the specific task and the exact guideline, and show what the corrected answer would look like.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Do your own work</h4><p>You're a <b>player-coach</b>: you task alongside your Pod, not just manage it. Your own output sets the standard the Pod is measured against.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Check productivity and watch for early signals</h4><p>Open Insights daily, it's the fastest read on who needs a message today. If someone's gone quiet, their time per task sits well above the Pod average, or a score starts slipping, reach out privately and ask what's in the way before it becomes a pattern. Don't quote numbers at them. See <a href="#" onclick="goToResource('sec-quality-bar-coaching');return false;">Quality Bar &amp; Coaching</a> for the full remediation process.</p></div></div>
     </div>
   </div>
 
@@ -8739,10 +8835,13 @@
       <div class="stage-head-text"><span class="stage-eyebrow">Weekly To-Dos</span><h3 class="stage-title">What a Pod Lead Does Every Week</h3></div>
     </div>
     <div class="sop-track">
-      <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Post your availability</h4><p>Every Monday, so your pod knows exactly when they can reach you that week.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Post your availability</h4><p>Every Monday, so your Pod knows exactly when they can reach you that week. Ask each Contributor's timezone and working days once, in writing, and keep it, so a quiet afternoon doesn't read as a problem.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Spot-check your tenured Contributors</h4><p>About 5 tasks per tenured Contributor, every week, enough to catch drift before it becomes a defect-rate problem.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Attend your pod meeting</h4><p>Set weekly cadence, invite-only. This is where community actually happens for your pod.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Attend your Feedback Session</h4><p>Weekly, rotating groups of about 7 Pod Leads with Ops, bring what you're seeing with your pod. See <a href="#" onclick="goToResource('sec-quality-bar-coaching');return false;">Quality Bar &amp; Coaching</a> for what to bring.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Run your optional Pod call</h4><p>A standing weekly slot, about 30 minutes, not mandatory and camera optional. Screen-share a few tasks and calibrate together. This is where community actually happens for your Pod.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Keep a posting rhythm</h4><p>A short post every day beats a long one every week. One pattern that works: Monday sets the week, Tuesday shares one tasking tip from your reviews, Wednesday opens the floor, Thursday gives kudos by name, Friday closes warm with next week's call slots. Repost official Workada Ops announcements in your channel in case anyone missed them.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Run 1-to-1s when they're needed</h4><p>After a failed review, when quality drops, or when someone asks, not on a fixed schedule for everyone. Fifteen minutes, same four beats every time: what's going well, one thing to change, their questions, what happens next. Write down what you agreed and follow up on it. A shadow session, watching someone task live, shows you where they hesitate faster than reviewing output does.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">06</span><div class="sop-body"><h4>Stay current with Ops and other Pod Leads</h4><p>Read the Ops announcement channel and check in on the Pod Leads channel each week, and attend your project's weekly Pod Lead meeting with Ops. It's the fastest way to get a decision you'd otherwise wait days for.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">07</span><div class="sop-body"><h4>Track time away yourself</h4><p>Contributors should give you notice before stepping away for 7 or more days. Log it in your own tracker; it isn't a support ticket and Ops doesn't need to be notified. Notice means they aren't inactive, so don't offboard them. If the return date passes and 7 days go by with no tasking and no explanation, that becomes inactivity. Your own time off goes through the <a href="#" onclick="goToResource('res-vacation-form');return false;">Vacation / Time Off Form</a>, one to two weeks ahead.</p></div></div>
     </div>
   </div>
 
@@ -8752,11 +8851,12 @@
       <div class="stage-head-text"><span class="stage-eyebrow">How to Escalate</span><h3 class="stage-title">Getting the Right Issue to the Right Place</h3></div>
     </div>
     <div class="sop-track">
-      <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Role questions, feedback, aging tickets</h4><p>Escalate to your Pod Lead Experience Specialist.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Product bugs</h4><p>Timer, pay, tasks, error messages, <a href="#" onclick="goToResource('res-support-ticket');return false;">go straight to support@op.workada.co</a>.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Conduct issues</h4><p>Review the <a href="#" onclick="goToResource('res-coc');return false;">Code of Conduct</a>, then <a href="mailto:valeria.ballesteros@meridian.ai">escalate directly</a> with full context, don't try to resolve a conduct issue on your own.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Offboarding a Contributor</h4><p>Open their profile from the <b>Members</b> tab and click <b>Request Offboarding</b> in the top right of their profile card. Fill out the required additional notes with what you've already done, and allow 48 hours before resubmitting, don't duplicate requests. A built-in Pod Lead flag catches an accidental self-offboard. Full list of reasons and what happens next is in <a href="#" onclick="goToFaq('issues');return false;">Issues, Conduct &amp; Offboarding</a>.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Know the routes, in order</h4><p><b>Workotter</b> for documented questions straight from the Handbook. The <b>Pod Leads channel</b> for "how do other Pod Leads handle this?", bring the example and your best guess. A <b>support ticket</b> for a task that's broken, mis-scored, or won't submit, plus pay and platform issues. Your <b>Pod Lead Coordinator</b> is your first stop for role and quality calls, bring what you've already tried. Your <b>Pod Lead Experience Specialist</b> is the last route, for a stalled ticket or a question no other route resolved, tell them where you already took it and what came back.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Product bugs</h4><p>Timer, pay, tasks, error messages, <a href="#" onclick="goToResource('res-support-ticket');return false;">go straight to support@op.workada.co</a>. First check it isn't a platform-wide issue. If it's affecting everyone, engineers are already on it and extra tickets don't help. Payment questions from Contributors start in the payment section of the Contributor Resources FAQ, and anything it doesn't answer goes to Support.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Conduct issues</h4><p>Review the <a href="#" onclick="goToResource('res-coc');return false;">Code of Conduct</a>, then escalate to your designated Pod Lead Coordinator with full context, don't try to resolve a conduct issue on your own.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Offboarding a Contributor</h4><p>You escalate the reasons, Ops does the removal, and only after you've coached them and given a clear path to improve. Try to retain first. Open their profile from the <b>Members</b> tab and click <b>Request Offboarding</b> in the top right of their profile card. The additional notes field is the only trace of what you did before requesting this, so fill it out every time. Allow 48 hours before resubmitting, don't duplicate requests. Once it goes through, you and the Contributor are both notified, platform and Slack access are revoked, and they're still paid for all work completed up to their offboarding date. Full list of reasons and what happens next is in <a href="#" onclick="goToFaq('issues');return false;">Issues, Conduct &amp; Offboarding</a>.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Before you escalate anything</h4><p>Review the <a href="#" onclick="goToFaq('issues');return false;">Support Queue best practices</a> below, a lot of what feels urgent has a faster path than a ticket.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">06</span><div class="sop-body"><h4>Questions that aren't yours to answer</h4><p>These have real policies behind them, so route them rather than improvising in the channel. <b>Accessibility and accommodations</b>: a Contributor who can't complete certain tasks needs an accommodation, not workaround advice, escalate it. <b>Sensitive or graphic task content</b>: tell them to stop and escalate, what happens next is set by the project. <b>Skipping tasks and tooling</b>: whether skips count and which writing or grammar tools are allowed is project policy, check Project Resources first. <b>Extended absence</b>: anything longer than a few weeks is an Ops decision, not a Pod decision.</p></div></div>
     </div>
   </div>
 
@@ -8767,11 +8867,11 @@
     </div>
     <div class="note" style="margin-bottom:16px"><span class="ntag">What it is</span><span>Stretching a task well past the time it genuinely needs, so more hours get billed without more work getting done. Look for long handle times with no matching output, sitting idle on an open task page, or a timer running through breaks and distractions. Most of it isn't malicious, some Contributors are being careful, some are distracted, and some genuinely think slower means better. The result is the same.</span></div>
     <div class="sop-track">
-      <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Know your pod's normal</h4><p>Watch average handle time per task type in your dashboard so you can spot who sits well outside it, because you can't coach a pattern you haven't measured.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Know your Pod's normal</h4><p>Watch average handle time per task type in your dashboard so you can spot who sits well outside it, because you can't coach a pattern you haven't measured.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Watch how many are drifting, not just who</h4><p>If several Contributors are slow on the same task type, that's a training or clarity problem rather than an integrity one, so fix the cause before you coach the person.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Lead with a question, not an accusation</h4><p>Try "I noticed these tasks are taking longer than usual, what's slowing you down?" Often the answer is a real blocker you can remove.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Teach the timer habit</h4><p>Timer on when work starts, timer off for breaks, and never leave a task page open while stepping away. Pair it with the task time limits doc so they know the pace expected.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Escalate real patterns</h4><p>If hours still don't match visible output after you've coached, file a Contributor Activity Flag with dates, times, and screenshots, and no speculation about intent.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Escalate real patterns</h4><p>If hours still don't match visible output after you've coached, file a Contributor Activity Flag with dates, times, and screenshots. Talk to the Contributor first where you can, so you can include their explanation, and leave speculation about intent out of it. Where a project enforces per-task time limits, sitting idle forfeits the task, so it costs them their work too.</p></div></div>
     </div>
   </div>
 
@@ -8782,10 +8882,11 @@
     </div>
     <div class="sop-track">
       <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Quality is slipping</h4><p>Run the remediation loop, coach first, document it, and know when a score crosses into offboarding territory. Full 1–5 scale and process in <a href="#" onclick="goToResource('sec-quality-bar-coaching');return false;">Quality Bar &amp; Coaching</a>.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>You suspect AI-generated or dishonest work</h4><p>Talk to the Contributor directly first, get a second opinion from another Pod Lead, and take notes before anything's offboarded. Full tells and process in <a href="#" onclick="goToResource('sec-quality-bar-coaching');return false;">Quality Bar &amp; Coaching</a>.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>You suspect AI-generated or dishonest work</h4><p>No AI tools while tasking is a hard rule, timer on or off, and it's the most common cause of a dishonesty offboard, so keep reminding your Pod. Talk to the Contributor directly first, get a second opinion from another Pod Lead, and take notes before anything's offboarded. Full tells and process in <a href="#" onclick="goToResource('sec-quality-bar-coaching');return false;">Quality Bar &amp; Coaching</a>.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>A Contributor says instructions are unclear</h4><p>Have them send you a screenshot or hop on a huddle to go over it together. If it looks like a bug, send it to <a href="#" onclick="goToResource('res-support-ticket');return false;">support@op.workada.co</a>; otherwise, just answer to the best of your ability.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>A conduct issue comes up</h4><p>Harassment, policy violations, anything serious, <a href="#" onclick="goToResource('res-escalate');return false;">escalate immediately</a> rather than handling it yourself.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>It's time to offboard</h4><p>Six reasons a Contributor gets offboarded, and exactly what happens after you submit the request, are both covered in <a href="#" onclick="goToFaq('issues');return false;">Issues, Conduct &amp; Offboarding</a>.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">06</span><div class="sop-body"><h4>Someone stalls or stops responding</h4><p>When output drops, DM them once, warm and open-ended, and ask what's slowing them down. It's usually one confusing edge case, not lost motivation, and if one person is stuck on it others are too, so post the clarification to the whole channel. If they go quiet, check the dashboard first: silent but tasking is a different problem from silent and stopped. Follow up once more and say what happens next so it isn't a surprise. At 7 days inactive with no notice, request offboarding from their profile rather than keep chasing.</p></div></div>
     </div>
   </div>
 
@@ -8817,7 +8918,9 @@
         <div class="sqf-path sqf-no"><span class="sqf-plabel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Yes</span>Don&#39;t file another. Send just the ticket ID to your Pod Lead Experience Specialist.</div>
       </div>
       <div class="sqf-line" aria-hidden="true"></div>
-      <div class="sqf-box"><h4>File it with the details</h4><p>Email <a href="mailto:support@op.workada.co">support@op.workada.co</a> with a screenshot, the task ID or dates, and the exact error. Use your Workada email so it matches your profile.</p></div>
+      <div class="sqf-box"><h4>File it with the details</h4><p>Email <a href="mailto:support@op.workada.co">support@op.workada.co</a> from your Workada email so it matches your profile. Include the Contributor's full name and Workada email, a link or reference to the task, a screenshot, and what happened versus what you expected. Keep it concise, a longer ticket isn't a clearer ticket. One ticket per issue: if several Pods are hit, file one shared ticket. Tell the Contributor to move on to the next task while it's open.</p></div>
+      <div class="sqf-line" aria-hidden="true"></div>
+      <div class="sqf-box"><h4>Waiting on a reply</h4><p>Average response time is around five business days. To escalate, reply in the same email thread the ticket was created in, after seven business days with no answer. Don't open a second route for the same issue.</p></div>
       <div class="sqf-line" aria-hidden="true"></div>
       <div class="sqf-pill sqf-end">Routed the right way</div>
     </div>
@@ -8876,7 +8979,7 @@
     <h3>What you'll own</h3>
     <ul>
       <li><b>Lead by example.</b> Work tasks alongside your pod and set the bar for quality, throughput, and consistency. Your own output is the standard the pod measures against.</li>
-      <li><b>Be the first line of support.</b> Serve as the first point of contact for your Contributors, answer questions, resolve blockers fast, and keep the work flowing. Escalate to Ops only what truly needs it.</li>
+      <li><b>Be the first line of support.</b> Serve as the first point of contact for your Contributors, answer questions, resolve blockers fast, and keep the work flowing. Escalate only what truly needs it, to your Pod Lead Coordinator, or to your Pod Lead Experience Specialist if you don't have one.</li>
       <li><b>Drive quality.</b> Review work against project guidelines, give clear and constructive feedback, and coach Contributors toward stronger, more consistent output.</li>
       <li><b>Drive hours and throughput.</b> Keep your pod active and on pace, monitor capacity and deadlines, and make sure committed hours translate into completed work.</li>
       <li><b>Drive retention.</b> Spot at-risk Contributors early, understand why people stay or leave, and take action to keep your best people engaged and growing.</li>
@@ -8975,6 +9078,12 @@
 
 
   <div class="res-searchbar">
+    <div class="track-seg" role="tablist" aria-label="Show resources for">
+      <button class="track-btn active" type="button" role="tab" aria-selected="true" data-track="all">All</button>
+      <button class="track-btn" type="button" role="tab" aria-selected="false" data-track="overall">Overall</button>
+      <button class="track-btn" type="button" role="tab" aria-selected="false" data-track="image">Image Eval</button>
+      <button class="track-btn" type="button" role="tab" aria-selected="false" data-track="video">Video Eval</button>
+    </div>
     <div class="rs-field">
       <svg class="rs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
       <label class="sr-only" for="resSearch">Search resources and FAQs</label>
@@ -8986,12 +9095,12 @@
 
   <div class="subpanel active" id="sub-pl" role="tabpanel" aria-labelledby="tab-pl" tabindex="0">
     <div class="reslist">
-    <div class="res-group-label">Team &amp; Community</div>
+    <div class="res-group-label" data-track="overall">Team &amp; Community</div>
     <div class="reslist-note">Your Slack home base, plus your dedicated Pod Lead Experience Specialist.</div>
     <div class="home-channels-grid">
       <a class="home-channel-card reveal" href="https://workada.slack.com/archives/C0B2KBC3WES" target="_blank" rel="noopener">
         <span class="hc-icon" aria-hidden="true" style="--hc-c:var(--accent-text)">#</span>
-        <div class="hc-body"><span class="hc-name">#announcements</span><p>Check daily for new updates from Ops.</p></div>
+        <div class="hc-body"><span class="hc-name">#workada-announcements</span><p>Company-wide Workada announcements. Check daily before you task.</p></div>
       </a>
       <a class="home-channel-card reveal" href="https://workada.slack.com/archives/C0B2KEAQZ6J" target="_blank" rel="noopener">
         <span class="hc-icon" aria-hidden="true" style="--hc-c:var(--slate)">#</span>
@@ -9003,12 +9112,16 @@
       </a>
       <a class="home-channel-card reveal" href="https://workada.slack.com/archives/C0BM28V546N" target="_blank" rel="noopener">
         <span class="hc-icon" aria-hidden="true" style="--hc-c:var(--accent-text)">#</span>
-        <div class="hc-body"><span class="hc-name">#pod-leads-announcements</span><p>Announcements for Pod Leads. Check regularly.</p></div>
+        <div class="hc-body"><span class="hc-name">#mm-pod-leads-announcements</span><p>Announcements for Pod Leads. Check regularly.</p></div>
       </a>
       <a class="home-channel-card reveal" href="https://workada.slack.com/archives/C0BLK5BT3B2" target="_blank" rel="noopener">
         <span class="hc-icon" aria-hidden="true" style="--hc-c:var(--muted)">#</span>
-        <div class="hc-body"><span class="hc-name">#pod-leads-support</span><p>Ask @Workotter anything about your role.</p></div>
+        <div class="hc-body"><span class="hc-name">#mm-pod-lead-support</span><p>Ask @Workotter anything about your role.</p></div>
       </a>
+      <div class="home-channel-card reveal">
+        <span class="hc-icon" aria-hidden="true" style="--hc-c:var(--accent)">#</span>
+        <div class="hc-body"><span class="hc-name">#mm-plc-[your cohort]</span><p>Your direct line to your Pod Lead Coordinator, who monitors it. Bring questions, patterns you're seeing, and feedback here, and your PLC takes anything that needs Ops back to us. You're added to your cohort's channel; official updates still come through the usual channels.</p></div>
+      </div>
     </div>
     <div class="new-leads" id="newLeads" style="display:none"></div>
 
@@ -9021,7 +9134,7 @@
         <a class="btn accent" href="https://workada.slack.com/team/U0BH6H2JCHK" target="_blank" rel="noopener">Say hi on Slack →</a>
       </div>
     </div>
-      <div class="res-group-label">Quality Bar &amp; Coaching</div>
+      <div class="res-group-label" data-track="overall">Quality Bar &amp; Coaching</div>
       <details class="res-drop" id="res-quality-coaching">
         <summary>
           <span class="res-body"><h3 class="res-name">Quality Bar &amp; Coaching</h3><span class="res-sub">The 1–5 scale, failure modes, remediation, and how you're evaluated</span></span>
@@ -9031,10 +9144,7 @@
           <h4>What's the 1–5 quality scale, and what do I actually do at each score?</h4>
           <p><table><tr><th>Score</th><th>Meaning</th><th>What you do</th><th>Defect?</th></tr><tr><td><b>1</b></td><td>Dishonest</td><td>Bad-faith work, report it.</td><td>Defect</td></tr><tr><td><b>2</b></td><td>Defect</td><td>Meaningful errors. Fix it or send it back with feedback.</td><td>Defect</td></tr><tr><td><b>3</b></td><td>Borderline</td><td>Barely acceptable, passes, but coach if it becomes a pattern.</td><td>Clean</td></tr><tr><td><b>4</b></td><td>Good</td><td>Largely correct, no meaningful issues. Let it flow.</td><td>Clean</td></tr><tr><td><b>5</b></td><td>Stellar</td><td>Above and beyond, a promotion signal.</td><td>Clean</td></tr></table>Target numbers for a healthy pod (productivity, average score, defect rate) are summarized at the top of the home page, under Run Your Pod.</p>
           <h4>What's the difference between Average Score and Dimension Score, and which should I coach off of?</h4>
-          <p>Coach off Dimension Score, it's the direct per-dimension feedback. Don't weight the Average Score.</p>
-          <h4>What is the GS score?</h4>
-          <p>More information coming soon.</p>
-          <h4>What failure modes should I be watching for?</h4>
+          <p>Coach off Dimension Score, it's the direct per-dimension feedback. Don't weight the Average Score.</p>          <h4>What failure modes should I be watching for?</h4>
           <p><ul><li><b>Lazy responses</b>: generic justifications that don't engage the actual content. The biggest issue, and the hardest for software to catch, sample every Contributor.</li><li><b>Flipped justifications</b>: the written comment favors one option but the score picks the other.</li><li><b>Copy-paste</b>: the same response reused across dimensions or tasks.</li><li><b>Too many ties</b>: more than 2 ties in a task usually means the work wasn't looked at carefully.</li><li><b>No explanation</b>: a verdict without a justification.</li><li><b>Truncated rationales</b>: trailing commas or dangling conjunctions, submitted mid-thought.</li></ul></p>
           <h4>What does dishonest, borderline, and stellar work actually look like?</h4>
           <p><b>Dishonest</b> examples: a one-word 'test' or 'see above' reused across every dimension; a written justification that names one image while the score selects the other. <b>Borderline</b> examples: a real observation buried in a fragment ('Mainly the barcode') with no explanation of why it matters; a sentence that ends mid-thought. <b>Stellar</b> examples: justifications that name multiple concrete, checkable details in one sentence and walk through a prompt's constraints item by item, crediting both options fairly.</p>
@@ -9054,30 +9164,22 @@
           <h4>Contributors get a “quality reminder” message with no explanation, are there guidelines?</h4>
           <p>Clear guidelines are still in progress, we don't have full visibility into the block triggers either. What we do know is that blocking is driven by behavioral signals like speeding through tasks, taking too long, or picking the same side repeatedly, and Contributors get warnings before most blocks.</p>
           <h4>What's the guideline for a Contributor's productive-vs-other time ratio, and how do I monitor it?</h4>
-          <p>Roughly 4 hours productive to 1 hour other (~80/20).</p>
-          <h4>How do I handle a Contributor I suspect of time fraud, and what happens if I report it?</h4>
-          <p>Do a surprise huddle/shadow session, flag it to your Pod Lead Experience Specialist immediately, they will escalate to the fraud team for investigation.</p>
-          <h4>How does the pass/fail button work for training?</h4>
+          <p>Roughly 4 hours productive to 1 hour other (~80/20).</p>          <h4>How does the pass/fail button work for training?</h4>
           <p>It's your call if you see potential for the Contributor to improve their quality. Pressing <b>Pass</b> (even if they don't hit the 75% mark) means you see potential, because you met with them and they understood their mistakes. Pressing <b>Fail</b> means you see no potential for them to improve, and they'll be sent to offboarding.</p>
         </div>
       </details>
-      <div class="res-group-label">Resources and Templates</div>
+      <div class="res-group-label" data-track="overall">Resources and Templates</div>
       <details class="res-drop" id="res-templates-drop">
         <summary>
           <span class="res-body"><span class="res-name">Resources and Templates</span><span class="res-sub">Forms, docs, and templates you'll use most</span></span>
           <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </summary>
         <div class="res-drop-body">
-          <a class="res-sublink" id="res-escalate" href="mailto:valeria.ballesteros@meridian.ai">
-            <span class="res-body"><span class="res-name">Escalate Issues with Contributors</span><span class="res-sub">Email valeria.ballesteros@meridian.ai with full context of the troublesome situation between pod member and team.</span></span>
-            <span class="res-arrow">↗</span>
-          </a>
+          <div class="res-sublink" id="res-escalate">
+            <span class="res-body"><span class="res-name">Escalate Issues with Contributors</span><span class="res-sub">Message your designated Pod Lead Coordinator in your #mm-plc cohort channel with full context of the situation between the Contributor and the team. Your PLC brings it to Ops if needed.</span></span>
+          </div>
           <a class="res-sublink" id="res-contributor-faq" href="https://app.workada.com/faq" target="_blank" rel="noopener">
             <span class="res-body"><span class="res-name">Support FAQ for Contributors</span></span>
-            <span class="res-arrow">↗</span>
-          </a>
-          <a class="res-sublink" href="https://docs.google.com/spreadsheets/d/1J2rIT_loBPO9Fp_dbpNJlvtCKyuBhNxPxeGy7xDvpWk/edit?usp=sharing" target="_blank" rel="noopener">
-            <span class="res-body"><span class="res-name">Contributor Metrics Tracking Template</span></span>
             <span class="res-arrow">↗</span>
           </a>
           <a class="res-sublink" id="res-quiz-template" href="https://docs.google.com/forms/d/1BRFSdhB1RWMmCAM1CMM6Tob02-rHkYJAxz-KfBPkGew/edit?ts=6a4ec20b" target="_blank" rel="noopener">
@@ -9092,13 +9194,21 @@
             <span class="res-body"><span class="res-name">Official Multimango Task Guidelines Log</span><span class="res-sub">For Pod Leads to add official Multimango task guidelines, with no modifications.</span></span>
             <span class="res-arrow">↗</span>
           </a>
-          <a class="res-sublink" href="https://docs.google.com/forms/d/e/1FAIpQLSftoBwq8WfOKNy8yPEyYA5LzfsdhVh6t0wQJJuDzmK26J6YVQ/viewform?usp=sharing&ouid=115142058578405123248" target="_blank" rel="noopener">
+          <a class="res-sublink" href="https://docs.google.com/document/d/1ktK9kora-dXiebprAMZMQmhtkka8ZGyF9mO2uD_LbVE/edit?usp=sharing" target="_blank" rel="noopener">
+            <span class="res-body"><span class="res-name">Task Type Time Limits</span><span class="res-sub">Reference time limits by Multimango task type, use it to spot Contributors running tasks too fast or too slow.</span></span>
+            <span class="res-arrow">↗</span>
+          </a>
+          <a class="res-sublink" id="res-mm-blocked-review" href="https://docs.google.com/spreadsheets/d/1pD3RHyA6A3IYaJOQ5wjn8qJRKj7MYMdaamMWVuq2tVc/edit?gid=997873275#gid=997873275" target="_blank" rel="noopener">
+            <span class="res-body"><span class="res-name">MM Blocked Contributors - Offboarding Review</span><span class="res-sub">Contributors currently blocked or paused on Multimango, with their offboarding review status. Check here before you act on a blocked account.</span></span>
+            <span class="res-arrow">↗</span>
+          </a>
+          <a class="res-sublink" id="res-vacation-form" href="https://docs.google.com/forms/d/e/1FAIpQLSftoBwq8WfOKNy8yPEyYA5LzfsdhVh6t0wQJJuDzmK26J6YVQ/viewform?usp=sharing&ouid=115142058578405123248" target="_blank" rel="noopener">
             <span class="res-body"><span class="res-name">Vacation / Time Off Form</span><span class="res-sub">Report planned time off ahead of your dates</span></span>
             <span class="res-arrow">↗</span>
           </a>
         </div>
       </details>
-      <div class="res-group-label">Message Templates</div>
+      <div class="res-group-label" data-track="overall">Message Templates</div>
       <details class="res-drop" id="res-mm-message-templates">
         <summary>
           <span class="res-body"><span class="res-name">MM Message Templates</span><span class="res-sub">Copy, swap the name, send, for Multimango offboarding, feedback, and metrics</span></span>
@@ -9197,172 +9307,7 @@ To make sure you're following the process correctly and getting the support you 
           </div>
         </div>
       </details>
-      <div class="res-group-label">Multimango Setup Videos</div>
-      <details class="res-drop" id="res-multimango-videos">
-        <summary>
-          <span class="res-body"><span class="res-name">Multimango Setup Videos</span><span class="res-sub">Watch these to get up to speed on Multimango</span></span>
-          <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </summary>
-        <div class="res-drop-body">
-          <div class="res-video">
-            <p class="res-video-cap">Multimango walkthrough, part 1 of 2</p><div class="res-video-frame"><iframe src="https://www.loom.com/embed/9fbc3e007d4242d28c68eea0eb6dda72" title="Multimango walkthrough, part 1 of 2" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div>
-          </div>
-          <div class="res-video">
-            <p class="res-video-cap">Multimango walkthrough, part 2 of 2</p><div class="res-video-frame"><iframe src="https://www.loom.com/embed/d77f790bf3b441bcb8809724f7e7ddf6" title="Multimango walkthrough, part 2 of 2" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div>
-          </div>
-        </div>
-      </details>
-      <div class="res-group-label">Multimango FAQ</div>
-      <details class="res-drop" id="res-multimango-faq">
-        <summary>
-          <span class="res-body"><h3 class="res-name">Multimango FAQ</h3><span class="res-sub">Calibration, signup, task types, and current quality guidance</span></span>
-          <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </summary>
-        <div class="res-drop-body">
-          <h4>How does Multimango calibration work?</h4>
-          <p><ul><li><b>Minimum 10 tasks</b> before any pass/fail outcome, no one passes before finishing 10.</li><li><b>Maximum 20 attempts</b> total.</li><li>Each task is graded pass/fail against pre-approved answers. Pass threshold is <b>70% of graded tasks</b>: a pass-count metric, not an average rating.</li><li>The pass window runs from attempt 10 through 20, the moment cumulative pass rate hits 70%, the Contributor passes automatically.</li><li><b>Milestone at 10 attempts</b>: if not yet at 70%, they're prompted to review training and reach out to you, a checkpoint, not a failure.</li><li><b>Milestone at 20 attempts</b>: if still under 70%, the Contributor is offboarded from the project (the Failed calibration reason).</li><li>Pending tasks don't count toward the 10 evaluated tasks until grading completes (usually a minute or two).</li></ul></p>
-          <h4>What are the passing thresholds for training and calibration?</h4>
-          <p>Three separate bars, don't mix them up:<ul><li><b>75%</b>, initial training.</li><li><b>70%</b>, Image Calibration for Multimango.</li><li><b>2/4</b>, T2V (text-to-video) Calibration for Multimango.</li></ul><div class='note'><span class='ntag'>Confirm with Ops</span> These numbers can change. Check them against current Ops guidance before you act on a pass or fail.</div></p>
-          <h4>A Contributor failed image eval training. How do I assess whether I should pass them to calibration?</h4>
-          <p>At your own discretion. Have a 1:1 with the Contributor to give guidance, re-train, and have them watch you go through a task. If you feel confident they will do better, go ahead and pass them.</p>
-          <h4>How do Contributors sign up for Multimango?</h4>
-          <p>They start from the 'Getting Started' card on their Workada dashboard, sign up at multimango.com using their <b>workada.com email</b> (not personal), verify with the 6-digit code, then confirm back on the Workada dashboard. Approval is manual and typically takes up to ~1 hour.</p>
-          <h4>A Contributor is stuck on a blank Welcome screen after signing up, what's going on?</h4>
-          <p>Almost always one of two things:<ul><li><b>Not approved yet</b>: the 'Tasks' option only appears after manual approval. They must have clicked 'I created my account' on their Workada dashboard to be on the approval list.</li><li><b>Signed up with the wrong email</b>: if they used a personal email instead of workada.com, they won't appear on the approved list and need to create a new account with the correct one.</li></ul></p>
-          <h4>What task types exist on Multimango, and are there known quirks?</h4>
-          <p>Available types rotate unpredictably, Text to Video, Multi-Capability Model Ranking, Text To Image Compare, Reference to Image Ranking, but everyone should have at least one available at any time. Switch types rather than sitting idle if a preferred one isn't up.<div class='note'><span class='ntag'>Known, expected quirks, not bugs to report individually</span><ul style='margin-top:6px'><li>'Text To Image Compare' and 'Text-to-Image Comparison' are two different tasks despite the similar name.</li><li>'No Active ELO Evaluations' message on Text to Image Compare is expected and already being tracked, just switch task types.</li><li>A task can time out and its type can temporarily vanish from the dashboard, refresh and try other types; it typically comes back.</li><li>If media won't load, refresh first; if it persists across multiple tasks, screenshot and report it.</li><li>Only 'Overall Preference' shown with no other dimensions is expected for certain task formats.</li><li>QA feedback appears at sporadic intervals, not after every task.</li></ul></div></p>
-          <h4>What's the current Multimango quality focus?</h4>
-          <p><div class='note'><span class='ntag'>Recent, subject to change</span> Reflects the most recent audit, not permanent policy.</div>Two patterns to watch for: Contributors picking the same overall preference across every dimension instead of judging each independently, and missing clear instruction-following gaps on video tasks. Current guidance is to de-emphasize speed, for video tasks, that can mean watching a clip multiple times before rating.</p>
-        
-          <h4>Some Contributors have several GS scores while others have none, is that random?</h4>
-          <p>Yes. GS tasks are handed out randomly as Contributors work, so an uneven spread across your pod is expected.</p>
-          <h4>Is there a Text-to-Image tearsheet like the T2V one?</h4>
-          <p>Not in that two-column format. The tearsheets we have (the Contributor T2V sheet and the Pod Lead review sheet) are both video. The closest ops-approved content for Text-to-Image is Section 9 of the Pod Lead Compendium, the MM Six-Dimension Framework, which covers T2I scope boundaries and the common category overlaps.</p>
-          <h4>Can a Contributor be offboarded for a low GS score? Does task time affect it? How does the percentage change?</h4>
-          <p>Yes, but the bar is low, only around 15 to 20 Contributors have been offboarded for it. Task time isn't a factor. The GS score is simply correct submissions divided by total submissions.</p>
-          <h4>Can Contributors ask for consensus on their tasks in #contributor-questions?</h4>
-          <p>It isn't something to encourage, but it isn't explicitly prohibited either.</p>
-          <h4>Is there a process to escalate incorrect or unfair QA feedback?</h4>
-          <p>Yes, via the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUbyLGR93KeA1q41e0wR3YkmmDAqxei13EMc49zkKMf9CiPg/viewform?usp=header" target="_blank" rel="noopener">Multimango Review Appeals</a> form.</p>
-          <h4>Do only Text-to-Image hours count toward the Image Active Hours on the eligibility sheet?</h4>
-          <p>Yes, for taskers who haven't passed video training.</p>
-          <h4>Is it okay to share MM Gating Assessment Quiz answers with other Pod Leads?</h4>
-          <p>No, sharing answers risks leaking them to Contributors and lowering task quality.</p>
-          <h4>How long can someone sit in calibration before I act, in terms of time rather than attempts?</h4>
-          <p>Ideally under 5 days. If they've gone inactive for 7 days with no explanation, you can offboard.</p>
-          <h4>A Contributor failed their calibration but I can see the auto-review made a mistake on at least one of their tasks. Can the task be regraded?</h4>
-          <p>PLs can't manually override or regrade an auto-reviewed task themselves, there's no button for that. But you can request a regrade: have the CB (or you, on their behalf) email <a href="mailto:support@op.workada.co">support@op.workada.co</a> with the task ID, the CB's Workada account email, and a description of the specific error you spotted in the auto-review.</p>
-          <h4>A Contributor shows as blocked/paused on Multimango, how do I find out when they'll get access back?</h4>
-          <p>DM your Pod Lead Experience Specialist with their name, they can check the backend.</p>
-          <h4>Do I need to notify support or Ops about a CB being on vacation?</h4>
-          <p>No, you keep track of your Contributors on vacation. If they are inactive 7+ days after they said they'd be back, you can offboard.</p>
-        </div>
-      </details>
-      <div class="res-group-label">Multimango High Quality Task Examples</div>
-      <div class="coming-soon">More information coming soon.</div>
-      <div class="res-group-label">Video Calibration</div>
-      <details class="res-drop" id="res-video-calibration">
-        <summary>
-          <span class="res-body"><h3 class="res-name">Video Calibration: Pod Lead Guide</h3><span class="res-sub">How video training and calibration works, and how you grade it</span></span>
-          <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </summary>
-        <div class="res-drop-body">
-          <div class='note'><span class='ntag'>Review window</span><span>Pod Leads have a <b>3&ndash;5 day window</b> to review their Contributors&rsquo; Video Eval tasks.</span></div>
-          <div class='note note-res'><span class='ntag'>Keep these resources private</span>
-            <p class="note-lead">These are Pod Lead references. Don't send them to your Contributors, and if you've already shared the answer key, please delete it. To walk someone through a submission or the reasoning behind a dimension, screenshare instead, so the guides don't get passed around while these tasks are live.</p>
-            <ul class="res-link-grid">
-              <li><a href="https://docs.google.com/document/d/1cEGheZa16mPrwrfbnEfdsSDgy7S7cGWplHLniHJq3gE/edit?usp=sharing" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Video Calibration: Pod Lead Guide</a>, the full walkthrough this section is based on.</li>
-              <li><a href="https://docs.google.com/document/d/1yVab1bV_nSyELrm_JYpxwLRvEk9_rsdFCHHyStTM0Ck/edit" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Pod Lead Calibration Answers</a>, your answer key. Do not share with Contributors.</li>
-              <li><a href="https://docs.google.com/document/d/1jjcU7wCCq-ce4RD_2p_wM6v0RN6CAkrg6KEkNMAAmnE/edit?tab=t.0" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Pod Lead review tearsheet</a>, includes the 3 new audio dimensions.</li>
-              <li><a href="https://docs.google.com/spreadsheets/d/1JL622qIwfwy8hpbQ8nqNXCmON3jMNXHJ9KPAskoSZyA/edit?gid=91966089" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Eligibility sheet</a>, QA and GS scores.</li>
-              <li><a href="https://docs.google.com/document/d/1DfONVSgub7630K7jrBUkTUg9l5CYQ0tLP0Nk9x7llBw/edit?tab=t.0" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Text to Video Tearsheet</a>.</li>
-            </ul>
-          </div>
-
-          <h4>What's changing</h4>
-          <p>Every Contributor now starts image-only and must pass <b>video training and calibration</b> before picking up video tasks. You own getting your pod through calibration: you review and grade each Contributor's submissions, and how quickly you do that decides how fast they graduate. There's no opt-out. New onboards stay image-only, and passing training doesn't move anyone to video-only, Contributors keep getting the standard mix of image and video tasks on their dashboard.</p>
-
-          <h4>You're grading tasks you already completed</h4>
-          <p>The calibration tasks your Contributors complete are the same ones you completed during your own calibration. You already have the answer key (the <b>Pod Lead Calibration Answers</b> guide), so grade against the answers and commentary you already have rather than building a guide from scratch.</p>
-          <p>One update since you finished: each task now includes <b>3 audio dimensions</b>, overall audio preference, audio instruction following, and music/speech/sound fit (the ones most often missed on QA). Your original key covers the rest; use the <b>Pod Lead review tearsheet</b> for these three. Training now includes a few extra questions on them too.</p>
-          <div class='note'><span class='ntag'>Temporary setup</span> Down the line, each pod will get its own distinct set of calibration tasks, and you'll build your own key for grading. You'll get plenty of lead time before that change. For now, reusing tasks you've already mastered is the fastest way to move your pods through, and it keeps calibration fair as we scale.</div>
-
-          <h4>How grading works</h4>
-          <p><ul>
-            <li>Each Contributor claims up to <b>7 tasks</b> from your pod's bank and completes <b>3</b>. Once they finish, they can task on <a href="https://multimango.com" target="_blank" rel="noopener">multimango.com</a> while they wait for your grades.</li>
-            <li>Each task compares two AI-generated video clips across the task's quality dimensions, now including the 3 audio dimensions above.</li>
-            <li>Review each submission in the Pod Lead review tool and grade it. <b>2 passing tasks qualify a Contributor for video tasking.</b></li>
-            <li>Grade using three resources: your <b>calibration answers</b>, the <b>text-to-video tearsheet</b>, and the <b>Pod Lead review tearsheet</b>.</li>
-            <li>There's marginal room on close calls (for example, "strongly prefer A" may be acceptable where the key says "slightly prefer A"). Use your judgment.</li>
-          </ul></p>
-          <div class='note'><span class='ntag'>Turnaround</span> Aim to review a Contributor's calibration within <b>24 hours</b> as a general guideline. It isn't a hard deadline, but Contributors are blocked from moving forward until you've reviewed theirs, so the sooner the better.</div>
-
-          <h4>Time cap and pay</h4>
-          <p>Contributors get <b>3 paid hours</b> for video training and calibration, tracked separately on their timer. While they're in training or calibration, that cap blocks them from Multimango tasking until they finish. The timer warns them as they approach the cap, and time beyond it isn't paid.</p>
-
-          <h4>If a Contributor fails</h4>
-          <p>For now, they keep working on image tasks. Failing video doesn't remove their image work.</p>
-
-          <h4>Promoting Contributors after the first wave</h4>
-          <p>The first group was sent automatically (everyone marked "YES" on the eligibility list, no action needed for that run). After that, you decide who's ready. The criteria we've defined: <b>more than 15 hours on image tasks</b>, plus certain <b>Gold Standard (GS) score</b> thresholds, GS being the auto-graded benchmark tasks on multimango.com. We'll surface these signals on your dashboard soon.</p>
-          <p>Until then, if you strongly believe a Contributor is ready to attempt the training, grant them access with the <b>"Grant access" button on the Members tab of pod management</b>. Include detailed instructions and metrics explaining why, and use the eligibility sheet to check their QA and GS scores first.</p>
-
-        </div>
-      </details>
-      <div class="res-group-label">Video Eval FAQ</div>
-      <details class="res-drop" id="res-video-eval-faq">
-        <summary>
-          <span class="res-body"><h3 class="res-name">Video Eval FAQ</h3><span class="res-sub">Quick answers on video calibration, grading, and access</span></span>
-          <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </summary>
-        <div class="res-drop-body">
-          <h4>Who qualifies for the Video Eval project?</h4>
-          <p>A Contributor needs at least <b>15 hours on image tasks</b> before they can be approved for Video Eval. Those image hours are the entry bar, Contributors build up time on image work first, then you move them into video training and calibration.</p>
-          <h4>Do I grade the same tasks I did?</h4>
-          <p>Yes, the same tasks, now with 3 added audio dimensions. Your answer key covers the originals; the review tearsheet covers the audio ones.</p>
-          <h4>Can I share the answer key with my pod?</h4>
-          <p>Keep it to yourself, don't send the document around. Screenshare when you're coaching instead.</p>
-          <h4>What guidance do I grade against?</h4>
-          <p>The calibration answers and the Pod Lead review tearsheet.</p>
-          <h4>How many tasks do they need to pass?</h4>
-          <p>They complete 3 calibration tasks; 2 passing grades qualifies them.</p>
-          <h4>How fast should I grade?</h4>
-          <p>Within 24 hours as a general guideline, Contributors are blocked from moving forward until you review theirs.</p>
-          <h4>What if a Contributor fails?</h4>
-          <p>Move them back to image tasks for now.</p>
-          <h4>Can a Contributor opt out and stay image-only?</h4>
-          <p>No. New onboards stay image-only, but everyone else moves through training. Finishing training doesn't mean video-only, they get the standard mix.</p>
-          <h4>How is access to video tasks controlled?</h4>
-          <p>We can gate Contributors to image-only or to the full task set. Passing calibration is what opens video for them.</p>
-          <h4>How does the time cap work?</h4>
-          <p>Contributors get 3 paid hours for video training and calibration, tracked separately on their timer, and time past the cap isn't paid. They must complete all 3 calibration tasks before they can go back to tasking on multimango, until those 3 are done, the cap keeps them out of multimango tasking. Once they've completed the 3, they return to multimango tasking while they wait for you to review their submissions.</p>
-          <h4>How do I promote someone new?</h4>
-          <p>Use the "Grant access" button on the Members tab of pod management. We'll provide metrics on your dashboard soon so you can decide with updated data on how many image hours and what quality scores apply to Contributors in your pod.</p>
-          <h4>Do I need to wait for the eligibility sheet to update before moving someone into video calibration?</h4>
-          <p>No, you can move Contributors based on your own read of their hours, training, and calibration scores.</p>
-          <h4>A Contributor shows as video-eligible but isn't getting video tasks on Multimango, what do I do?</h4>
-          <p>DM your Pod Lead Experience Specialist to check the sync between Workada and Multimango.</p>
-
-          <h4>For impossible physics, do I score Less AI-Generated only or also Motion &amp; Temporal? And how do I handle the dragon audio case?</h4>
-          <p>Start with Less AI-Generated, that's the home for anything wrong in a single frame (warped anatomy, an object clipping through a surface, physics that can't happen). Add Motion &amp; Temporal Quality only when the movement itself also breaks over time (teleporting, morphing, flickering, unnatural reversals). For the dragon example, a requested sound that never appears (the missing roar) is scored under Audio Quality &amp; Sync and Audio Instruction Following, not video Instruction Following, and don't count the same miss on three axes.</p>
-          <h4>A real MM task only shows Audio Quality &amp; Sync with no Audio Instruction Following dimension, do I still need to judge instruction-following?</h4>
-          <p>No, score only audio quality &amp; sync when that's all the task shows.</p>
-          <h4>A Contributor aced calibration but is under 15 hours, when can I move them to video calibration?</h4>
-          <p>Use your best judgment. If you believe they're ready, you can promote them even if they're a little short of the usual bar.</p>
-          <h4>Can a video calibration score be changed if I graded it wrong?</h4>
-          <p>No, so grade each one carefully the first time.</p>
-          <h4>How do I handle a Contributor who's avoiding video training?</h4>
-          <p>There's no opting out. The fair, defensible path:</p>
-          <p><ol>
-            <li>Give a first warning: if they continue working image-only, let them know that offboarding may follow.</li>
-            <li>Give one final, explicit written warning, not another reminder, but a clear "You have until [date] to start or complete Video Eval training, or you'll be moved off active tasking and offboarded." Put a real deadline on it so there's no more open-ended avoidance.</li>
-            <li>If they ignore that deadline, treat it as a refusal to do required work and offboard them, using the same "no option to opt out" language you've been citing.</li>
-          </ol></p>
-        </div>
-      </details>
-      <div class="res-group-label">Video Eval High Quality Task Examples</div>
-      <div class="coming-soon">More information coming soon.</div>
-      <div class="res-group-label">Offboarding &amp; Calibration</div>
+      <div class="res-group-label" data-track="overall">Offboarding &amp; Calibration</div>
       <details class="res-drop" id="res-offboarding-tree">
         <summary>
           <span class="res-body"><h3 class="res-name">Offboarding &amp; Calibration Decision Tree</h3><span class="res-sub">What to do at each stage, and when to offboard</span></span>
@@ -9500,6 +9445,152 @@ To make sure you're following the process correctly and getting the support you 
           </div>
         </div>
       </details>
+      <div class="res-group-label" data-track="image">Multimango Setup Videos</div>
+      <details class="res-drop" id="res-multimango-videos">
+        <summary>
+          <span class="res-body"><span class="res-name">Multimango Setup Videos</span><span class="res-sub">Watch these to get up to speed on Multimango</span></span>
+          <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="res-drop-body">
+          <div class="res-video">
+            <p class="res-video-cap">Multimango walkthrough</p><div class="res-video-frame"><iframe src="https://www.loom.com/embed/9fbc3e007d4242d28c68eea0eb6dda72" title="Multimango walkthrough" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div>
+          </div>
+        </div>
+      </details>
+      <div class="res-group-label" data-track="image">Multimango FAQ</div>
+      <details class="res-drop" id="res-multimango-faq">
+        <summary>
+          <span class="res-body"><h3 class="res-name">Multimango FAQ</h3><span class="res-sub">Calibration, signup, task types, and current quality guidance</span></span>
+          <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="res-drop-body">          <h4>What are the passing thresholds for training and calibration?</h4>
+          <p>Three separate bars, don't mix them up:<ul><li><b>75%</b>, initial training.</li><li><b>70%</b>, Image Calibration for Multimango.</li><li><b>2/4</b>, T2V (text-to-video) Calibration for Multimango.</li></ul><div class='note'><span class='ntag'>Confirm with Ops</span> These numbers can change. Check them against current Ops guidance before you act on a pass or fail.</div></p>
+          <h4>A Contributor failed image eval training. How do I assess whether I should pass them to calibration?</h4>
+          <p>At your own discretion. Have a 1:1 with the Contributor to give guidance, re-train, and have them watch you go through a task. If you feel confident they will do better, go ahead and pass them.</p>
+          <h4>How do Contributors sign up for Multimango?</h4>
+          <p>They start from the 'Getting Started' card on their Workada dashboard, sign up at multimango.com using their <b>workada.com email</b> (not personal), verify with the 6-digit code, then confirm back on the Workada dashboard. Approval is manual and typically takes up to ~1 hour.</p>
+          <h4>A Contributor is stuck on a blank Welcome screen after signing up, what's going on?</h4>
+          <p>Almost always one of two things:<ul><li><b>Not approved yet</b>: the 'Tasks' option only appears after manual approval. They must have clicked 'I created my account' on their Workada dashboard to be on the approval list.</li><li><b>Signed up with the wrong email</b>: if they used a personal email instead of workada.com, they won't appear on the approved list and need to create a new account with the correct one.</li></ul></p>
+          <h4>What task types exist on Multimango, and are there known quirks?</h4>
+          <p>Available types rotate unpredictably, Text to Video, Multi-Capability Model Ranking, Text To Image Compare, Reference to Image Ranking, but everyone should have at least one available at any time. Switch types rather than sitting idle if a preferred one isn't up.<div class='note'><span class='ntag'>Known, expected quirks, not bugs to report individually</span><ul style='margin-top:6px'><li>'Text To Image Compare' and 'Text-to-Image Comparison' are two different tasks despite the similar name.</li><li>'No Active ELO Evaluations' message on Text to Image Compare is expected and already being tracked, just switch task types.</li><li>A task can time out and its type can temporarily vanish from the dashboard, refresh and try other types; it typically comes back.</li><li>If media won't load, refresh first; if it persists across multiple tasks, screenshot and report it.</li><li>Only 'Overall Preference' shown with no other dimensions is expected for certain task formats.</li><li>QA feedback appears at sporadic intervals, not after every task.</li></ul></div></p>
+          <h4>What's the current Multimango quality focus?</h4>
+          <p><div class='note'><span class='ntag'>Recent, subject to change</span> Reflects the most recent audit, not permanent policy.</div>Two patterns to watch for: Contributors picking the same overall preference across every dimension instead of judging each independently, and missing clear instruction-following gaps on video tasks. Current guidance is to de-emphasize speed, for video tasks, that can mean watching a clip multiple times before rating.</p>
+        
+          <h4>Some Contributors have several GS scores while others have none, is that random?</h4>
+          <p>Yes. GS tasks are handed out randomly as Contributors work, so an uneven spread across your pod is expected.</p>          <h4>Can a Contributor be offboarded for a low GS score? Does task time affect it? How does the percentage change?</h4>
+          <p>Yes, but the bar is low, only around 15 to 20 Contributors have been offboarded for it. Task time isn't a factor. The GS score is simply correct submissions divided by total submissions.</p>
+          <h4>Can Contributors ask for consensus on their tasks in #contributor-questions?</h4>
+          <p>It isn't something to encourage, but it isn't explicitly prohibited either.</p>
+          <h4>Is there a process to escalate incorrect or unfair QA feedback?</h4>
+          <p>Yes, via the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUbyLGR93KeA1q41e0wR3YkmmDAqxei13EMc49zkKMf9CiPg/viewform?usp=header" target="_blank" rel="noopener">Multimango Review Appeals</a> form.</p>
+          <h4>Do only Text-to-Image hours count toward the Image Active Hours on the eligibility sheet?</h4>
+          <p>Yes, for taskers who haven't passed video training.</p>
+          <h4>Is it okay to share MM Gating Assessment Quiz answers with other Pod Leads?</h4>
+          <p>No, sharing answers risks leaking them to Contributors and lowering task quality.</p>
+          <h4>How long can someone sit in calibration before I act, in terms of time rather than attempts?</h4>
+          <p>Ideally under 5 days. If they've gone inactive for 7 days with no explanation, you can offboard.</p>
+          <h4>A Contributor failed their calibration but I can see the auto-review made a mistake on at least one of their tasks. Can the task be regraded?</h4>
+          <p>PLs can't manually override or regrade an auto-reviewed task themselves, there's no button for that. But you can request a regrade: have the CB (or you, on their behalf) email <a href="mailto:support@op.workada.co">support@op.workada.co</a> with the task ID, the CB's Workada account email, and a description of the specific error you spotted in the auto-review.</p>
+          <h4>A Contributor shows as blocked/paused on Multimango, how do I find out when they'll get access back?</h4>
+          <p>Check the <a href="#" onclick="goToResource('res-mm-blocked-review');return false;">MM Blocked Contributors - Offboarding Review</a> sheet first, then DM your designated Pod Lead Coordinator with their name if they aren't listed, and they'll check the backend.</p>
+          <h4>Do I need to notify support or Ops about a CB being on vacation?</h4>
+          <p>No, you keep track of your Contributors on vacation. If they are inactive 7+ days after they said they'd be back, you can offboard.</p>
+        </div>
+      </details>
+      <div class="res-group-label" data-track="video">Video Calibration</div>
+      <details class="res-drop" id="res-video-calibration">
+        <summary>
+          <span class="res-body"><h3 class="res-name">Video Calibration: Pod Lead Guide</h3><span class="res-sub">How video training and calibration works, and how you grade it</span></span>
+          <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="res-drop-body">
+          <div class='note'><span class='ntag'>Review window</span><span>Pod Leads have a <b>3&ndash;5 day window</b> to review their Contributors&rsquo; Video Eval tasks.</span></div>
+          <div class='note note-res'><span class='ntag'>Keep these resources private</span>
+            <p class="note-lead">These are Pod Lead references. Don't send them to your Contributors, and if you've already shared the answer key, please delete it. To walk someone through a submission or the reasoning behind a dimension, screenshare instead, so the guides don't get passed around while these tasks are live.</p>
+            <ul class="res-link-grid">
+              <li><a href="https://docs.google.com/document/d/1cEGheZa16mPrwrfbnEfdsSDgy7S7cGWplHLniHJq3gE/edit?usp=sharing" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Video Calibration: Pod Lead Guide</a>, the full walkthrough this section is based on.</li>
+              <li><a href="https://docs.google.com/document/d/1yVab1bV_nSyELrm_JYpxwLRvEk9_rsdFCHHyStTM0Ck/edit" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Pod Lead Calibration Answers</a>, your answer key. Do not share with Contributors.</li>
+              <li><a href="https://docs.google.com/document/d/1jjcU7wCCq-ce4RD_2p_wM6v0RN6CAkrg6KEkNMAAmnE/edit?tab=t.0" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Pod Lead review tearsheet</a>, includes the 3 new audio dimensions.</li>
+              <li><a href="https://docs.google.com/document/d/1DfONVSgub7630K7jrBUkTUg9l5CYQ0tLP0Nk9x7llBw/edit?tab=t.0" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Text to Video Tearsheet</a>.</li>
+            </ul>
+          </div>
+
+          <h4>You're grading tasks you already completed</h4>
+          <p>The calibration tasks your Contributors complete are the same ones you completed during your own calibration. You already have the answer key (the <b>Pod Lead Calibration Answers</b> guide), so grade against the answers and commentary you already have rather than building a guide from scratch.</p>
+          <p>One update since you finished: each task now includes <b>3 audio dimensions</b>, overall audio preference, audio instruction following, and music/speech/sound fit (the ones most often missed on QA). Your original key covers the rest; use the <b>Pod Lead review tearsheet</b> for these three. Training now includes a few extra questions on them too.</p>
+          <div class='note'><span class='ntag'>Temporary setup</span> Down the line, each pod will get its own distinct set of calibration tasks, and you'll build your own key for grading. You'll get plenty of lead time before that change. For now, reusing tasks you've already mastered is the fastest way to move your pods through, and it keeps calibration fair as we scale.</div>
+
+          <h4>How grading works</h4>
+          <p><ul>
+            <li>Each Contributor claims up to <b>7 tasks</b> from your pod's bank and completes <b>3</b>. Once they finish, they can task on <a href="https://multimango.com" target="_blank" rel="noopener">multimango.com</a> while they wait for your grades.</li>
+            <li>Each task compares two AI-generated video clips across the task's quality dimensions, now including the 3 audio dimensions above.</li>
+            <li>Review each submission in the Pod Lead review tool and grade it. <b>2 passing tasks qualify a Contributor for video tasking.</b></li>
+            <li>Grade using three resources: your <b>calibration answers</b>, the <b>text-to-video tearsheet</b>, and the <b>Pod Lead review tearsheet</b>.</li>
+            <li>There's marginal room on close calls (for example, "strongly prefer A" may be acceptable where the key says "slightly prefer A"). Use your judgment.</li>
+          </ul></p>
+          <div class='note'><span class='ntag'>Turnaround</span> Aim to review a Contributor's calibration within <b>24 hours</b> as a general guideline. It isn't a hard deadline, but Contributors are blocked from moving forward until you've reviewed theirs, so the sooner the better.</div>
+
+          <h4>Time cap and pay</h4>
+          <p>Contributors get <b>3 paid hours</b> for video training and calibration, tracked separately on their timer. While they're in training or calibration, that cap blocks them from Multimango tasking until they finish. The timer warns them as they approach the cap, and time beyond it isn't paid.</p>
+
+          <h4>If a Contributor fails</h4>
+          <p>For now, they keep working on image tasks. Failing video doesn't remove their image work.</p>
+
+          <h4>Promoting Contributors after the first wave</h4>
+          <p>The first group was sent automatically (everyone marked "YES" on the eligibility list, no action needed for that run). After that, you decide who's ready. The criteria we've defined: <b>more than 15 hours on image tasks</b>, plus certain <b>Gold Standard (GS) score</b> thresholds, GS being the auto-graded benchmark tasks on multimango.com. We'll surface these signals on your dashboard soon.</p>
+          <p>Until then, if you strongly believe a Contributor is ready to attempt the training, grant them access with the <b>"Grant access" button on the Members tab of pod management</b>. Include detailed instructions and metrics explaining why, and use the eligibility sheet to check their QA and GS scores first.</p>
+
+        </div>
+      </details>
+      <div class="res-group-label" data-track="video">Video Eval FAQ</div>
+      <details class="res-drop" id="res-video-eval-faq">
+        <summary>
+          <span class="res-body"><h3 class="res-name">Video Eval FAQ</h3><span class="res-sub">Quick answers on video calibration, grading, and access</span></span>
+          <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="res-drop-body">
+          <h4>Who qualifies for the Video Eval project?</h4>
+          <p>A Contributor needs at least <b>15 hours on image tasks</b> before they can be approved for Video Eval. Those image hours are the entry bar, Contributors build up time on image work first, then you move them into video training and calibration.</p>
+          <h4>Do I grade the same tasks I did?</h4>
+          <p>Yes, the same tasks, now with 3 added audio dimensions. Your answer key covers the originals; the review tearsheet covers the audio ones.</p>
+          <h4>Can I share the answer key with my pod?</h4>
+          <p>Keep it to yourself, don't send the document around. Screenshare when you're coaching instead.</p>
+          <h4>What guidance do I grade against?</h4>
+          <p>The calibration answers and the Pod Lead review tearsheet.</p>
+          <h4>How many tasks do they need to pass?</h4>
+          <p>They complete 3 calibration tasks; 2 passing grades qualifies them.</p>
+          <h4>How fast should I grade?</h4>
+          <p>Within 24 hours as a general guideline, Contributors are blocked from moving forward until you review theirs.</p>
+          <h4>What if a Contributor fails?</h4>
+          <p>Move them back to image tasks for now.</p>
+          <h4>Can a Contributor opt out and stay image-only?</h4>
+          <p>No. New onboards stay image-only, but everyone else moves through training. Finishing training doesn't mean video-only, they get the standard mix.</p>
+          <h4>How is access to video tasks controlled?</h4>
+          <p>We can gate Contributors to image-only or to the full task set. Passing calibration is what opens video for them.</p>
+          <h4>How does the time cap work?</h4>
+          <p>Contributors get 3 paid hours for video training and calibration, tracked separately on their timer, and time past the cap isn't paid. They must complete all 3 calibration tasks before they can go back to tasking on multimango, until those 3 are done, the cap keeps them out of multimango tasking. Once they've completed the 3, they return to multimango tasking while they wait for you to review their submissions.</p>
+          <h4>How do I promote someone new?</h4>
+          <p>Use the "Grant access" button on the Members tab of pod management. We'll provide metrics on your dashboard soon so you can decide with updated data on how many image hours and what quality scores apply to Contributors in your pod.</p>
+          <h4>A Contributor shows as video-eligible but isn't getting video tasks on Multimango, what do I do?</h4>
+          <p>DM your Pod Lead Experience Specialist to check the sync between Workada and Multimango.</p>
+
+          <h4>For impossible physics, do I score Less AI-Generated only or also Motion &amp; Temporal? And how do I handle the dragon audio case?</h4>
+          <p>Start with Less AI-Generated, that's the home for anything wrong in a single frame (warped anatomy, an object clipping through a surface, physics that can't happen). Add Motion &amp; Temporal Quality only when the movement itself also breaks over time (teleporting, morphing, flickering, unnatural reversals). For the dragon example, a requested sound that never appears (the missing roar) is scored under Audio Quality &amp; Sync and Audio Instruction Following, not video Instruction Following, and don't count the same miss on three axes.</p>
+          <h4>A real MM task only shows Audio Quality &amp; Sync with no Audio Instruction Following dimension, do I still need to judge instruction-following?</h4>
+          <p>No, score only audio quality &amp; sync when that's all the task shows.</p>
+          <h4>A Contributor aced calibration but is under 15 hours, when can I move them to video calibration?</h4>
+          <p>Use your best judgment. If you believe they're ready, you can promote them even if they're a little short of the usual bar.</p>
+          <h4>Can a video calibration score be changed if I graded it wrong?</h4>
+          <p>No, so grade each one carefully the first time.</p>
+          <h4>How do I handle a Contributor who's avoiding video training?</h4>
+          <p>There's no opting out. The fair, defensible path:</p>
+          <p><ol>
+            <li>Give a first warning: if they continue working image-only, let them know that offboarding may follow.</li>
+            <li>Give one final, explicit written warning, not another reminder, but a clear "You have until [date] to start or complete Video Eval training, or you'll be moved off active tasking and offboarded." Put a real deadline on it so there's no more open-ended avoidance.</li>
+            <li>If they ignore that deadline, treat it as a refusal to do required work and offboard them, using the same "no option to opt out" language you've been citing.</li>
+          </ol></p>
+        </div>
+      </details>
     </div>
   </div>
 
@@ -9531,7 +9622,7 @@ To make sure you're following the process correctly and getting the support you 
         </div>
       </details>
       <div class="res-group-label">Forms &amp; Trackers</div>
-      <a class="reslink" href="https://docs.google.com/forms/d/e/1FAIpQLSf8hk_BeyL4vVk4bPFTwAXiJ3cGa_H5EutM03HuO-RySoyp_g/viewform?usp=header" target="_blank" rel="noopener">
+      <a class="reslink" id="res-improvements-form" href="https://docs.google.com/forms/d/e/1FAIpQLSf8hk_BeyL4vVk4bPFTwAXiJ3cGa_H5EutM03HuO-RySoyp_g/viewform?usp=header" target="_blank" rel="noopener">
         <span class="res-body"><span class="res-name">Handbook Improvements Form</span><span class="res-sub">Add any suggestions to improve Workada approved resources.</span></span>
         <span class="res-arrow">↗</span>
       </a>
@@ -9546,7 +9637,7 @@ To make sure you're following the process correctly and getting the support you 
       </a>
       <div class="res-group-label">Support</div>
       <a class="reslink" id="res-support-form" href="https://docs.google.com/forms/d/e/1FAIpQLScU5P4cjA4T9oDotQq3nv8Qs_5WP1dHfwg0NkwrQMRPHeLIRw/viewform?usp=header" target="_blank" rel="noopener">
-        <span class="res-body"><span class="res-name">Support Form</span><span class="res-sub">For feedback, escalating aging tickets, and referring a Contributor to Pod Lead.</span></span>
+        <span class="res-body"><span class="res-name">Support Form</span><span class="res-sub">For escalating aging tickets and referring a Contributor to Pod Lead.</span></span>
         <span class="res-arrow">↗</span>
       </a>
       <a class="reslink" id="res-support-ticket" href="mailto:support@op.workada.co">
@@ -10398,30 +10489,30 @@ const NEW_PODLEADS = [
 const FAQ = [
   {id:"dashboard", icon:"01", title:"Dashboard & Portal Access", subt:"Logging in and finding your way around", items:[
     {q:"How do I access my Pod Lead dashboard?", a:"Log in via <a href='https://workada.com' target='_blank' rel='noopener'>workada.com</a> using the <b>Login</b> button in the top-right corner. Once logged in you'll see your main dashboard. From there, click the <b>blue button in the top right</b> to open your Workada project portal. This is where you manage your Contributors."},
-    {q:"What can I see and do in the portal?", a:"The portal gives you full visibility into your pod:<ul><li><b>Workada Project Dashboard</b>: status of each Contributor.</li><li><b>Training Progress</b>: click the button on your pod view to see each Contributor's attempts, answers, and AI feedback.</li><li><b>Create Training Tasks</b>: build custom training content.</li></ul>See the <a href='https://docs.google.com/document/d/1jPvFKKYZJ12hdIU5h68kkhtf9VC0G7e8xM5DZckd6ro/edit?tab=t.xkvle9fotpz8' target='_blank' rel='noopener'>Create Training Content guide</a> for step-by-step instructions, or the <a href='#' onclick=\"goToResource('res-howto-videos');return false;\">how-to setup videos</a> if you'd rather watch it."}
-  ]},
-  {id:"secondary-projects", icon:"03", title:"Calibration and Projects", subt:"When a pod gets routed beyond its primary queue", items:[
-    {q:"How do I coach my Contributor after calibration?", a:"<ul><li>Proactively coach anyone who's struggling before they run out of attempts, don't wait for them to ask.</li><li>If a specific project has its own calibration numbers (pass rate, attempt limits), check that project's word bank or notes, the mechanics vary project to project.</li><li><b>Review quality</b>: regular 1:1s or shadow sessions, review QA feedback and trends together, ask Contributors to reflect on quality warnings, track recurring strengths and improvement areas.</li><li><b>Give actionable feedback</b>: specific and behavior-based; agree on 1–2 clear action items per session; follow up on previous coaching points.</li><li><b>Support success</b>: share relevant resources, encourage early questions/escalation, recognize improvement.</li></ul>"},
+    {q:"What can I see and do in the portal?", a:"The new dashboard is live and still getting tweaks, so keep working the way you do now and we'll announce each update as it lands. Here's where everything sits today:<ul><li><b>Members tab</b>: your whole Pod in one table. The chips along the top filter by stage, so you can see exactly who sits in <b>Setup</b> (granted access, not yet tasking), <b>Calibration</b>, and <b>Off-platform tasking</b> (live on task work), and how many are in each.</li><li><b>Grant access</b>: on the Welcome-stage row. It's the only thing that moves a Contributor out of Welcome into Setup and unlocks training and calibration. Every grant is logged with your name and a timestamp. Grant it only once they've cleared phone verification, the onboarding call, or a Persona check, because nothing in the app stops an early click.</li><li><b>Pass and Fail</b>: on the Contributor's row in the Members tab. Pass moves them into training and setup, Fail blocks them from moving forward. This review runs on MultiMango, Advanced Workbook, and Sheets only, and it's separate from Grant access: granting access doesn't replace it, and passing it doesn't grant access.</li><li><b>Contributor profile</b>: click a name to open it. You'll see <b>weekly metrics</b> (attempts, productive hours, total hours, productive percentage, average review score, defects, and the week-over-week trend), a <b>timeline</b> of every stage change from Welcome through Tasking, and <b>identity and lifecycle</b> details (join date, days in current stage, last active date, training and calibration pass rates).</li><li><b>Notes</b>: click <b>Add note</b> on the profile to log check-ins, coaching, or anything worth remembering. Notes live on the profile, so there's no separate sheet to keep.</li><li><b>Request Offboarding</b>: top right of the profile card. This is the live route now that the form has closed. Fill out the additional notes every time, allow 48 hours before resubmitting, and ignore the withhold payment and send email fields, which are being removed.</li><li><b>Insights</b>: hours worked, attempts, and productivity. Check productivity daily.</li><li><b>Training Progress</b> and <b>Create Training Tasks</b>: see each Contributor's attempts, answers, and AI feedback, or build custom training content.</li></ul>See the <a href='https://docs.google.com/document/d/1jPvFKKYZJ12hdIU5h68kkhtf9VC0G7e8xM5DZckd6ro/edit?tab=t.xkvle9fotpz8' target='_blank' rel='noopener'>Create Training Content guide</a> for step-by-step instructions, or the <a href='#' onclick=\"goToResource('res-howto-videos');return false;\">how-to setup videos</a> if you'd rather watch it."},
+    {q:"How do I coach my Contributor after calibration?", a:"<ul><li>Proactively coach anyone who's struggling before they run out of attempts, don't wait for them to ask.</li><li>If a specific project has its own calibration numbers (pass rate, attempt limits), check that project's word bank or notes, the mechanics vary project to project.</li><li><b>Review quality</b>: office hours, review QA feedback and trends together, ask Contributors to reflect on quality warnings, track recurring strengths and improvement areas.</li><li><b>Give actionable feedback</b>: specific and behavior-based; agree on 1–2 clear action items per session; follow up on previous coaching points.</li><li><b>Support success</b>: share relevant resources, encourage early questions/escalation, recognize improvement.</li></ul>"},
     {q:"What do I do about a Contributor running into repeated technical quirks on a project?", a:"First check whether it's a known, expected quirk (many platforms have a few) rather than a new bug, refreshing or switching to another available task type often resolves it. If something persists across multiple tasks or Contributors, screenshot it, add the task number to the ticket, and report it rather than letting your pod work around it silently."}
   ]},
   {id:"issues", icon:"04", title:"Issues, Conduct & Offboarding", subt:"Unclear instructions, Contributor conduct, and the offboarding process", items:[
     {q:"A Contributor says the task instructions are unclear. What should they do?", a:"Have them send you a screenshot or hop on a huddle to go over it together. If it looks like a bug, send it to <a href='mailto:support@op.workada.co'>support@op.workada.co</a>; otherwise, just answer to the best of your ability."},
-    {q:"How do I handle conduct issues with a Contributor?", a:"<ul><li><b>Have the conversation first</b>: you're the owner of your team; be direct about what's happening and what needs to change.</li><li><b>Know the standard</b>: ties to the <a href='#' onclick=\"goToResource('res-coc');return false;\">Code of Conduct's</a> professionalism requirement.</li><li><b>When to escalate</b>: rude/aggressive behavior, refusal to engage, or no improvement after a direct conversation.</li><li><b>How to escalate</b>: flag it and <a href='#' onclick=\"goToResource('res-escalate');return false;\">email full context to Ops</a>.</li></ul>"},
+    {q:"How do I handle conduct issues with a Contributor?", a:"<ul><li><b>Have the conversation first</b>: you're the owner of your team; be direct about what's happening and what needs to change.</li><li><b>Know the standard</b>: ties to the <a href='#' onclick=\"goToResource('res-coc');return false;\">Code of Conduct's</a> professionalism requirement.</li><li><b>When to escalate</b>: rude/aggressive behavior, refusal to engage, or no improvement after a direct conversation.</li><li><b>How to escalate</b>: DM your Pod Lead Coordinator with full context if you have one, and your Pod Lead Experience Specialist if you don't.</li></ul>"},
     {q:"Why would a Contributor get offboarded?", a:"<ul><li><b>Failed training or calibration</b>: didn't pass within the required attempts.</li><li><b>Voluntary</b>: the Contributor notifies their Pod Lead directly; the Pod Lead flags the departure to Ops so access can be revoked.</li><li><b>Quality disablement</b>: triggered when quality falls below threshold after the remediation process.</li><li><b>Dishonesty</b>: covers using AI to do the work for them, copy/paste, spam, and time misuse. Policy is a warning on the first incident, offboarding on the second.</li><li><b>Inactivity</b>: 7+ days without tasking (no submitted work) and no heads-up to their Pod Lead. This is about work, not Slack, a quiet week in Slack or an unanswered message isn't inactivity on its own.</li><li><b>Community guidelines violation</b>: egregious violations result in immediate offboarding, no warning.</li></ul>In every case, the Contributor is paid for all work completed up to their offboarding date, processed in the next scheduled payment cycle."},
     {q:"Once I submit an offboarding request, what happens next?", a:"Click <b>Request Offboarding</b> on the Contributor's profile card, and it generally takes about 2 business days to process. Once the Contributor is offboarded, both you and the Contributor are notified, and their Slack and Workada email access is revoked. Their Dashboard stays available so they can still check their Sessions and Payments history."}
   ]},
   {id:"pay-time-off", icon:"05", title:"Pay, Time Off & Getting Help", subt:"Escalation contacts and coverage", items:[
-    {q:"How do I submit Vacation time and who covers my pod while I'm away?", a:"Pod Leads can work internationally while on vacation, though this is subject to change with a 2-week notice period. Report planned time off through the Vacation / Time Off Form ahead of time so coverage can be arranged, see the <a href='#' onclick=\"goToResource('res-substitution');return false;\">Substitution Overview</a> for how coverage is assigned."},
+    {q:"How do I submit Vacation time and who covers my pod while I'm away?", a:"Report planned time off through the <a href='#' onclick=\"goToResource('res-vacation-form');return false;\">Vacation / Time Off Form</a> one to two weeks ahead so coverage can be arranged, and see the <a href='#' onclick=\"goToResource('res-substitution');return false;\">Substitution Overview</a> for how coverage is assigned."},
     {q:"How do I connect with other Pod Leads?", a:"Via the Pod Lead Channel on Slack, this channel is meant for Pod Leads to build community and support each other. This channel is not monitored closely by Ops."},
     {q:"What are the Slack best practices I should share with my pod?", a:"Slack is where your pod stays connected day to day. These shared habits keep every channel easy to scan, so questions get answered faster and nothing gets lost in the scroll.<br/><br/><b>Channels</b><br/>All your channels live on the left. Check <b>Announcements</b> and your pod channel every time you log in, so you're always caught up.<ul><li><b>Announcements</b>: company-wide announcements.</li><li><b>Your pod channel</b>: where you share announcements and info with your pod (e.g. pod-brittany-m, k-pod, mango-pod).</li><li><b>contributor-questions</b>: Contributors post here once training and calibration are done and they're actively tasking.</li><li><b>Social channel</b>: a place to share things that aren't work related.</li></ul><b>Icons</b><br/>Direct-message icons sit on the far left.<ul><li><b>Speech bubble</b>: direct messages, use the pencil icon at the top to send one.</li><li><b>Bell</b>: replies to your messages, threads you're part of, and tags.</li><li><b>Bookmark</b>: hover over a message or thread and click the bookmark icon to save it for later.</li></ul><b>Threads</b><br/>In the top-right corner of your Slack home page you can click <b>Threads</b> to see every thread you've replied to, all in one place. It's the fastest way to pick back up on conversations you're part of.<br/><br/><b>Search bar</b><br/>Can't find an answer in the Contributor Resources tab?<ul><li>Use the search bar at the top of Slack first, don't post a question without searching. Someone's probably already asked it and gotten an answer.</li><li>To search one channel only, click the channel, click the search bar, and choose that channel from the drop-down.</li></ul><b>Format for posting in Slack</b><br/>To keep Slack clean and easy to scan, use this format every time you post:<ol><li>Post a 3–5 word title in <b>bold</b> that sums up the issue. Send it, then hover over the title and click <b>Reply in thread</b> to add the rest of the message.</li><li>Reply within that same thread, keep every reply and screenshot there.</li><li>Use bullet points or other formatting when a message in a thread runs long.</li><li>Use the <b>+</b> at the bottom of the message box to add screenshots to the thread.</li><li>To edit a message: hover over it, click the three dots, click <b>Edit</b>, then <b>Save</b>.</li><li>Add a green checkmark once the issue is solved. You can also add it when you resolve a Contributor's issue.</li></ol><b>Knowing @all vs @here</b><br/>Both notify people in a channel, but they're not the same, so choose the one that fits the moment.<ul><li><b>@here</b> notifies only the people who are currently active in the channel. Use it for time-sensitive things that can wait if someone's away, like a quick question or a heads-up during working hours.</li><li><b>@all</b> (or @channel) notifies everyone in the channel, active or not. Save it for genuinely important messages everyone needs to see, like a policy change or an urgent update.</li><li>When in doubt, reach for <b>@here</b>. Overusing <b>@all</b> trains people to tune out notifications, so it works best when it's rare.</li></ul><b>Managing your notifications</b><br/>To turn notifications for a thread on or off: open the thread, click the three dots in the top right, then turn notifications on or off as needed."}
   ]},
   {id:"contrib-ref", icon:"06", title:"Contributor Reference", subt:"What your Contributors see and ask about, so you can answer without escalating", items:[
     {q:"How does training and calibration work for Contributors?", a:"Check in on all Contributors starting training and/or calibration to support them in their journey, and avoid having to offboard them because of failure. Contributors have <b>4 hours</b> to complete training and calibration, any time beyond that is unpaid."},
-    {q:"What's new in the Time Tracking &amp; Pay Policy (July 2026)?", a:"The principle is simple: Contributors are paid for time spent actively doing approved tasking work.<ul><li><b>What counts as paid</b>: project tasks within the approved scope, training/calibration up to the project's cap, and approved supporting tools (Slack, Zoom, Google Meet, Google Search, Word, Google Docs, Email).</li><li><b>AI tools</b>: task output must be the Contributor's own work. Using AI assistants (ChatGPT, Claude, Gemini, Copilot, or similar) to generate or complete any part of a deliverable isn't paid time, and isn't allowed unless a project's instructions explicitly say otherwise. This is treated as a quality and integrity issue, not a pay issue, and can affect standing on the project.</li><li><b>Idle time</b>: the timer auto-pauses after 5 minutes without mouse/keyboard input on any screen, app, or tab. Contributors confirm they're still working to resume it; paused time isn't paid.</li><li><b>Ineligible activity</b>: anything outside approved tasking (shopping, streaming, general browsing) isn't paid, and the timer won't resume until they're back on an approved site or app.</li><li><b>Seeing eligible time</b>: the timer now shows a live breakdown of eligible vs. not-eligible time during a session, so there are no surprises at pay time. If a block looks wrongly marked, they should flag it to you.</li><li><b>Supported browsers</b>: Chrome is recommended. On a Mac, use Chrome, since Safari doesn't reliably track activity on macOS and can log active work as no activity detected. Other browsers may affect timer accuracy.</li></ul>"},
+    {q:"What does the Time Tracking &amp; Pay Policy say?", a:"The principle is simple: Contributors are paid for time spent actively doing approved tasking work.<ul><li><b>What counts as paid</b>: project tasks within the approved scope, training/calibration up to the project's cap, and approved supporting tools (Slack, Zoom, Google Meet, Google Search, Word, Google Docs, Email).</li><li><b>AI tools</b>: task output must be the Contributor's own work. Using AI assistants (ChatGPT, Claude, Gemini, Copilot, or similar) to generate or complete any part of a deliverable isn't paid time, and isn't allowed unless a project's instructions explicitly say otherwise. This is treated as a quality and integrity issue, not a pay issue, and can affect standing on the project.</li><li><b>Idle time</b>: the timer auto-pauses after 5 minutes without mouse/keyboard input on any screen, app, or tab. Contributors confirm they're still working to resume it; paused time isn't paid.</li><li><b>Ineligible activity</b>: anything outside approved tasking (shopping, streaming, general browsing) isn't paid, and the timer won't resume until they're back on an approved site or app.</li><li><b>Seeing eligible time</b>: the timer now shows a live breakdown of eligible vs. not-eligible time during a session, so there are no surprises at pay time. If a block looks wrongly marked, they should flag it to you.</li><li><b>Supported browsers</b>: Chrome is recommended. On a Mac, use Chrome, since Safari doesn't reliably track activity on macOS and can log active work as no activity detected. Other browsers may affect timer accuracy.</li></ul>"},
     {q:"When does Tasking unlock?", a:"When all 4 Setup tasks are done <b>and</b> training review is approved. Then they log in at workada.com/tasks to see available projects."}
   ]},
   {id:"templates", icon:"07", title:"Templates & Tools", subt:"Where to find what other Pod Leads already built", items:[
-    {q:"Where's the setup walkthrough?", a:"The <a href='#' onclick=\"goToResource('res-howto-videos');return false;\">how-to setup videos</a> cover the same ground screen by screen."},
+    {q:"How do I help an active Contributor raise their quality hours?", a:"Use the <a href='https://docs.google.com/document/d/1pWLIlRbhqWI0ORq8X2as9k-i01xdaai-LJZWhmpOrWw/edit?usp=sharing' target='_blank' rel='noopener'>How to Increase Quality Hours for Active CBs</a> guide. It's the coaching framework for a Contributor whose productive hours are dropping week to week, or whose logged hours sit well above what they're producing."},
+    {q:"Is there a template for my weekly Pod meeting?", a:"Yes, the <a href='https://docs.google.com/presentation/d/13z2_jR56RywwLpPFyFXm9rviCgz7kPrZjgNDPJ5thVk/copy' target='_blank' rel='noopener'>Workada Weekly Meeting Template</a>. Make a copy, then fill in the four sections: updates, changes since last week, where newer Contributors stand in training, and open questions."},
+    {q:"Where are the Slack best practices?", a:"The <a href='https://drive.google.com/file/d/1CtVIDSQ1oKp5cN-SA5DKofBnbB_KECsK/view' target='_blank' rel='noopener'>Slack Best Practices</a> guide covers channels, formatting, and posting etiquette. Share it with your Pod so every channel stays easy to scan."},
     {q:"Where do the official comms templates live?", a:"The <a href='#' onclick=\"goToResource('res-message-templates');return false;\">Message Templates</a> drop-down in Project Resources is grouped by the moment you need it, onboarding &amp; welcome, feedback &amp; coaching, and retention &amp; celebration, all copy-paste ready. Multimango-specific scripts (offboarding, detailed feedback, and metrics) live in the MM Message Templates drop-down in the Multimango and Video Eval tab. Use these instead of paraphrasing policy from memory, so Contributors get consistent, accurate information."}
   ]}
 ];
@@ -10736,6 +10827,8 @@ function goToResource(id){
   }
   setTimeout(()=>{
     if(!el)return;
+    const sec=el.closest('.res-section');
+    if(sec&&sec.hidden&&window.__setResTrack)window.__setResTrack('all');
     const det=el.closest('details');
     if(det)det.open=true;
     el.scrollIntoView({behavior:'smooth',block:'center'});
@@ -10833,6 +10926,7 @@ document.addEventListener('click',e=>{
       if(node.classList && node.classList.contains('res-group-label')){
         current = document.createElement('section');
         current.className = 'res-section';
+        current.dataset.track = node.dataset.track || 'overall';
         reslist.insertBefore(current, node);
         current.appendChild(node);
       } else if(current){
@@ -10889,25 +10983,44 @@ document.addEventListener('click',e=>{
     }
   });
 
-  // ---- Build "Jump to" pills (explicit order, two lines) ----
+  // ---- Track headings (Overall / Image Eval / Video Eval) ----
+  var TRACKS = [
+    { key:'overall', title:'Overall',    sub:'Applies to every Contributor on Multimango and Video Eval' },
+    { key:'image',   title:'Image Eval', sub:'Multimango image tasking, calibration, and FAQ' },
+    { key:'video',   title:'Video Eval', sub:'Video training, calibration, grading, and FAQ' }
+  ];
+  TRACKS.forEach(function(t){
+    var first = sections.filter(function(sec){ return sec.dataset.track === t.key; })[0];
+    if(!first) return;
+    var hd = document.createElement('div'); hd.className = 'track-hd'; hd.dataset.track = t.key; hd.id = 'track-' + t.key;
+    var h2 = document.createElement('h2'); h2.textContent = t.title;
+    var p = document.createElement('p'); p.textContent = t.sub;
+    hd.appendChild(h2); hd.appendChild(p);
+    first.parentNode.insertBefore(hd, first);
+  });
+
+  // ---- Build "Jump to" pills (one row per track) ----
   var pillWrap = document.getElementById('jumpPills');
   if(pillWrap){
     var JUMP_ORDER = [
-      'Team & Community', 'Quality Bar & Coaching', 'Resources and Templates', 'Offboarding & Calibration',
-      '__break__',
-      'Multimango Setup Videos', 'Multimango FAQ', 'Multimango High Quality Task Examples',
-      'Video Calibration', 'Video Eval FAQ', 'Video Eval High Quality Task Examples'
+      '__row__overall', 'Team & Community', 'Quality Bar & Coaching', 'Resources and Templates', 'Message Templates', 'Offboarding & Calibration',
+      '__row__image', 'Multimango Setup Videos', 'Multimango FAQ',
+      '__row__video', 'Video Calibration', 'Video Eval FAQ'
     ];
     function slugId(t){ return 'sec-' + t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,''); }
     JUMP_ORDER.forEach(function(title){
-      if(title === '__break__'){
-        var br = document.createElement('span'); br.className = 'jump-break'; br.setAttribute('aria-hidden','true');
-        pillWrap.appendChild(br); return;
+      if(title.indexOf('__row__') === 0){
+        var key = title.replace('__row__','');
+        var lbl = document.createElement('span'); lbl.className = 'jump-row-label'; lbl.dataset.track = key;
+        var tr = TRACKS.filter(function(t){ return t.key === key; })[0];
+        lbl.textContent = tr ? tr.title : key;
+        pillWrap.appendChild(lbl); return;
       }
       var sec = document.getElementById(slugId(title));
       if(!sec) return;
       var a = document.createElement('a');
       a.className = 'jump-pill';
+      a.dataset.track = sec.dataset.track;
       a.href = '#' + sec.id;
       a.textContent = title;
       a.addEventListener('click', function(e){
@@ -10920,6 +11033,51 @@ document.addEventListener('click',e=>{
       pillWrap.appendChild(a);
     });
   }
+
+  // ---- Track switcher ----
+  var currentTrack = 'all';
+  var trackBtns = Array.prototype.slice.call(document.querySelectorAll('#view-resources .track-btn'));
+  function trackOff(el){ return currentTrack !== 'all' && el.dataset.track !== currentTrack; }
+  function applyTrack(){
+    trackBtns.forEach(function(b){
+      var on = b.dataset.track === currentTrack;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    document.querySelectorAll('#view-resources .track-hd').forEach(function(h){ h.hidden = currentTrack !== 'all'; });
+    if(pillWrap){
+      pillWrap.querySelectorAll('.jump-pill, .jump-row-label').forEach(function(el){ el.hidden = trackOff(el); });
+      pillWrap.querySelectorAll('.jump-row-label').forEach(function(el){ if(currentTrack !== 'all') el.hidden = true; });
+    }
+    // Re-letter visible sections so badges always run A, B, C...
+    var i = 0;
+    sections.forEach(function(sec){
+      var badge = sec.querySelector('.sec-badge');
+      if(trackOff(sec)) return;
+      if(badge) badge.textContent = LETTERS[i] || (i+1);
+      i++;
+    });
+    runSearch();
+  }
+  function setTrack(key){
+    currentTrack = key;
+    applyTrack();
+  }
+  trackBtns.forEach(function(b, i){
+    b.addEventListener('click', function(){
+      setTrack(b.dataset.track);
+      var top = document.querySelector('#view-resources .track-seg');
+      if(top && top.getBoundingClientRect().top < 0) top.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+    b.addEventListener('keydown', function(e){
+      var idx;
+      if(e.key === 'ArrowRight') idx = (i + 1) % trackBtns.length;
+      else if(e.key === 'ArrowLeft') idx = (i - 1 + trackBtns.length) % trackBtns.length;
+      else return;
+      e.preventDefault(); trackBtns[idx].focus(); setTrack(trackBtns[idx].dataset.track);
+    });
+  });
+  window.__setResTrack = setTrack;
 
   // ---- Search / filter ----
   var input = document.getElementById('resSearch');
@@ -10939,8 +11097,9 @@ document.addEventListener('click',e=>{
         var cards = sec.querySelectorAll('.q-card');
         var innerDet = sec.querySelector('.res-drop');
         var titleEl = sec.querySelector('.sec-title');
+        var offTrack = trackOff(sec);
         if(q === ''){
-          sec.hidden = false;
+          sec.hidden = offTrack;
           cards.forEach(function(c){ c.hidden = false; c.open = false; });
           if(innerDet) innerDet.open = false;
           return;
@@ -10962,8 +11121,8 @@ document.addEventListener('click',e=>{
           hitAny = norm(sec.textContent).indexOf(q) > -1;
           if(innerDet) innerDet.open = hitAny;
         }
-        sec.hidden = !hitAny;
-        if(hitAny) matches++;
+        sec.hidden = offTrack || !hitAny;
+        if(hitAny && !offTrack) matches++;
       });
     } else if(panel){
       panel.querySelectorAll('.contrib-tile').forEach(function(t){
@@ -10987,7 +11146,7 @@ document.addEventListener('click',e=>{
   if(clearBtn){
     clearBtn.addEventListener('click', function(){ input.value = ''; runSearch(); input.focus(); });
   }
-  runSearch();
+  applyTrack();
 })();
 
 </script>
