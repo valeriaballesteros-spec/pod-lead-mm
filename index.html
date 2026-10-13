@@ -8634,6 +8634,40 @@
     white-space: nowrap;
     border: 0
     }
+
+/* ===== UI consistency pass ===== */
+/* Your Role page header: same type scale and vertical rhythm as the SOP, FAQ and How to Pod Lead headers */
+#view-handbook>header.hero{padding:0 0 44px!important}
+#view-handbook>header.hero .eyebrow{height:26px;display:flex;align-items:center;margin-bottom:14px;letter-spacing:.14em}
+#view-handbook>header.hero h1{font-weight:600;font-size:clamp(26px,3.7vw,40px);margin-bottom:11px}
+#view-handbook>header.hero p.sub{font-size:16.5px;color:rgba(255,255,255,.88);margin-bottom:0}
+/* Section headings inside Your Role sit one step below the page title */
+#view-handbook .sec-head h2{font-size:clamp(22px,2.6vw,28px)}
+/* Responsibility markers: one colour, like every other numbered marker on the site */
+#view-handbook .resp-track-marker{background:var(--accent-text)}
+/* Role description: left-aligned with its heading instead of centred */
+#view-handbook .jd{margin-left:0;margin-right:auto}
+#view-handbook .jd-title{font-size:22px;line-height:1.3}
+/* Job details: three equal columns so there is no empty cell */
+.jd-meta{grid-template-columns:repeat(3,1fr)}
+@media(max-width:760px){.jd-meta{grid-template-columns:1fr}}
+/* SOP jump bar: all seven stages on one evenly spaced row */
+@media(min-width:900px){
+  .sop-stepper{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;padding:10px 12px}
+  .sop-stepper .step-line{display:none}
+  .sop-stepper .step-item,.sop-stepper .step-item.step-end{margin-left:0;padding:7px 8px;align-items:center;line-height:1.3}
+  .sop-stepper .step-num{flex:none}
+  .sop-stepper .step-item{min-width:0}
+  .sop-stepper .step-label{white-space:normal;min-width:0}
+}
+@media(max-width:899px){
+  .sop-stepper{display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;padding:10px 12px}
+  .sop-stepper .step-line{display:none}
+  .sop-stepper .step-item,.sop-stepper .step-item.step-end{margin-left:0;padding:6px 6px}
+  .sop-stepper .step-label{white-space:normal}
+}
+/* FAQ category pills: letter shown as a small badge matching the section badges */
+.pill-letter{flex:none;width:20px;height:20px;border-radius:50%;background:var(--accent-text);color:#fff;font-family:var(--display);font-weight:700;font-size:11px;display:inline-flex;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
@@ -8649,9 +8683,8 @@
       <button class="tab" data-view="handbook">Your Role</button>
       <button class="tab" data-view="roster" style="display:none">Roster</button>
       <button class="tab" data-view="sop">SOP</button>
+      <button class="tab" data-view="howto">How to Pod Lead</button>
       <button class="tab" data-view="faq">FAQ</button>
-      <button class="tab" data-view="jd">Role Description</button>
-      <button class="tab" data-view="howto">How To Pod Lead</button>
       <button class="tab" data-view="metrics" style="display:none">Metrics</button>
       <div class="nav-dropdown" id="resourcesDropdown">
         <button class="tab" id="resourcesDropdownBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="resourcesMenu">Project Resources <span class="caret" aria-hidden="true">▾</span></button>
@@ -8664,12 +8697,10 @@
           <button class="dropdown-item tab dd-project" type="button" data-view="sheets" role="menuitem"><span class="dd-name">Sheets</span><span class="dd-sub">Project playbook and templates</span></button>
           <button class="dropdown-item tab dd-project" type="button" data-view="video-caption" role="menuitem"><span class="dd-name">Video Caption</span><span class="dd-sub">Project playbook and templates</span></button>
           <button class="dropdown-item tab dd-project" type="button" data-view="remedy" role="menuitem"><span class="dd-name">Remedy</span><span class="dd-sub">Project playbook and templates</span></button>
-          <button class="dropdown-item tab dd-project" type="button" data-view="multimodal" role="menuitem"><span class="dd-name">Multimodal</span><span class="dd-sub">Project playbook and templates</span></button>
+          <button class="dropdown-item tab dd-project" type="button" data-view="multimodal" role="menuitem"><span class="dd-name">Finance Multimodal</span><span class="dd-sub">Project playbook and templates</span></button>
           <button class="dropdown-item tab dd-project" type="button" data-view="lotus" role="menuitem"><span class="dd-name">Lotus</span><span class="dd-sub">Project playbook and templates</span></button>
           <button class="dropdown-item tab dd-project" type="button" data-view="multi-hop-reasoning" role="menuitem"><span class="dd-name">Multi-hop Reasoning</span><span class="dd-sub">Project playbook and templates</span></button>
-          <button class="dropdown-item tab dd-project" type="button" data-view="finance-artifact-collection" role="menuitem"><span class="dd-name">Finance Artifact Collection</span><span class="dd-sub">Project playbook and templates</span></button>
-          <button class="dropdown-item tab dd-project" type="button" data-view="sheets-acquisition" role="menuitem"><span class="dd-name">Sheets Acquisition</span><span class="dd-sub">Project playbook and templates</span></button>
-          <button class="dropdown-item tab dd-project" type="button" data-view="sheets-artifact-collection" role="menuitem"><span class="dd-name">Sheets Artifact Collection</span><span class="dd-sub">Project playbook and templates</span></button>
+          <button class="dropdown-item tab dd-project" type="button" data-view="multimodal-science" role="menuitem"><span class="dd-name">Multimodal Science</span><span class="dd-sub">Project playbook and templates</span></button>
         </div>
       </div>
       <a class="tab" href="mailto:support@op.workada.co" target="_blank" rel="noopener">Support ↗</a>
@@ -8743,7 +8774,7 @@
   </header>
 
   <section class="wrap" style="padding-top:0;padding-bottom:44px">
-    <div class="sec-head reveal" style="margin-bottom:20px"><div class="kicker"><span class="kn">·</span><span class="kl">Your role</span></div><h2>What you own</h2><p>Open any of them below for the full how-to.</p></div>
+    <div class="sec-head reveal" style="margin-bottom:20px"><h2>What you own</h2><p>Open any of them below for the full how-to.</p></div>
 
     <div class="resp-track">
 
@@ -8859,6 +8890,50 @@
     </div>
   </section>
 
+  <section class="wrap" style="padding-top:0;padding-bottom:44px">
+  <div class="sec-head reveal" style="margin-bottom:24px"><h2>Role description</h2></div>
+  <article class="jd reveal">
+    <div class="jd-title">Pod Lead (Contractor) at Workada</div>
+    <p>Workada connects skilled Contributors with real AI training work. We're an early-stage team, and Pod Leads help us keep that work high quality and well supported.</p>
+
+    <div class="jd-meta">
+      <div class="m"><div class="mk">Type</div><div class="mv">Contract</div></div>
+      <div class="m"><div class="mk">Hours</div><div class="mv">About 20 hours a week, with more available as project volume allows. You set your own schedule.</div></div>
+      <div class="m"><div class="mk">Location</div><div class="mv">Remote</div></div>
+    </div>
+
+    <h3>About the role</h3>
+    <p>Our work gets done in pods, small teams of Contributors working a project together. As a Pod Lead, you are a <b>player-coach</b>: you do the work alongside your pod <em>and</em> lead it. You set the standard by example, you're the first person your Contributors turn to, and you're responsible for the deliverables in your scope: quality, completion and Contributor retention for your pod.</p>
+    <p>That means leading from the front on the three things that matter most (<b>quality, hours, and retention</b>) while building a pod that people actually want to be part of. If you like rolling up your sleeves on real tasks and turning a group of individuals into a high-performing, connected team, this role is for you.</p>
+
+    <h3>What you'll own</h3>
+    <ul>
+      <li><b>Lead by example.</b> Work tasks alongside your pod and set the bar for quality, throughput, and consistency. Your own output is the standard the pod measures against.</li>
+      <li><b>Be the first line of support.</b> Serve as the first point of contact for your Contributors, answer questions, resolve blockers fast, and keep the work flowing. Escalate only what truly needs it, to your Pod Lead Coordinator, or to your Pod Lead Experience Specialist if you don't have one.</li>
+      <li><b>Drive quality.</b> Review work against project guidelines, give clear and constructive feedback, and coach Contributors toward stronger, more consistent output.</li>
+      <li><b>Drive hours and throughput.</b> Keep your pod active and on pace, monitor capacity and deadlines, and make sure committed hours translate into completed work.</li>
+      <li><b>Drive retention.</b> Spot at-risk Contributors early, understand why people stay or leave, and take action to keep your best people engaged and growing.</li>
+      <li><b>Build community.</b> Create a pod that feels supported and connected, run regular check-ins, recognize good work, and foster a culture people want to stick with.</li>
+      <li><b>Advocate for fixes.</b> Surface recurring friction, unclear guidelines, and tooling or process problems to the ops team, and push for the changes that make your pod's work better.</li>
+      <li><b>Own pod success.</b> Track the metrics that matter (quality scores, completion rates, active hours, retention) and take responsibility for your pod's quality, completion and retention.</li>
+    </ul>
+
+    <h3>What we're looking for</h3>
+    <ul>
+      <li>Experience leading or coordinating a team, group, or project. You're comfortable being the person others rely on.</li>
+      <li>Willingness to be hands-on: you're happy doing the work, not just overseeing it.</li>
+      <li>Strong communication and people skills; you can give feedback that lands and keep morale high remotely.</li>
+      <li>A quality- and process-oriented mindset with sharp attention to detail.</li>
+      <li>Comfort working with metrics to spot problems and track progress.</li>
+      <li>Calm, dependable problem-solving in a fast-changing, early-stage environment.</li>
+      <li>Strong async habits and enough availability to stay responsive to your pod.</li>
+    </ul>
+
+    <hr>
+    <p class="eeo">Workada is an equal opportunity organization. We welcome contractors of all backgrounds.</p>
+  </article>
+  </section>
+
 </section>
 
 
@@ -8879,9 +8954,9 @@
   <nav class="sop-stepper reveal" aria-label="Jump to section">
     <a href="#sop-start" class="step-item" data-target="sop-start" style="--sc:var(--accent-text)"><span class="step-num">1</span><span class="step-label">Setup</span></a>
     <span class="step-line" style="--sc:var(--accent-text)"></span>
-    <a href="#sop-daily" class="step-item" data-target="sop-daily" style="--sc:var(--slate)"><span class="step-num">2</span><span class="step-label">Daily to-dos</span></a>
+    <a href="#sop-daily" class="step-item" data-target="sop-daily" style="--sc:var(--slate)"><span class="step-num">2</span><span class="step-label">Daily to&#8209;dos</span></a>
     <span class="step-line" style="--sc:var(--slate)"></span>
-    <a href="#sop-weekly" class="step-item" data-target="sop-weekly" style="--sc:var(--ink-2)"><span class="step-num">3</span><span class="step-label">Weekly to-dos</span></a>
+    <a href="#sop-weekly" class="step-item" data-target="sop-weekly" style="--sc:var(--ink-2)"><span class="step-num">3</span><span class="step-label">Weekly to&#8209;dos</span></a>
     <span class="step-line" style="--sc:var(--ink-2)"></span>
     <a href="#sop-escalate" class="step-item" data-target="sop-escalate" style="--sc:#A7DAEF"><span class="step-num">4</span><span class="step-label">How to escalate</span></a>
     <span class="step-line" style="--sc:#A7DAEF"></span>
@@ -8899,12 +8974,12 @@
     </div>
     <div class="sop-track">
       <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Get started</h4><p>Start by reading through this handbook and the resources it links to. Together they lay out the full scope of the role, so you know what it covers before you start working with your pod.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Log into your dashboard</h4><p>Log in at <a href="https://workada.com" target="_blank" rel="noopener">workada.com</a> with the <b>Login</b> button, top right. From there, click the <b>blue button in the top-right corner</b> to open your Workada project portal. This is where you'll manage your pod day to day. Prefer to watch it once? The <a href="#" onclick="goToResource('res-howto-videos');return false;">how-to setup videos</a> walk through the same screens.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Log into your dashboard</h4><p>Log in at <a href="https://workada.com" target="_blank" rel="noopener">workada.com</a> with the <b>Login</b> button, top right. From there, click the <b>blue button in the top-right corner</b> to open your Workada project portal. This is where you'll manage your pod day to day.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Slack</h4><p>You'll have a pod channel in Slack for talking with the Contributors assigned to you. Use it for regular check-ins and anything that affects the whole pod, and send a DM for anything about one person, like individual feedback, metrics or personal matters. Each project also has a channel just for Pod Leads, where the Ops team shares announcements with you directly. Keep all communication with Contributors in Slack, and don't contact them through personal email.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Calendly / Google Calendar</h4><p>Set up a booking link with your office hours open to Contributors, so they can grab a <b>15-minute slot</b> with you whenever they need one, with no back-and-forth to schedule. Add a recurring weekly slot for feedback and questions, and pin the link at the top of your pod channel so everything lives in one place.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Know where to go for help</h4><p>For product bugs (timer, pay, tasks, error messages), <a href="#" onclick="goToResource('res-support-ticket');return false;">email support@op.workada.co</a>. More on this in <a href="#" onclick="goToFaq('issues');return false;">How to escalate</a> below.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">06</span><div class="sop-body"><h4>Learn the dashboard</h4><p>The five areas you'll use most: the <b>Members</b> tab shows your pod by stage (setup, calibration, live on tasks). <b>Grant access</b> on a Welcome-stage row is the only thing that moves a Contributor into training and calibration, and every grant is logged against your name. <b>Pass</b> and <b>Fail</b> sit on the Contributor's row and are separate from granting access. The <b>Contributor profile</b> holds weekly metrics, the stage timeline, and last active date, and <b>Add note</b> is where you log check-ins and coaching so the record travels with the Contributor. <b>Insights</b> has hours worked, attempts, and productivity. Check it daily.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">07</span><div class="sop-body"><h4>Use the Handbook as your single source of truth</h4><p>Use the handbook as your main reference so everyone works from the same information. If something's missing, request it through the <a href="#" onclick="goToResource('res-improvements-form');return false;">Handbook Improvements Form</a>. QA materials, answer keys, and quality guides are for you, not for your pod.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">07</span><div class="sop-body"><h4>Use the Handbook as your single source of truth</h4><p>Use the handbook as your main reference so everyone works from the same information. If something's missing, request it through the <a href="#" onclick="goToResource('res-improvements-form');return false;">Platform and Resource Improvement Form</a>. QA materials, answer keys, and quality guides are for you, not for your pod.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">08</span><div class="sop-body"><h4>Meet Workotter</h4><p>Workotter is an AI assistant for Pod Leads that answers documented, repeatable questions. It lives in <b>#mm-pod-lead-support</b> and pulls only from this handbook and Contributor Resources, so it doesn't handle technical support, judgment calls or access issues. Bring those to your Pod Lead Experience Specialist or Coordinator, or file a ticket.</p><p style="margin-top:12px"><em>Workotter is available on a few projects for now while we test it and roll it out to every Workada project.</em></p></div></div>
     </div>
   </div>
@@ -8917,7 +8992,7 @@
     <div class="sop-track">
       <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Show up in your pod channel</h4><p>Post a short check-in on the days you're active, covering a greeting, an update and an open invitation for questions. Answer DMs within the day, and answer questions in public where you can, since one answer in the channel saves five DMs. Corrections stay private.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Welcome every new joiner within 24 hours</h4><p>You get a Slack notification each time someone joins your pod. Say hello in the channel by name, introduce yourself and how long you've been on the project, then give one first step and one way to reach you. Send the setup list with your welcome: install the <b>Workada Timer</b> and click Connect app, connect payments through <b>Stripe</b> before the first pay cycle, accept the <b>Terms of Use</b>, complete <b>identity verification</b> with Persona (photo ID plus a live selfie), and start <b>training</b> on the dashboard. Training and calibration are paid up to a cap, so encourage them to finish in one go. If nothing is submitted within 24 hours, check back. Templates are in <a href="#" onclick="goToResource('res-message-templates');return false;">Message templates</a>.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Review new work fast</h4><p>A new Contributor's first 3 tasks get reviewed within 24 hours. That early feedback loop is what sets the tone for everything after. Say what's working before what isn't, point at the specific task and the exact guideline, and show what the corrected answer would look like.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Review new work fast</h4><p>Early feedback sets the tone for everything after. Say what's working before what isn't, point at the specific task and the exact guideline, and show what the corrected answer would look like.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Do your own work</h4><p>You're a <b>player-coach</b>: you task alongside your pod, not just manage it. Your own output sets the standard the pod is measured against.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Check productivity and watch for early signals</h4><p>Open Insights daily. It's the fastest read on who needs a message today. If someone's gone quiet, their time per task sits well above the pod average, or a score starts slipping, reach out privately and ask what's in the way before it becomes a pattern. Lead with a question, not the number. See <a href="#" onclick="goToResource('sec-quality-bar-coaching');return false;">Quality bar &amp; coaching</a> for the full remediation process.</p></div></div>
     </div>
@@ -8934,7 +9009,7 @@
       <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Keep a posting rhythm</h4><p>A short post every day beats a long one every week. One pattern that works: Monday sets the week, Tuesday shares one tasking tip from your reviews, Wednesday opens the floor, Thursday gives kudos by name, Friday closes warm with a recap of the week. Repost official Workada Ops announcements in your channel in case anyone missed them.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Run 1:1s when they're needed</h4><p>After a failed review, when quality drops, or when someone asks, rather than on a fixed schedule for everyone. Fifteen minutes, same four beats every time: what's going well, one thing to change, their questions, what happens next. Write down what you agreed and follow up on it. A shadow session, watching someone task live, shows you where they hesitate faster than reviewing output does.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Stay current with Ops and other Pod Leads</h4><p>Read the Ops announcement channel and check in on the Pod Leads channel each week, and join your project's weekly Pod Lead meeting with Ops when you can. It's the fastest way to get a decision you'd otherwise wait days for.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">06</span><div class="sop-body"><h4>Track time away yourself</h4><p>Contributors should give you notice before stepping away for 7 or more days. Log it in your own tracker; it isn't a support ticket and Ops doesn't need to be notified. Notice means they aren't inactive, so don't offboard them. If the return date passes and 7 days go by with no tasking and no explanation, that becomes inactivity. For your own time off, let us know through the <a href="#" onclick="goToResource('res-vacation-form');return false;">Vacation / Time Off Form</a> one to two weeks ahead so we can arrange coverage.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">06</span><div class="sop-body"><h4>Planned absences vs. inactivity</h4><p>Contributors should give you notice before stepping away for 7 or more days. It isn't a support ticket and Ops doesn't need to be notified. Notice means they aren't inactive, so don't offboard them. If the return date passes and 7 days go by with no tasking and no explanation, that becomes inactivity.</p></div></div>
     </div>
   </div>
 
@@ -8947,7 +9022,7 @@
       <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Know the routes, in order</h4><p><b>Workotter</b> for documented questions straight from the Handbook. The <b>Pod Leads channel</b> for "how do other Pod Leads handle this?" Bring the example and your best guess. A <b>support ticket</b> for a task that's broken, mis-scored, or won't submit, plus pay and platform issues. Your <b>Pod Lead Coordinator</b> is your first stop for role and quality calls. Bring what you've already tried. Your <b>Pod Lead Experience Specialist</b> is the last route, for a stalled ticket or a question no other route resolved. Tell them where you already took it and what came back.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Product bugs</h4><p>Timer, pay, tasks and error messages <a href="#" onclick="goToResource('res-support-ticket');return false;">go straight to support@op.workada.co</a>. First check it isn't a platform-wide issue. If it's affecting everyone, engineers are already on it and extra tickets don't help. Payment questions from Contributors start in the payment section of the Contributor Resources FAQ, and anything it doesn't answer goes to Support.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Conduct issues</h4><p>Review the <a href="#" onclick="goToResource('res-coc');return false;">Code of Conduct</a>, then DM your Pod Lead Experience Specialist, or your Pod Lead Coordinator if you have one, with full context. Don't try to resolve a conduct issue on your own.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Offboarding a Contributor</h4><p>You escalate the reasons, Ops does the removal, and only after you've coached them and given a clear path to improve. Try to retain first. Open their profile from the <b>Members</b> tab and click <b>Request Offboarding</b> in the top right of their profile card. The additional notes field is the only trace of what you did before requesting this, so fill it out every time. Allow 48 hours before resubmitting. Don't duplicate requests. Once it goes through, you and the Contributor are both notified, platform and Slack access are revoked, and they're still paid for all work completed up to their offboarding date. Full list of reasons and what happens next is in <a href="#" onclick="goToFaq('issues');return false;">Issues, conduct &amp; offboarding</a>.</p></div></div>
+      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Offboarding a Contributor</h4><p>You escalate the reasons, Ops does the removal, and only after you've coached them and given a clear path to improve. Try to retain first. Open their profile from the <b>Members</b> tab and click <b>Request Offboarding</b> in the top right of their profile card. The additional notes field is the only trace of what you did before requesting this, so fill it out every time. Don't duplicate requests. Once it goes through, you and the Contributor are both notified, platform and Slack access are revoked, and they're still paid for all work completed up to their offboarding date. Full list of reasons and what happens next is in <a href="#" onclick="goToFaq('issues');return false;">Issues, conduct &amp; offboarding</a>.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Before you escalate anything</h4><p>Review the <a href="#" onclick="goToFaq('issues');return false;">Support queue best practices</a> below, a lot of what feels urgent has a faster path than a ticket.</p></div></div>
       <div class="sop-step reveal"><span class="sop-marker">06</span><div class="sop-body"><h4>Questions that aren't yours to answer</h4><p>These have real policies behind them, so route them rather than improvising in the channel. <b>Accessibility and accommodations</b>: a Contributor who can't complete certain tasks needs an accommodation, not workaround advice. Escalate it. <b>Sensitive or graphic task content</b>: tell them to stop and escalate. What happens next is set by the project. <b>Skipping tasks and tooling</b>: whether skips count and which writing or grammar tools are allowed is project policy. Check Project Resources first. <b>Extended absence</b>: anything longer than a few weeks is an Ops decision, not a pod decision.</p></div></div>
     </div>
@@ -9053,53 +9128,11 @@
   </div>
 </section>
 
-<section class="wrap view" id="view-jd" role="region" aria-label="Role description">
-  <div class="sec-head reveal" style="margin-bottom:24px"><div class="kicker"><span class="kn">·</span><span class="kl">Hiring</span></div><h2>Role description</h2><p>The Pod Lead role we're currently recruiting for.</p></div>
-  <article class="jd reveal">
-    <div class="jd-title">Pod Lead (Contractor) at Workada</div>
-    <p>Workada connects skilled Contributors with real AI training work. We're an early-stage team, and Pod Leads help us keep that work high quality and well supported.</p>
 
-    <div class="jd-meta">
-      <div class="m"><div class="mk">Type</div><div class="mv">Contract</div></div>
-      <div class="m"><div class="mk">Hours</div><div class="mv">About 20 hours a week, with more available as project volume allows. You set your own schedule.</div></div>
-      <div class="m"><div class="mk">Location</div><div class="mv">Remote</div></div>
-    </div>
-
-    <h3>About the role</h3>
-    <p>Our work gets done in pods, small teams of Contributors working a project together. As a Pod Lead, you are a <b>player-coach</b>: you do the work alongside your pod <em>and</em> lead it. You set the standard by example, you're the first person your Contributors turn to, and you're responsible for the deliverables in your scope: quality, completion and Contributor retention for your pod.</p>
-    <p>That means leading from the front on the three things that matter most (<b>quality, hours, and retention</b>) while building a pod that people actually want to be part of. If you like rolling up your sleeves on real tasks and turning a group of individuals into a high-performing, connected team, this role is for you.</p>
-
-    <h3>What you'll own</h3>
-    <ul>
-      <li><b>Lead by example.</b> Work tasks alongside your pod and set the bar for quality, throughput, and consistency. Your own output is the standard the pod measures against.</li>
-      <li><b>Be the first line of support.</b> Serve as the first point of contact for your Contributors, answer questions, resolve blockers fast, and keep the work flowing. Escalate only what truly needs it, to your Pod Lead Coordinator, or to your Pod Lead Experience Specialist if you don't have one.</li>
-      <li><b>Drive quality.</b> Review work against project guidelines, give clear and constructive feedback, and coach Contributors toward stronger, more consistent output.</li>
-      <li><b>Drive hours and throughput.</b> Keep your pod active and on pace, monitor capacity and deadlines, and make sure committed hours translate into completed work.</li>
-      <li><b>Drive retention.</b> Spot at-risk Contributors early, understand why people stay or leave, and take action to keep your best people engaged and growing.</li>
-      <li><b>Build community.</b> Create a pod that feels supported and connected, run regular check-ins, recognize good work, and foster a culture people want to stick with.</li>
-      <li><b>Advocate for fixes.</b> Surface recurring friction, unclear guidelines, and tooling or process problems to the ops team, and push for the changes that make your pod's work better.</li>
-      <li><b>Own pod success.</b> Track the metrics that matter (quality scores, completion rates, active hours, retention) and take responsibility for your pod's quality, completion and retention.</li>
-    </ul>
-
-    <h3>What we're looking for</h3>
-    <ul>
-      <li>Experience leading or coordinating a team, group, or project. You're comfortable being the person others rely on.</li>
-      <li>Willingness to be hands-on: you're happy doing the work, not just overseeing it.</li>
-      <li>Strong communication and people skills; you can give feedback that lands and keep morale high remotely.</li>
-      <li>A quality- and process-oriented mindset with sharp attention to detail.</li>
-      <li>Comfort working with metrics to spot problems and track progress.</li>
-      <li>Calm, dependable problem-solving in a fast-changing, early-stage environment.</li>
-      <li>Strong async habits and enough availability to stay responsive to your pod.</li>
-    </ul>
-
-    <hr>
-    <p class="eeo">Workada is an equal opportunity organization. We welcome contractors of all backgrounds.</p>
-  </article>
-</section>
 
 
 <!-- HOW TO POD LEAD VIEW -->
-<section class="wrap view" id="view-howto" role="region" aria-label="How To Pod Lead">
+<section class="wrap view" id="view-howto" role="region" aria-label="How to Pod Lead">
   <div class="sec-head reveal" style="margin-bottom:24px"><div class="kicker"><span class="kn">·</span><span class="kl">Checklist</span></div><h2>How to Pod Lead</h2><p>Your quick-reference guide for running a healthy, high-quality pod.</p></div>
 
   <div class="ht-why reveal">
@@ -9147,8 +9180,8 @@
   </div>
 </section>
 
-<section class="wrap view" id="view-multimodal" role="region" aria-label="Multimodal">
-  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources · Your project</span></div><h2>Multimodal</h2><p>Project-specific resources for Multimodal. For forms, policies, and message templates every Pod Lead uses, open General resources.</p></div>
+<section class="wrap view" id="view-multimodal" role="region" aria-label="Finance Multimodal">
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources · Your project</span></div><h2>Finance Multimodal</h2><p>Project-specific resources for Finance Multimodal. For forms, policies, and message templates every Pod Lead uses, open General resources.</p></div>
   <div class="soon">
     <h3>Coming soon</h3>
   </div>
@@ -9168,22 +9201,8 @@
   </div>
 </section>
 
-<section class="wrap view" id="view-finance-artifact-collection" role="region" aria-label="Finance Artifact Collection">
-  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources · Your project</span></div><h2>Finance Artifact Collection</h2><p>Project-specific resources for Finance Artifact Collection. For forms, policies, and message templates every Pod Lead uses, open General resources.</p></div>
-  <div class="soon">
-    <h3>Coming soon</h3>
-  </div>
-</section>
-
-<section class="wrap view" id="view-sheets-acquisition" role="region" aria-label="Sheets Acquisition">
-  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources · Your project</span></div><h2>Sheets Acquisition</h2><p>Project-specific resources for Sheets Acquisition. For forms, policies, and message templates every Pod Lead uses, open General resources.</p></div>
-  <div class="soon">
-    <h3>Coming soon</h3>
-  </div>
-</section>
-
-<section class="wrap view" id="view-sheets-artifact-collection" role="region" aria-label="Sheets Artifact Collection">
-  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources · Your project</span></div><h2>Sheets Artifact Collection</h2><p>Project-specific resources for Sheets Artifact Collection. For forms, policies, and message templates every Pod Lead uses, open General resources.</p></div>
+<section class="wrap view" id="view-multimodal-science" role="region" aria-label="Multimodal Science">
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources · Your project</span></div><h2>Multimodal Science</h2><p>Project-specific resources for Multimodal Science. For forms, policies, and message templates every Pod Lead uses, open General resources.</p></div>
   <div class="soon">
     <h3>Coming soon</h3>
   </div>
@@ -9230,11 +9249,11 @@
       </a>
       <a class="home-channel-card reveal" href="https://workada.slack.com/archives/C0B2KEAQZ6J" target="_blank" rel="noopener">
         <span class="hc-icon" aria-hidden="true" style="--hc-c:var(--slate)">#</span>
-        <div class="hc-body"><span class="hc-name">#contributor-questions</span><p>Check in here and try to support fellow Contributors.</p></div>
+        <div class="hc-body"><span class="hc-name">#mm-discussions</span><p>Confused about a task, got a quality warning, need a guideline explained?</p></div>
       </a>
       <a class="home-channel-card reveal" href="https://workada.slack.com/archives/C0B26330P7Z" target="_blank" rel="noopener">
         <span class="hc-icon" aria-hidden="true" style="--hc-c:var(--ink-2)">#</span>
-        <div class="hc-body"><span class="hc-name">#multimodal-pod-leads</span><p>For Pod Leads supporting each other. Not closely monitored by Ops.</p></div>
+        <div class="hc-body"><span class="hc-name">#mm-pod-leads</span><p>For Pod Leads supporting each other. Not closely monitored by Ops.</p></div>
       </a>
       <a class="home-channel-card reveal" href="https://workada.slack.com/archives/C0BM28V546N" target="_blank" rel="noopener">
         <span class="hc-icon" aria-hidden="true" style="--hc-c:var(--accent-text)">#</span>
@@ -9290,7 +9309,7 @@
           <h4>Contributors get a “quality reminder” message with no explanation. Are there guidelines?</h4>
           <p>Clear guidelines are still in progress. We don't have full visibility into the block triggers either. What we do know is that blocking is driven by behavioral signals like speeding through tasks, taking too long, or picking the same side repeatedly, and Contributors get warnings before most blocks.</p>
           <h4>What's the guideline for a Contributor's productive-vs-other time ratio, and how do I monitor it?</h4>
-          <p>Roughly 4 hours productive to 1 hour other (~80/20).</p>          <h4>How does the pass/fail button work for training?</h4>
+          <p>At least <b>85%</b> of a Contributor's logged time should be productive, which leaves an allowance of up to <b>15%</b> for other time (about 9 minutes per hour).</p>          <h4>How does the pass/fail button work for training?</h4>
           <p>It's your call if you see potential for the Contributor to improve their quality. Pressing <b>Pass</b> (even if they don't hit the 75% mark) means you see potential, because you met with them and they understood their mistakes. Pressing <b>Fail</b> means you see no potential for them to improve, and they'll be sent to offboarding.</p>
         </div>
       </details>
@@ -9605,7 +9624,7 @@ To make sure you're following the process correctly and getting the support you 
           <h4>Some Contributors have several GS scores while others have none, is that random?</h4>
           <p>Yes. GS tasks are handed out randomly as Contributors work, so an uneven spread across your pod is expected.</p>          <h4>Can a Contributor be offboarded for a low GS score? Does task time affect it? How does the percentage change?</h4>
           <p>Yes, but the bar is low: only around 15 to 20 Contributors have been offboarded for it. Task time isn't a factor. The GS score is simply correct submissions divided by total submissions.</p>
-          <h4>Can Contributors ask for consensus on their tasks in #contributor-questions?</h4>
+          <h4>Can Contributors ask for consensus on their tasks in #mm-discussions?</h4>
           <p>It isn't something to encourage, but it isn't explicitly prohibited either.</p>
           <h4>Is there a process to escalate incorrect or unfair QA feedback?</h4>
           <p>Yes, via the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUbyLGR93KeA1q41e0wR3YkmmDAqxei13EMc49zkKMf9CiPg/viewform?usp=header" target="_blank" rel="noopener">Multimango Review Appeals</a> form.</p>
@@ -9648,7 +9667,7 @@ To make sure you're following the process correctly and getting the support you 
 
           <h4>How grading works</h4>
           <p><ul>
-            <li>Each Contributor claims up to <b>7 tasks</b> from your pod's bank and completes <b>3</b>. Once they finish, they can task on <a href="https://multimango.com" target="_blank" rel="noopener">multimango.com</a> while they wait for your grades.</li>
+            <li>Each Contributor claims up to <b>4 tasks</b> from your pod's bank and completes <b>3</b>. Once they finish, they can task on <a href="https://multimango.com" target="_blank" rel="noopener">multimango.com</a> while they wait for your grades.</li>
             <li>Each task compares two AI-generated video clips across the task's quality dimensions, now including the 3 audio dimensions above.</li>
             <li>Review each submission in the Pod Lead review tool and grade it. <b>2 passing tasks qualify a Contributor for video tasking.</b></li>
             <li>Grade using three resources: your <b>calibration answers</b>, the <b>text-to-video tearsheet</b>, and the <b>Pod Lead review tearsheet</b>.</li>
@@ -9733,23 +9752,11 @@ To make sure you're following the process correctly and getting the support you 
 
 <!-- RESOURCES (MAIN) VIEW -->
 <section class="wrap view" id="view-resources-main" role="region" aria-label="Project resources">
-  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources · General</span></div><h2>General resources</h2><p>What every Pod Lead needs, whatever project you're on: setup, forms, coverage, support, and message templates. Anything specific to your project lives in its playbook.</p></div>
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Project Resources · General</span></div><h2>General resources</h2><p>What every Pod Lead needs, whatever project you're on: forms, coverage, support, and message templates. Anything specific to your project lives in its playbook.</p></div>
   <div class="reslist">
-      <div class="res-group-label">Onboarding</div>
-      <details class="res-drop" id="res-howto-videos">
-        <summary>
-          <span class="res-body"><span class="res-name">How-to setup videos</span><span class="res-sub">Watch these to get up to speed</span></span>
-          <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </summary>
-        <div class="res-drop-body">
-          <div class="res-video">
-            <div class="res-video-frame"><iframe src="https://www.loom.com/embed/21f52c61f7a742c38d85e77bb92bf298" title="Pod Lead setup walkthrough" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div>
-          </div>
-        </div>
-      </details>
       <div class="res-group-label">Forms &amp; trackers</div>
       <a class="reslink" id="res-improvements-form" href="https://docs.google.com/forms/d/e/1FAIpQLSf8hk_BeyL4vVk4bPFTwAXiJ3cGa_H5EutM03HuO-RySoyp_g/viewform?usp=header" target="_blank" rel="noopener">
-        <span class="res-body"><span class="res-name">Handbook Improvements Form</span><span class="res-sub">Add any suggestions to improve Workada approved resources.</span></span>
+        <span class="res-body"><span class="res-name">Platform and Resource Improvement Form</span><span class="res-sub">Add any suggestions to improve Workada approved resources.</span></span>
         <span class="res-arrow">↗</span>
       </a>
       <div class="res-group-label">Coverage &amp; conduct</div>
@@ -10912,7 +10919,7 @@ const NEW_PODLEADS = [
 const FAQ = [
   {id:"dashboard", icon:"01", title:"Dashboard & portal access", subt:"Logging in and finding your way around", items:[
     {q:"How do I access my Pod Lead dashboard?", a:"Log in via <a href='https://workada.com' target='_blank' rel='noopener'>workada.com</a> using the <b>Login</b> button in the top-right corner. Once logged in you'll see your main dashboard. From there, click the <b>blue button in the top right</b> to open your Workada project portal. This is where you manage your Contributors."},
-    {q:"What can I see and do in the portal?", a:"The new dashboard is live and still getting tweaks, so keep working the way you do now and we'll announce each update as it lands. Here's where everything sits today:<ul><li><b>Members tab</b>: your whole pod in one table. The chips along the top filter by stage, so you can see exactly who sits in <b>Setup</b> (granted access, not yet tasking), <b>Calibration</b>, and <b>Off-platform tasking</b> (live on task work), and how many are in each.</li><li><b>Grant access</b>: on the Welcome-stage row. It's the only thing that moves a Contributor out of Welcome into Setup and unlocks training and calibration. Every grant is logged with your name and a timestamp. Grant it only once they've cleared phone verification, the onboarding call, or a Persona check, because nothing in the app stops an early click.</li><li><b>Pass and Fail</b>: on the Contributor's row in the Members tab. Pass moves them into training and setup, Fail blocks them from moving forward. This review runs on Multimango, Advanced Workbook, and Sheets only, and it's separate from Grant access: granting access doesn't replace it, and passing it doesn't grant access.</li><li><b>Contributor profile</b>: click a name to open it. You'll see <b>weekly metrics</b> (attempts, productive hours, total hours, productive percentage, average review score, defects, and the week-over-week trend), a <b>timeline</b> of every stage change from Welcome through Tasking, and <b>identity and lifecycle</b> details (join date, days in current stage, last active date, training and calibration pass rates).</li><li><b>Notes</b>: click <b>Add note</b> on the profile to log check-ins, coaching, or anything worth remembering. Notes live on the profile, so there's no separate sheet to keep.</li><li><b>Request Offboarding</b>: top right of the profile card. This is the live route now that the form has closed. Fill out the additional notes every time, allow 48 hours before resubmitting, and ignore the withhold payment and send email fields, which are being removed.</li><li><b>Insights</b>: hours worked, attempts, and productivity. Check productivity daily.</li><li><b>Training Progress</b> and <b>Create Training Tasks</b>: see each Contributor's attempts, answers, and AI feedback, or build custom training content.</li></ul>See the <a href='https://docs.google.com/document/d/1jPvFKKYZJ12hdIU5h68kkhtf9VC0G7e8xM5DZckd6ro/edit?tab=t.xkvle9fotpz8' target='_blank' rel='noopener'>Create Training Content guide</a> for step-by-step instructions, or the <a href='#' onclick=\"goToResource('res-howto-videos');return false;\">how-to setup videos</a> if you'd rather watch it."},
+    {q:"What can I see and do in the portal?", a:"The new dashboard is live and still getting tweaks, so keep working the way you do now and we'll announce each update as it lands. Here's where everything sits today:<ul><li><b>Members tab</b>: your whole pod in one table. The chips along the top filter by stage, so you can see exactly who sits in <b>Setup</b> (granted access, not yet tasking), <b>Calibration</b>, and <b>Off-platform tasking</b> (live on task work), and how many are in each.</li><li><b>Grant access</b>: on the Welcome-stage row. It's the only thing that moves a Contributor out of Welcome into Setup and unlocks training and calibration. Every grant is logged with your name and a timestamp. Grant it only once they've cleared phone verification, the onboarding call, or a Persona check, because nothing in the app stops an early click.</li><li><b>Pass and Fail</b>: on the Contributor's row in the Members tab. Pass moves them into training and setup, Fail blocks them from moving forward. This review runs on Multimango, Advanced Workbook, and Sheets only, and it's separate from Grant access: granting access doesn't replace it, and passing it doesn't grant access.</li><li><b>Contributor profile</b>: click a name to open it. You'll see <b>weekly metrics</b> (attempts, productive hours, total hours, productive percentage, average review score, defects, and the week-over-week trend), a <b>timeline</b> of every stage change from Welcome through Tasking, and <b>identity and lifecycle</b> details (join date, days in current stage, last active date, training and calibration pass rates).</li><li><b>Notes</b>: click <b>Add note</b> on the profile to log check-ins, coaching, or anything worth remembering. Notes live on the profile, so there's no separate sheet to keep.</li><li><b>Request Offboarding</b>: top right of the profile card. This is the live route now that the form has closed. Fill out the additional notes every time, allow 48 hours before resubmitting, and ignore the withhold payment and send email fields, which are being removed.</li><li><b>Insights</b>: hours worked, attempts, and productivity. Check productivity daily.</li><li><b>Training Progress</b> and <b>Create Training Tasks</b>: see each Contributor's attempts, answers, and AI feedback, or build custom training content.</li></ul>See the <a href='https://docs.google.com/document/d/1jPvFKKYZJ12hdIU5h68kkhtf9VC0G7e8xM5DZckd6ro/edit?tab=t.xkvle9fotpz8' target='_blank' rel='noopener'>Create Training Content guide</a> for step-by-step instructions."},
     {q:"How do I coach my Contributor after calibration?", a:"<ul><li>Proactively coach anyone who's struggling before they run out of attempts. Don't wait for them to ask.</li><li>If a specific project has its own calibration numbers (pass rate, attempt limits), check that project's word bank or notes. The mechanics vary project to project.</li><li><b>Review quality</b>: office hours, review QA feedback and trends together, ask Contributors to reflect on quality warnings, track recurring strengths and improvement areas.</li><li><b>Give actionable feedback</b>: specific and behavior-based; agree on 1–2 clear action items per session; follow up on previous coaching points.</li><li><b>Support success</b>: share relevant resources, encourage early questions/escalation, recognize improvement.</li></ul>"},
     {q:"What do I do about a Contributor running into repeated technical quirks on a project?", a:"First check whether it's a known, expected quirk (many platforms have a few) rather than a new bug. Refreshing or switching to another available task type often resolves it. If something persists across multiple tasks or Contributors, screenshot it, add the task number to the ticket, and report it rather than letting your pod work around it silently."}
   ]},
@@ -10925,7 +10932,7 @@ const FAQ = [
   {id:"pay-time-off", icon:"05", title:"Pay, time off & getting help", subt:"Escalation contacts and coverage", items:[
     {q:"How do I submit Vacation time and who covers my pod while I'm away?", a:"Report planned time off through the <a href='#' onclick=\"goToResource('res-vacation-form');return false;\">Vacation / Time Off Form</a> one to two weeks ahead so coverage can be arranged, and see the <a href='#' onclick=\"goToResource('res-substitution');return false;\">Substitution Overview</a> for how coverage is assigned."},
     {q:"How do I connect with other Pod Leads?", a:"Via the Pod Leads channel on Slack. This channel is meant for Pod Leads to build community and support each other. This channel is not monitored closely by Ops."},
-    {q:"What are the Slack best practices I should share with my pod?", a:"Slack is where your pod stays connected day to day. These shared habits keep every channel easy to scan, so questions get answered faster and nothing gets lost in the scroll.<br/><br/><b>Channels</b><br/>All your channels live on the left. Check <b>Announcements</b> and your pod channel every time you log in, so you're always caught up.<ul><li><b>Announcements</b>: company-wide announcements.</li><li><b>Your pod channel</b>: where you share announcements and info with your pod (e.g. pod-brittany-m, k-pod, mango-pod).</li><li><b>contributor-questions</b>: Contributors post here once training and calibration are done and they're actively tasking.</li><li><b>Social channel</b>: a place to share things that aren't work related.</li></ul><b>Icons</b><br/>Direct-message icons sit on the far left.<ul><li><b>Speech bubble</b>: direct messages. Use the pencil icon at the top to send one.</li><li><b>Bell</b>: replies to your messages, threads you're part of, and tags.</li><li><b>Bookmark</b>: hover over a message or thread and click the bookmark icon to save it for later.</li></ul><b>Threads</b><br/>In the top-right corner of your Slack home page you can click <b>Threads</b> to see every thread you've replied to, all in one place. It's the fastest way to pick back up on conversations you're part of.<br/><br/><b>Search bar</b><br/>Can't find an answer in the Contributor Resources tab?<ul><li>Use the search bar at the top of Slack first. Don't post a question without searching. Someone's probably already asked it and gotten an answer.</li><li>To search one channel only, click the channel, click the search bar, and choose that channel from the drop-down.</li></ul><b>Format for posting in Slack</b><br/>To keep Slack clean and easy to scan, use this format every time you post:<ol><li>Post a 3–5 word title in <b>bold</b> that sums up the issue. Send it, then hover over the title and click <b>Reply in thread</b> to add the rest of the message.</li><li>Reply within that same thread. Keep every reply and screenshot there.</li><li>Use bullet points or other formatting when a message in a thread runs long.</li><li>Use the <b>+</b> at the bottom of the message box to add screenshots to the thread.</li><li>To edit a message: hover over it, click the three dots, click <b>Edit</b>, then <b>Save</b>.</li><li>Add a green checkmark once the issue is solved. You can also add it when you resolve a Contributor's issue.</li></ol><b>Knowing @all vs @here</b><br/>Both notify people in a channel, but they're not the same, so choose the one that fits the moment.<ul><li><b>@here</b> notifies only the people who are currently active in the channel. Use it for time-sensitive things that can wait if someone's away, like a quick question or a heads-up during working hours.</li><li><b>@all</b> (or @channel) notifies everyone in the channel, active or not. Save it for genuinely important messages everyone needs to see, like a policy change or an urgent update.</li><li>When in doubt, reach for <b>@here</b>. Overusing <b>@all</b> trains people to tune out notifications, so it works best when it's rare.</li></ul><b>Managing your notifications</b><br/>To turn notifications for a thread on or off: open the thread, click the three dots in the top right, then turn notifications on or off as needed."}
+    {q:"What are the Slack best practices I should share with my pod?", a:"Slack is where your pod stays connected day to day. These shared habits keep every channel easy to scan, so questions get answered faster and nothing gets lost in the scroll.<br/><br/><b>Channels</b><br/>All your channels live on the left. Check <b>Announcements</b> and your pod channel every time you log in, so you're always caught up.<ul><li><b>Announcements</b>: company-wide announcements.</li><li><b>Your pod channel</b>: where you share announcements and info with your pod (e.g. pod-brittany-m, k-pod, mango-pod).</li><li><b>mm-discussions</b>: Contributors post here once training and calibration are done and they're actively tasking.</li><li><b>Social channel</b>: a place to share things that aren't work related.</li></ul><b>Icons</b><br/>Direct-message icons sit on the far left.<ul><li><b>Speech bubble</b>: direct messages. Use the pencil icon at the top to send one.</li><li><b>Bell</b>: replies to your messages, threads you're part of, and tags.</li><li><b>Bookmark</b>: hover over a message or thread and click the bookmark icon to save it for later.</li></ul><b>Threads</b><br/>In the top-right corner of your Slack home page you can click <b>Threads</b> to see every thread you've replied to, all in one place. It's the fastest way to pick back up on conversations you're part of.<br/><br/><b>Search bar</b><br/>Can't find an answer in the Contributor Resources tab?<ul><li>Use the search bar at the top of Slack first. Don't post a question without searching. Someone's probably already asked it and gotten an answer.</li><li>To search one channel only, click the channel, click the search bar, and choose that channel from the drop-down.</li></ul><b>Format for posting in Slack</b><br/>To keep Slack clean and easy to scan, use this format every time you post:<ol><li>Post a 3–5 word title in <b>bold</b> that sums up the issue. Send it, then hover over the title and click <b>Reply in thread</b> to add the rest of the message.</li><li>Reply within that same thread. Keep every reply and screenshot there.</li><li>Use bullet points or other formatting when a message in a thread runs long.</li><li>Use the <b>+</b> at the bottom of the message box to add screenshots to the thread.</li><li>To edit a message: hover over it, click the three dots, click <b>Edit</b>, then <b>Save</b>.</li><li>Add a green checkmark once the issue is solved. You can also add it when you resolve a Contributor's issue.</li></ol><b>Knowing @all vs @here</b><br/>Both notify people in a channel, but they're not the same, so choose the one that fits the moment.<ul><li><b>@here</b> notifies only the people who are currently active in the channel. Use it for time-sensitive things that can wait if someone's away, like a quick question or a heads-up during working hours.</li><li><b>@all</b> (or @channel) notifies everyone in the channel, active or not. Save it for genuinely important messages everyone needs to see, like a policy change or an urgent update.</li><li>When in doubt, reach for <b>@here</b>. Overusing <b>@all</b> trains people to tune out notifications, so it works best when it's rare.</li></ul><b>Managing your notifications</b><br/>To turn notifications for a thread on or off: open the thread, click the three dots in the top right, then turn notifications on or off as needed."}
   ]},
   {id:"contrib-ref", icon:"06", title:"Contributor reference", subt:"What your Contributors see and ask about, so you can answer without escalating", items:[
     {q:"How does training and calibration work for Contributors?", a:"Check in on all Contributors starting training and/or calibration to support them in their journey, and avoid having to offboard them because of failure. Contributors have <b>4 hours</b> to complete training and calibration. Any time beyond that is unpaid."},
@@ -10978,8 +10985,8 @@ function initials(n){const c=n.replace(/[\[\]]/g,'').trim();const p=c.split(/\s+
   g.innerHTML=NEW_PODLEADS.map(p=>'<a class="lead-chip" href="mailto:'+p.email+'"><span class="lead-ini">'+initials(p.name)+'</span>'+p.name+'</a>').join('');
 })();
 
-(function(){const p=$('#pills');FAQ.forEach(cat=>{const b=make('button','pill');
-  b.innerHTML=cat.icon+' '+cat.title;
+(function(){const p=$('#pills');FAQ.forEach((cat,ci)=>{const b=make('button','pill');
+  b.innerHTML='<span class="pill-letter" aria-hidden="true">'+String.fromCharCode(65+ci)+'</span>'+cat.title;
   b.addEventListener('click',()=>{$('#searchInput').value='';applySearch('');document.getElementById('cat-'+cat.id).scrollIntoView({behavior:'smooth',block:'start'});});
   p.appendChild(b);});})();
 
@@ -11105,8 +11112,8 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
 
 /* ===== TABS ===== */
 (function(){
-  const VIEWS=['home','handbook','roster','sop','faq','templates','jd','howto','metrics','resources','resources-main','sheets','video-caption','remedy','multimodal','lotus','multi-hop-reasoning','finance-artifact-collection','sheets-acquisition','sheets-artifact-collection'];
-  const RESOURCES_PAGES=['resources','resources-main','sheets','video-caption','remedy','multimodal','lotus','multi-hop-reasoning','finance-artifact-collection','sheets-acquisition','sheets-artifact-collection'];
+  const VIEWS=['home','handbook','roster','sop','faq','templates','howto','metrics','resources','resources-main','sheets','video-caption','remedy','multimodal','lotus','multi-hop-reasoning','multimodal-science'];
+  const RESOURCES_PAGES=['resources','resources-main','sheets','video-caption','remedy','multimodal','lotus','multi-hop-reasoning','multimodal-science'];
   function showView(name){
     if(!VIEWS.includes(name))name='home';
     document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
@@ -11190,12 +11197,10 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
    plain `python3 -m http.server`, etc.) and this behaves the same as
    visiting that real path.
 
-   The additional "coming soon" project resource pages (Remedy, Multimodal,
-   Lotus, Multi-hop Reasoning, Finance Artifact Collection, Sheets
-   Acquisition, Sheets Artifact Collection) are query-param-only routes:
-   ?route=remedy, ?route=multimodal, ?route=lotus,
-   ?route=multi-hop-reasoning, ?route=finance-artifact-collection,
-   ?route=sheets-acquisition, ?route=sheets-artifact-collection.
+   The additional "coming soon" project resource pages (Remedy, Finance
+   Multimodal, Lotus, Multi-hop Reasoning, Multimodal Science) are
+   query-param-only routes: ?route=remedy, ?route=multimodal, ?route=lotus,
+   ?route=multi-hop-reasoning, ?route=multimodal-science.
 
    Matching a route now also actually navigates to that view on load (via
    showView), not just filters the dropdown menu contents. */
@@ -11219,9 +11224,7 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
     'multimodal':'multimodal',
     'lotus':'lotus',
     'multi-hop-reasoning':'multi-hop-reasoning',
-    'finance-artifact-collection':'finance-artifact-collection',
-    'sheets-acquisition':'sheets-acquisition',
-    'sheets-artifact-collection':'sheets-artifact-collection'
+    'multimodal-science':'multimodal-science'
   };
   var onlyShow = ROUTE_VIEW[route] || null;
 
