@@ -8668,6 +8668,24 @@
 }
 /* FAQ category pills: letter shown as a small badge matching the section badges */
 .pill-letter{flex:none;width:20px;height:20px;border-radius:50%;background:var(--accent-text);color:#fff;font-family:var(--display);font-weight:700;font-size:11px;display:inline-flex;align-items:center;justify-content:center}
+
+/* ===== Message templates: consistency + spacing pass ===== */
+/* Group labels use the same type as the other section labels on the resource pages */
+.tpl-group{font-family:var(--sans)!important;font-size:11.5px!important;letter-spacing:.1em!important;padding:5px 14px!important;margin:14px 0 0!important}
+.res-drop-body>.tpl-group:first-child,.tpl-group:first-of-type{margin-top:0!important}
+/* Header, note and message bubble line up across each row of cards */
+@supports (grid-template-rows:subgrid){
+  .tpl-grid>.tpl-card{display:grid!important;grid-template-rows:subgrid;grid-row:span 3;row-gap:0;align-content:start;min-width:0}
+  .tpl-grid>.tpl-card>.tpl-head{grid-row:1}
+  .tpl-grid>.tpl-card>.tpl-note{grid-row:2;align-self:start}
+  .tpl-grid>.tpl-card>.tpl-body{grid-row:3;align-self:start}
+}
+/* Even spacing inside every card */
+.tpl-head{margin-bottom:4px!important;min-height:30px}
+.tpl-note{margin:0 0 12px!important}
+.tpl-grid>.tpl-card>.tpl-body{overflow-wrap:anywhere}
+/* Long templates span the full width of the grid */
+.tpl-grid>.tpl-card--wide{grid-column:1/-1}
 </style>
 </head>
 <body>
@@ -9654,7 +9672,7 @@ To make sure you're following the process correctly and getting the support you 
             <p class="note-lead">These are Pod Lead references. Don't send them to your Contributors, and if you've already shared the answer key, please delete it. To walk someone through a submission or the reasoning behind a dimension, screenshare instead, so the guides don't get passed around while these tasks are live.</p>
             <ul class="res-link-grid">
               <li><a href="https://docs.google.com/document/d/1cEGheZa16mPrwrfbnEfdsSDgy7S7cGWplHLniHJq3gE/edit?usp=sharing" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Video Calibration: Pod Lead Guide</a>: the full walkthrough this section is based on.</li>
-              <li><a href="https://docs.google.com/document/d/1yVab1bV_nSyELrm_JYpxwLRvEk9_rsdFCHHyStTM0Ck/edit" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Pod Lead Calibration Answers</a>: your answer key. Do not share with Contributors.</li>
+              <li><a href="https://docs.google.com/document/d/11qg_L1j_i1Nq5v-TafTSOTfM_8fXqov-WKP4kgUmlnE/edit?tab=t.0" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Pod Lead Calibration Answers</a>: your answer key. Do not share with Contributors.</li>
               <li><a href="https://docs.google.com/document/d/1jjcU7wCCq-ce4RD_2p_wM6v0RN6CAkrg6KEkNMAAmnE/edit?tab=t.0" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Pod Lead review tearsheet</a>: includes the 3 new audio dimensions.</li>
               <li><a href="https://docs.google.com/document/d/1DfONVSgub7630K7jrBUkTUg9l5CYQ0tLP0Nk9x7llBw/edit?tab=t.0" target="_blank" rel="noopener" style="color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600">Text to Video Tearsheet</a>.</li>
             </ul>
@@ -9817,7 +9835,76 @@ Glad you're here. Introduce yourself whenever you're ready.</pre>
             <div class="tpl-card">
               <div class="tpl-head"><h4>Welcome message</h4><button class="tpl-copy" type="button">Copy</button></div>
               <p class="tpl-note">Send right after their account is created.</p>
-              <pre class="tpl-body">Hi [Name], welcome to the pod! I'm [Your Name], your Pod Lead and your go-to for anything you need. Next up is a quick onboarding call where I'll walk you through setup and we'll do a task together. Grab a time here → [Calendar link]</pre>
+              <pre class="tpl-body">Hi [CB Name], welcome to the Pod! I'm [Your Name], your Pod Lead, and I'm looking forward to working with you.
+
+To get started, head to Contributor Resources on your Workada dashboard. It has the guidelines and resources you'll need, and it's kept up to date by the Workada team. If you have questions or get stuck along the way, message me any time, and we'll work through it together.
+
+Welcome aboard!</pre>
+            </div>
+            <div class="tpl-card tpl-card--wide">
+              <div class="tpl-head"><h4>Welcome to the Pod pin message</h4><button class="tpl-copy" type="button">Copy</button></div>
+              <p class="tpl-note">Post and pin in your pod channel so every Contributor has the full setup, training and calibration rundown in one place.</p>
+              <pre class="tpl-body">📌 **Welcome to the Pod!** @channel
+
+Hi everyone! I'm [Your Name], your Pod Lead. Whether you're new to Workada or already familiar with the process, I'm here to help you get set up, answer your questions and support you along the way.
+
+**Start with Contributor Resources**
+Before you begin, open Contributor Resources on your Workada dashboard: [link]. The Workada team keeps it up to date, so it's the best place to find:
+
+- Training and calibration guidance
+- Task evaluation guides
+- General guidelines and tasking tips
+
+Please bookmark it, since you'll come back to it throughout the project.
+
+**Training**
+Training is on your Workada dashboard, and you need to pass it before you move on to calibration.
+
+- Read the training material carefully, and pay attention to each evaluation category.
+- Take your time with the multiple-choice questions.
+
+**Calibration**
+You'll complete at least 10 and up to 20 calibration tasks. To see your results, open the Completed section of your dashboard and look for tasks titled "[Calibration check]: Compare two images."
+
+- ✅ Once you reach a 70% pass rate, you pass calibration and receive your MultiMango invite.
+- ⚠️ If you fail your first 2 tasks, or you haven't reached 70% after 10 tasks, **stop and message me** before you continue.
+- If you don't reach 70% within 20 tasks, you won't be able to join the project and will lose access to the platform.
+
+Reach out early if your scores aren't where you expect them to be. We can go through your feedback together, and it's much easier to fix something early than after several more tasks.
+
+**Calibration tips**
+
+- Be specific in your justifications, and point to details you can actually see in the images.
+- Compare Response A and Response B directly when you explain your choice.
+- If an issue could fit more than one category, explain it under the category where it fits best. For example:
+  - Warped or garbled text → Naturalness
+  - Misspelled text → Correctness
+  - Both → address each issue under its own category
+
+A strong justification sounds like this: "Response B has better Naturalness because it's free of AI artifacts, while Response A has subjects with warped faces."
+
+**After you pass calibration**
+You'll get your MultiMango invite through your Workada dashboard. To set up your account:
+
+1. Find the Getting Started card on your dashboard.
+2. Click **Set up** under "Create MultiMango account."
+3. Open MultiMango and sign up with your **workada.co** email address (not workada.com and not a personal email).
+4. Create your password and complete email verification.
+5. Go back to Workada and click **"I created my account."**
+6. Wait for your account to be approved manually. Once it is, you'll see the Tasks option in MultiMango.
+
+**Good to know**
+- Can't find your verification code? It's forwarded to your personal inbox and can land in spam, so check "All Mail" and "Spam," or click "Resend" for a new one.
+- If you see "your workada email is not set up yet," don't create the account. Email support@op.workada.co so they can set up your address, then try again.
+
+**Staying connected**
+Slack is how we share updates and support each other, so check it regularly while you're working. Keep in mind that time on Slack counts toward your weekly non-task allowance on the timer, so check in between tasks rather than staying on it.
+
+I hold office hours every [days/time] ([link]) for questions, calibration feedback and tips, and you're welcome to drop in.
+
+If you're stuck, unsure about a task or just want a second opinion, ask in this channel or DM me. There are no silly questions, especially when you're getting started.
+
+Please react to this message with an emoji once you've read it. I'm looking forward to working with all of you!</pre>
             </div>
             <div class="tpl-card">
               <div class="tpl-head"><h4>New pod member intro</h4><button class="tpl-copy" type="button">Copy</button></div>
@@ -9844,9 +9931,60 @@ Looking forward to hearing from you. Have a great rest of your day!</pre>
           <h3 class="tpl-group">Feedback &amp; coaching</h3>
           <div class="tpl-grid">
             <div class="tpl-card">
+              <div class="tpl-head"><h4>Sharing a quiz</h4><button class="tpl-copy" type="button">Copy</button></div>
+              <p class="tpl-note">Post in your pod channel when the weekly quiz is ready.</p>
+              <pre class="tpl-body">Hi everyone! This week's quiz is ready: [link]. It's optional, and it's a quick way to check how well you know the guidelines on [topic].
+
+I'm here to help you improve, and your results show me where to focus my coaching so I can support you better. At my office hours, I'll go over the quiz, the most common errors, and tips to avoid them, and you're welcome to join. If a question isn't clear before then, reply in this thread or send me a DM.
+
+[Your name]</pre>
+            </div>
+            <div class="tpl-card">
+              <div class="tpl-head"><h4>Sharing the Quality Task of the Week</h4><button class="tpl-copy" type="button">Copy</button></div>
+              <p class="tpl-note">Post in your pod channel when the weekly quality task is ready.</p>
+              <pre class="tpl-body">Hi everyone! Here's this week's Quality Task of the Week: [link or screenshot]. It's optional, and it works best if you try it on your own first and decide which option you'd pick for each dimension before you read the explanation.
+
+This week's key takeaway: [one-sentence tip from the explanation].
+
+I'm here to help you improve, and your answers show me where to focus my coaching so I can support you better. At my office hours, I'll go over this task, the most common errors, and tips to avoid them, and you're welcome to join. If you'd have answered differently or something isn't clear, reply in this thread or send me a DM.
+
+[Your name]</pre>
+            </div>
+            <div class="tpl-card">
               <div class="tpl-head"><h4>Feedback after a defect</h4><button class="tpl-copy" type="button">Copy</button></div>
               <p class="tpl-note">Clear, kind, and actionable.</p>
               <pre class="tpl-body">Hey [Name], solid progress! One thing to tighten: on [task], [detail] should be [correct approach]. Here's why: [reason]. Give the next one a try and tag me if anything's fuzzy. You're close.</pre>
+            </div>
+            <div class="tpl-card">
+              <div class="tpl-head"><h4>Shadow Session Mandatory? Clarification</h4><button class="tpl-copy" type="button">Copy</button></div>
+              <p class="tpl-note">Post in your pod channel to clear up whether shadow sessions, 1:1s and Pod meetings are required.</p>
+              <pre class="tpl-body">📌 Are shadow sessions and Pod meetings mandatory?
+Shadow sessions, 1:1s and Pod meetings are not mandatory, and they never have been. They're optional ways to get extra support, hear important updates and stay connected with the Pod.
+
+* I sometimes sent these invites by DM so they wouldn't get buried in the channel, not to pressure anyone into booking a session.
+* Time spent in meetings and on Slack counts toward your weekly non-task allowance on the timer. Because of that, I'll focus on office hours, where you can drop in when it's useful for you, and on posting updates here in the channel.
+
+My DMs and this channel are always open, so reach out any time you have a question or need help. Please check the channel at least once a day, since that's where I'll post important updates, and I'll message you directly if something needs your attention. When you receive QA feedback, please let me know so we can go over it together.
+
+Please react with ✅ once you've read this. If anything is still unclear, ask here or DM me, and I'm happy to explain. Thank you all!
+
+[Your name]</pre>
+            </div>
+            <div class="tpl-card">
+              <div class="tpl-head"><h4>QA Feedback Thread</h4><button class="tpl-copy" type="button">Copy</button></div>
+              <p class="tpl-note">Post and pin in your pod channel so Contributors share QA feedback in one learning thread.</p>
+              <pre class="tpl-body">📌 QA Feedback: MultiMango Learning Thread @channel
+Hi everyone! When you receive QA feedback on MultiMango, please reply to this thread with a screenshot of the feedback, along with the prompt, the images and your submitted response.
+
+The goal is for all of us to learn from each other's feedback and spot common trends, mistakes and best practices. Please reply in this thread rather than creating a separate post, so everything stays in one place and is easy to find later.
+
+Prefer to keep it private? Send me your screenshots by DM with your name cropped out, and I'll post them here for you.
+
+This thread is for learning, not for calling anyone out. Everyone gets feedback, and sharing it helps the whole Pod recognize patterns and improve together.
+
+If you think a QA review got something wrong, you can dispute it with the MultiMango Review Appeals form in Contributor Resources.
+
+[Your name]</pre>
             </div>
           </div>
 
@@ -9861,6 +9999,18 @@ Looking forward to hearing from you. Have a great rest of your day!</pre>
               <div class="tpl-head"><h4>Celebrate a promotion</h4><button class="tpl-copy" type="button">Copy</button></div>
               <p class="tpl-note">Make wins visible to the whole pod.</p>
               <pre class="tpl-body">🎉 Big shout-out to [Name], who just leveled up! This is what great looks like. Congrats, well earned. Keep it going, team.</pre>
+            </div>
+            <div class="tpl-card">
+              <div class="tpl-head"><h4>Appreciation Post Of The Week</h4><button class="tpl-copy" type="button">Copy</button></div>
+              <p class="tpl-note">Post in your pod channel at the end of the week to thank everyone who showed up.</p>
+              <pre class="tpl-body">📌 End-of-week thank you @channel
+Hi everyone! As we wrap up the week, thank you to everyone who joined office hours, a 1:1 or a shadow session. I appreciate the time and effort you put in, and it was great to work through questions together.
+
+My calendar is blocked on [day], but I'll still be on Slack, so reach out any time if you have a question or need help.
+
+On [day], I'll post next week's office hours. These are always optional.
+Have a great weekend, and thank you for the work you put in this week!
+[Your name]</pre>
             </div>
           </div>
         </div>
